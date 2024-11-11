@@ -67,11 +67,19 @@
             this.btnCyfra1 = new System.Windows.Forms.Button();
             this.txtWynikKalkulator = new System.Windows.Forms.TextBox();
             this.tabKopiowanie = new System.Windows.Forms.TabPage();
+            this.lblSchowek = new System.Windows.Forms.Label();
+            this.txtSchowek1 = new System.Windows.Forms.TextBox();
+            this.txtSchowek2 = new System.Windows.Forms.TextBox();
+            this.lbOpisy = new System.Windows.Forms.ListBox();
+            this.lblWyciag = new System.Windows.Forms.Label();
+            this.btnWczytajOpisy = new System.Windows.Forms.Button();
+            this.btnDodaj = new System.Windows.Forms.Button();
             this.tabCropper = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabPaliwo.SuspendLayout();
             this.tab50.SuspendLayout();
             this.tabKalkulator.SuspendLayout();
+            this.tabKopiowanie.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -86,6 +94,7 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(295, 297);
             this.tabControl1.TabIndex = 0;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPaliwo
             // 
@@ -369,6 +378,7 @@
             this.btnClear.TabIndex = 10;
             this.btnClear.Text = "C";
             this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnCyfra9
             // 
@@ -470,6 +480,13 @@
             // 
             // tabKopiowanie
             // 
+            this.tabKopiowanie.Controls.Add(this.btnDodaj);
+            this.tabKopiowanie.Controls.Add(this.btnWczytajOpisy);
+            this.tabKopiowanie.Controls.Add(this.lblWyciag);
+            this.tabKopiowanie.Controls.Add(this.lbOpisy);
+            this.tabKopiowanie.Controls.Add(this.txtSchowek2);
+            this.tabKopiowanie.Controls.Add(this.txtSchowek1);
+            this.tabKopiowanie.Controls.Add(this.lblSchowek);
             this.tabKopiowanie.Location = new System.Drawing.Point(4, 22);
             this.tabKopiowanie.Name = "tabKopiowanie";
             this.tabKopiowanie.Padding = new System.Windows.Forms.Padding(3);
@@ -477,6 +494,68 @@
             this.tabKopiowanie.TabIndex = 3;
             this.tabKopiowanie.Text = "Kopiowanie";
             this.tabKopiowanie.UseVisualStyleBackColor = true;
+            // 
+            // lblSchowek
+            // 
+            this.lblSchowek.AutoSize = true;
+            this.lblSchowek.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblSchowek.Location = new System.Drawing.Point(7, 7);
+            this.lblSchowek.Name = "lblSchowek";
+            this.lblSchowek.Size = new System.Drawing.Size(59, 13);
+            this.lblSchowek.TabIndex = 0;
+            this.lblSchowek.Text = "Schowek";
+            // 
+            // txtSchowek1
+            // 
+            this.txtSchowek1.Location = new System.Drawing.Point(10, 24);
+            this.txtSchowek1.Name = "txtSchowek1";
+            this.txtSchowek1.Size = new System.Drawing.Size(262, 20);
+            this.txtSchowek1.TabIndex = 1;
+            // 
+            // txtSchowek2
+            // 
+            this.txtSchowek2.Location = new System.Drawing.Point(10, 50);
+            this.txtSchowek2.Name = "txtSchowek2";
+            this.txtSchowek2.Size = new System.Drawing.Size(262, 20);
+            this.txtSchowek2.TabIndex = 2;
+            // 
+            // lbOpisy
+            // 
+            this.lbOpisy.FormattingEnabled = true;
+            this.lbOpisy.Location = new System.Drawing.Point(10, 97);
+            this.lbOpisy.Name = "lbOpisy";
+            this.lbOpisy.Size = new System.Drawing.Size(181, 160);
+            this.lbOpisy.TabIndex = 3;
+            this.lbOpisy.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lbOpisy_KeyDown);
+            // 
+            // lblWyciag
+            // 
+            this.lblWyciag.AutoSize = true;
+            this.lblWyciag.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblWyciag.Location = new System.Drawing.Point(7, 81);
+            this.lblWyciag.Name = "lblWyciag";
+            this.lblWyciag.Size = new System.Drawing.Size(90, 13);
+            this.lblWyciag.TabIndex = 4;
+            this.lblWyciag.Text = "Wyciąg - opisy";
+            // 
+            // btnWczytajOpisy
+            // 
+            this.btnWczytajOpisy.Location = new System.Drawing.Point(197, 97);
+            this.btnWczytajOpisy.Name = "btnWczytajOpisy";
+            this.btnWczytajOpisy.Size = new System.Drawing.Size(75, 23);
+            this.btnWczytajOpisy.TabIndex = 5;
+            this.btnWczytajOpisy.Text = "Wczytaj";
+            this.btnWczytajOpisy.UseVisualStyleBackColor = true;
+            this.btnWczytajOpisy.Click += new System.EventHandler(this.btnWczytajOpisy_Click);
+            // 
+            // btnDodaj
+            // 
+            this.btnDodaj.Location = new System.Drawing.Point(197, 126);
+            this.btnDodaj.Name = "btnDodaj";
+            this.btnDodaj.Size = new System.Drawing.Size(75, 23);
+            this.btnDodaj.TabIndex = 6;
+            this.btnDodaj.Text = "Dodaj";
+            this.btnDodaj.UseVisualStyleBackColor = true;
             // 
             // tabCropper
             // 
@@ -503,6 +582,8 @@
             this.tab50.PerformLayout();
             this.tabKalkulator.ResumeLayout(false);
             this.tabKalkulator.PerformLayout();
+            this.tabKopiowanie.ResumeLayout(false);
+            this.tabKopiowanie.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -514,7 +595,6 @@
         private System.Windows.Forms.TabPage tab50;
         private System.Windows.Forms.TabPage tabKalkulator;
         private System.Windows.Forms.TabPage tabKopiowanie;
-        private System.Windows.Forms.TabPage tabCropper;
         private System.Windows.Forms.TextBox txtNetto;
         private System.Windows.Forms.Label lblNetto;
         private System.Windows.Forms.TextBox txtVAT;
@@ -548,6 +628,14 @@
         private System.Windows.Forms.Button btnCyfra4;
         private System.Windows.Forms.Button btnCyfra3;
         private System.Windows.Forms.Button btnCyfra2;
+        private System.Windows.Forms.Label lblWyciag;
+        private System.Windows.Forms.ListBox lbOpisy;
+        private System.Windows.Forms.TextBox txtSchowek2;
+        private System.Windows.Forms.TextBox txtSchowek1;
+        private System.Windows.Forms.Label lblSchowek;
+        private System.Windows.Forms.Button btnWczytajOpisy;
+        private System.Windows.Forms.Button btnDodaj;
+        private System.Windows.Forms.TabPage tabCropper;
     }
 }
 
