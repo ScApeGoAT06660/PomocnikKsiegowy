@@ -12,16 +12,20 @@ namespace PomocnikKsiegowy
 {
     public partial class Form2 : Form
     {
-        ManagerOpisow managerOpisów;
-
-        public Form2()
+        ManagerOpisow managerOpisow;
+        Form1 oknoGlowne;
+        public Form2(Form1 oknoGlowne, ManagerOpisow managerOpisow)
         {
+            this.managerOpisow = managerOpisow;
+            this.oknoGlowne = oknoGlowne;
+
             InitializeComponent();
         }
 
         private void btnZapisz_Click(object sender, EventArgs e)
         {
-            managerOpisów.Dodaj(txtNowyOpis.Text);
+            managerOpisow.Dodaj(txtNowyOpis.Text);
+            oknoGlowne.btnWczytajOpisy_Click(sender, e);
         }
     }
 }

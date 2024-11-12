@@ -7,8 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-//using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-//using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace PomocnikKsiegowy
 {
@@ -24,6 +22,12 @@ namespace PomocnikKsiegowy
 
         ManagerOpisow managerOpisow = new ManagerOpisow();
 
+        Form2 oknoDodaj;
+
+        BruttoNetto bruttoNetto = new BruttoNetto();
+
+        NaDuze naDuze = new NaDuze();
+
         public Form1()
         {
             InitializeComponent();
@@ -32,6 +36,9 @@ namespace PomocnikKsiegowy
 
             txtWynik.ReadOnly = true;
             txtWynikNaPol.ReadOnly = true;
+            txtBruttoKal.ReadOnly = true;
+            txtNettoKal2.ReadOnly = true;
+            txtDuzeWynik.ReadOnly = true;
         }
 
         private void btnWczytaj(object sender, EventArgs e)
@@ -42,7 +49,7 @@ namespace PomocnikKsiegowy
             paliwo.netto = Convert.ToDouble(txtNetto.Text);
 
             if (rb25.Checked)
-                paliwo.mnoznik = 0.25;
+                paliwo.mnoznik = 0.20;
 
             if (rb75.Checked)
                 paliwo.mnoznik = 0.75;
@@ -55,7 +62,16 @@ namespace PomocnikKsiegowy
 
         private void btnPodziel_Click(object sender, EventArgs e)
         {
-            txtWynikNaPol.Text = naPol.NaPol(txtLiczba.Text).ToString();
+            double mnoznik = 0;
+
+            if (rb020.Checked)
+                mnoznik = 0.20;
+            if (rb075.Checked)
+                mnoznik = 0.75;
+            if (rb50.Checked)
+                mnoznik = 0.50;
+
+            txtWynikNaPol.Text = naPol.NaPol(txtLiczba.Text, mnoznik).ToString();
         }
 
         private void btnLiczba(object sender, EventArgs e)
@@ -100,11 +116,14 @@ namespace PomocnikKsiegowy
                     case 0: txtVAT.Focus(); break;
                     case 1: txtLiczba.Focus(); break;
                     case 2: txtWynikKalkulator.Focus(); break;
+                    case 3: txtSchowek1.Focus(); break;
+                    case 5: txtNettoKal.Focus(); break;
+                    case 6: txtDuzeLitery.Focus(); break;
                 }
             }
         }
 
-        private void btnWczytajOpisy_Click(object sender, EventArgs e)
+        public void btnWczytajOpisy_Click(object sender, EventArgs e)
         {
             List<string> dane = managerOpisow.WczytajOpisy();
 
@@ -122,6 +141,45 @@ namespace PomocnikKsiegowy
                 string s = lbOpisy.SelectedItem.ToString();
                 Clipboard.SetData(DataFormats.StringFormat, s);
             }
+        }
+
+        private void btnDodaj_Click(object sender, EventArgs e)
+        {
+            oknoDodaj = new Form2(this, managerOpisow);
+            oknoDodaj.Show();
+        }
+
+        private void btnBruttoNaNetto_Click(object sender, EventArgs e)
+        {
+            double mnoznik = 0;
+
+            if (stawka23.Checked)
+                mnoznik = 0.23;
+            if (stawka8.Checked)
+                mnoznik = 0.08;
+            if (stawka5.Checked)
+                mnoznik = 0.05;
+
+            txtNettoKal2.Text = bruttoNetto.BruttoNaNetto(txtBruttoKal2.Text, mnoznik).ToString();
+        }
+
+        private void btnNettoNaBrutto_Click(object sender, EventArgs e)
+        {
+            double mnoznik = 0;
+
+            if (stawka23.Checked)
+                mnoznik = 0.23;
+            if (stawka8.Checked)
+                mnoznik = 0.08;
+            if (stawka5.Checked)
+                mnoznik = 0.05;
+
+            txtBruttoKal.Text = bruttoNetto.NettoNaBrutto(txtNettoKal.Text, mnoznik).ToString();
+        }
+
+        private void btnZamien_Click(object sender, EventArgs e)
+        {
+            txtDuzeWynik.Text = naDuze.ZamienNaDuze(txtDuzeLitery.Text);
         }
     }
 }

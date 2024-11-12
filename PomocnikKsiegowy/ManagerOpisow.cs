@@ -7,9 +7,9 @@ using System.IO;
 
 namespace PomocnikKsiegowy
 {
-    internal class ManagerOpisow
+    public class ManagerOpisow
     {
-        string sciezka = @"C:\Users\Dom\source\repos\PomocnikKsiegowy\PomocnikKsiegowy\dane.txt";
+        string sciezka = @"C:\Users\Julita\Source\Repos\PomocnikKsiegowy\PomocnikKsiegowy\dane.txt";
 
         public List<string> WczytajOpisy()
         {
@@ -22,13 +22,5 @@ namespace PomocnikKsiegowy
         {
             File.AppendAllText(sciezka, Environment.NewLine + nowyOpis);
         }
-
-        private void Zapisz(List<string> opisy)
-        {
-            // Zapisujemy wszystkie opisy do pliku, każdemu przypisując nową linię
-            File.WriteAllLines(sciezka, opisy);
-        }
-
-
     }
 }

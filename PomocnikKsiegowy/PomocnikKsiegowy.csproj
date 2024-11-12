@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BruttoNetto.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -61,6 +62,7 @@
     <Compile Include="Kalkulator.cs" />
     <Compile Include="ManagerKalkulator.cs" />
     <Compile Include="ManagerOpisow.cs" />
+    <Compile Include="NaDuze.cs" />
     <Compile Include="Paliwo.cs" />
     <Compile Include="PaliwoManager.cs" />
     <Compile Include="PiedziesiatProcent.cs" />

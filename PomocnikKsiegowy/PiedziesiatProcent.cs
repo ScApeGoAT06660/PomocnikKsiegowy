@@ -9,10 +9,10 @@ namespace PomocnikKsiegowy
 {
     internal class PiedziesiatProcent
     {
-        public double NaPol(string liczba)
+        public double NaPol(string liczba, double mnoznik)
         {
             double liczbaNaPol = Convert.ToDouble(liczba);
-            double wynik = Math.Round(liczbaNaPol / 2, 2);
+            double wynik = Math.Round(liczbaNaPol * mnoznik, 2);
             return wynik;
         }
     }

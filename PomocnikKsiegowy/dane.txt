@@ -10,3 +10,6 @@ zapłata za fa
 wpłatomat
 zapłata za fa; BRAK
 wynagrodzenie /2024
+wypłata z bankomatu
+zwrot pobrań
+zwrot pobrań Inpost
