@@ -7,6 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PdfSharp;
+using PdfSharp.Pdf.IO;
+using PdfSharp.Pdf;
+using PdfSharp.Drawing;
 
 namespace PomocnikKsiegowy
 {
@@ -27,6 +31,9 @@ namespace PomocnikKsiegowy
         BruttoNetto bruttoNetto = new BruttoNetto();
 
         NaDuze naDuze = new NaDuze();
+
+        string pdfFilePath;
+        string outputFilePath;
 
         public Form1()
         {
@@ -180,6 +187,53 @@ namespace PomocnikKsiegowy
         private void btnZamien_Click(object sender, EventArgs e)
         {
             txtDuzeWynik.Text = naDuze.ZamienNaDuze(txtDuzeLitery.Text);
+        }
+
+        private void btnWczytajPlik_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Filter = "PDF Files (*.pdf)|*.pdf",
+                Title = "Wybierz plik PDF"
+            };
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+               pdfFilePath = openFileDialog.FileName;
+            }
+        }
+
+        private void btnZapiszPdf_Click(object sender, EventArgs e)
+        {
+            int x = 200;
+            int y = 200;
+
+            PdfDocument document = PdfReader.Open(pdfFilePath, PdfDocumentOpenMode.Modify);
+
+            foreach (PdfPage page in document.Pages)
+            {
+                // Obecne rozmiary strony
+                double originalWidth = page.Width;
+                double originalHeight = page.Height;
+
+                // Nowe granice strony xd
+                page.MediaBox = new PdfRectangle( 
+                    new XPoint(x, 0),                      // Lewy dolny róg
+                    new XPoint(originalWidth - y, originalHeight) // Prawy górny róg
+                );
+            }
+
+            SaveFileDialog saveFileDialog = new SaveFileDialog
+            {
+                Filter = "PDF Files (*.pdf)|*.pdf",
+                Title = "Zapisz przetworzony plik PDF"
+            };
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                outputFilePath = saveFileDialog.FileName;
+                document.Save(outputFilePath);
+            }
         }
     }
 }
