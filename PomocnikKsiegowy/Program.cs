@@ -20,7 +20,7 @@ namespace PomocnikKsiegowy
 
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
 
-            Application.Run(new Form1());
+            Application.Run(new MainForm());
 
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
         }

@@ -1,6 +1,6 @@
 ﻿namespace PomocnikKsiegowy
 {
-    partial class Form2
+    partial class NowyOpisForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NowyOpisForm));
             this.lblNowyOpis = new System.Windows.Forms.Label();
             this.txtNowyOpis = new System.Windows.Forms.TextBox();
             this.btnZapisz = new System.Windows.Forms.Button();
@@ -39,7 +40,7 @@
             this.lblNowyOpis.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblNowyOpis.Location = new System.Drawing.Point(4, 4);
             this.lblNowyOpis.Name = "lblNowyOpis";
-            this.lblNowyOpis.Size = new System.Drawing.Size(67, 13);
+            this.lblNowyOpis.Size = new System.Drawing.Size(81, 16);
             this.lblNowyOpis.TabIndex = 0;
             this.lblNowyOpis.Text = "Nowy Opis";
             // 
@@ -60,7 +61,7 @@
             this.btnZapisz.UseVisualStyleBackColor = true;
             this.btnZapisz.Click += new System.EventHandler(this.btnZapisz_Click);
             // 
-            // Form2
+            // NowyOpisForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -68,7 +69,8 @@
             this.Controls.Add(this.btnZapisz);
             this.Controls.Add(this.txtNowyOpis);
             this.Controls.Add(this.lblNowyOpis);
-            this.Name = "Form2";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "NowyOpisForm";
             this.Text = "Form2";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -10,14 +10,18 @@ using System.Windows.Forms;
 
 namespace PomocnikKsiegowy
 {
-    public partial class Form2 : Form
+    public partial class NowyOpisForm : Form
     {
         ManagerOpisow managerOpisow;
-        Form1 oknoGlowne;
-        public Form2(Form1 oknoGlowne, ManagerOpisow managerOpisow)
+        MainForm oknoGlowne;
+
+        public NowyOpisForm(MainForm oknoGlowne, ManagerOpisow managerOpisow)
         {
             this.managerOpisow = managerOpisow;
+
             this.oknoGlowne = oknoGlowne;
+
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
 
             InitializeComponent();
         }

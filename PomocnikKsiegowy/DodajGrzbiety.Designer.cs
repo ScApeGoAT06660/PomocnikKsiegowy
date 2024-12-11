@@ -40,11 +40,15 @@
             this.rbMaly = new System.Windows.Forms.RadioButton();
             this.rbDuzy = new System.Windows.Forms.RadioButton();
             this.gbGrzbiety = new System.Windows.Forms.GroupBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.rbZakres = new System.Windows.Forms.RadioButton();
+            this.txtMiesiac2 = new System.Windows.Forms.TextBox();
+            this.rbBrakPodziału = new System.Windows.Forms.RadioButton();
             this.lblRozmiar = new System.Windows.Forms.Label();
             this.nudCzesc = new System.Windows.Forms.NumericUpDown();
-            this.rbBrakPodziału = new System.Windows.Forms.RadioButton();
             this.pnlRozmiary.SuspendLayout();
             this.gbGrzbiety.SuspendLayout();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCzesc)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,7 +73,7 @@
             // 
             this.txtNazwaFirmy.Location = new System.Drawing.Point(4, 79);
             this.txtNazwaFirmy.Name = "txtNazwaFirmy";
-            this.txtNazwaFirmy.Size = new System.Drawing.Size(206, 20);
+            this.txtNazwaFirmy.Size = new System.Drawing.Size(262, 20);
             this.txtNazwaFirmy.TabIndex = 3;
             // 
             // lblNazwaFirmy
@@ -86,7 +90,7 @@
             // 
             this.txtMiesiac.Location = new System.Drawing.Point(110, 38);
             this.txtMiesiac.Name = "txtMiesiac";
-            this.txtMiesiac.Size = new System.Drawing.Size(100, 20);
+            this.txtMiesiac.Size = new System.Drawing.Size(75, 20);
             this.txtMiesiac.TabIndex = 5;
             // 
             // lblMiesiac
@@ -103,7 +107,7 @@
             // 
             this.rbPodzial.AutoSize = true;
             this.rbPodzial.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.rbPodzial.Location = new System.Drawing.Point(116, 103);
+            this.rbPodzial.Location = new System.Drawing.Point(117, 126);
             this.rbPodzial.Name = "rbPodzial";
             this.rbPodzial.Size = new System.Drawing.Size(64, 17);
             this.rbPodzial.TabIndex = 6;
@@ -117,7 +121,7 @@
             // 
             this.lblCzesc.AutoSize = true;
             this.lblCzesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.471698F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblCzesc.Location = new System.Drawing.Point(115, 149);
+            this.lblCzesc.Location = new System.Drawing.Point(213, 130);
             this.lblCzesc.Name = "lblCzesc";
             this.lblCzesc.Size = new System.Drawing.Size(41, 13);
             this.lblCzesc.TabIndex = 7;
@@ -156,6 +160,8 @@
             // 
             // gbGrzbiety
             // 
+            this.gbGrzbiety.Controls.Add(this.panel1);
+            this.gbGrzbiety.Controls.Add(this.txtMiesiac2);
             this.gbGrzbiety.Controls.Add(this.rbBrakPodziału);
             this.gbGrzbiety.Controls.Add(this.lblRozmiar);
             this.gbGrzbiety.Controls.Add(this.nudCzesc);
@@ -170,10 +176,52 @@
             this.gbGrzbiety.Controls.Add(this.rbPodzial);
             this.gbGrzbiety.Location = new System.Drawing.Point(3, 3);
             this.gbGrzbiety.Name = "gbGrzbiety";
-            this.gbGrzbiety.Size = new System.Drawing.Size(216, 191);
+            this.gbGrzbiety.Size = new System.Drawing.Size(280, 181);
             this.gbGrzbiety.TabIndex = 10;
             this.gbGrzbiety.TabStop = false;
             this.gbGrzbiety.Text = "Grzbiet n";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.rbZakres);
+            this.panel1.Location = new System.Drawing.Point(191, 10);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(62, 24);
+            this.panel1.TabIndex = 15;
+            // 
+            // rbZakres
+            // 
+            this.rbZakres.AutoSize = true;
+            this.rbZakres.Location = new System.Drawing.Point(3, 3);
+            this.rbZakres.Name = "rbZakres";
+            this.rbZakres.Size = new System.Drawing.Size(58, 17);
+            this.rbZakres.TabIndex = 13;
+            this.rbZakres.TabStop = true;
+            this.rbZakres.Text = "Zakres";
+            this.rbZakres.UseVisualStyleBackColor = true;
+            this.rbZakres.CheckedChanged += new System.EventHandler(this.rbZakres_CheckedChanged);
+            // 
+            // txtMiesiac2
+            // 
+            this.txtMiesiac2.Enabled = false;
+            this.txtMiesiac2.Location = new System.Drawing.Point(191, 38);
+            this.txtMiesiac2.Name = "txtMiesiac2";
+            this.txtMiesiac2.Size = new System.Drawing.Size(75, 20);
+            this.txtMiesiac2.TabIndex = 14;
+            // 
+            // rbBrakPodziału
+            // 
+            this.rbBrakPodziału.AutoSize = true;
+            this.rbBrakPodziału.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.rbBrakPodziału.Location = new System.Drawing.Point(117, 149);
+            this.rbBrakPodziału.Name = "rbBrakPodziału";
+            this.rbBrakPodziału.Size = new System.Drawing.Size(91, 17);
+            this.rbBrakPodziału.TabIndex = 12;
+            this.rbBrakPodziału.TabStop = true;
+            this.rbBrakPodziału.Text = "Brak podziału";
+            this.rbBrakPodziału.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.rbBrakPodziału.UseVisualStyleBackColor = true;
+            this.rbBrakPodziału.CheckedChanged += new System.EventHandler(this.rbBrakPodziału_CheckedChanged);
             // 
             // lblRozmiar
             // 
@@ -188,24 +236,10 @@
             // nudCzesc
             // 
             this.nudCzesc.Enabled = false;
-            this.nudCzesc.Location = new System.Drawing.Point(116, 165);
+            this.nudCzesc.Location = new System.Drawing.Point(214, 146);
             this.nudCzesc.Name = "nudCzesc";
             this.nudCzesc.Size = new System.Drawing.Size(60, 20);
             this.nudCzesc.TabIndex = 10;
-            // 
-            // rbBrakPodziału
-            // 
-            this.rbBrakPodziału.AutoSize = true;
-            this.rbBrakPodziału.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.rbBrakPodziału.Location = new System.Drawing.Point(116, 126);
-            this.rbBrakPodziału.Name = "rbBrakPodziału";
-            this.rbBrakPodziału.Size = new System.Drawing.Size(91, 17);
-            this.rbBrakPodziału.TabIndex = 12;
-            this.rbBrakPodziału.TabStop = true;
-            this.rbBrakPodziału.Text = "Brak podziału";
-            this.rbBrakPodziału.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.rbBrakPodziału.UseVisualStyleBackColor = true;
-            this.rbBrakPodziału.CheckedChanged += new System.EventHandler(this.rbBrakPodziału_CheckedChanged);
             // 
             // DodajGrzbiety
             // 
@@ -213,11 +247,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gbGrzbiety);
             this.Name = "DodajGrzbiety";
-            this.Size = new System.Drawing.Size(222, 197);
+            this.Size = new System.Drawing.Size(286, 187);
             this.pnlRozmiary.ResumeLayout(false);
             this.pnlRozmiary.PerformLayout();
             this.gbGrzbiety.ResumeLayout(false);
             this.gbGrzbiety.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCzesc)).EndInit();
             this.ResumeLayout(false);
 
@@ -240,5 +276,8 @@
         private System.Windows.Forms.NumericUpDown nudCzesc;
         private System.Windows.Forms.Label lblRozmiar;
         private System.Windows.Forms.RadioButton rbBrakPodziału;
+        private System.Windows.Forms.TextBox txtMiesiac2;
+        private System.Windows.Forms.RadioButton rbZakres;
+        private System.Windows.Forms.Panel panel1;
     }
 }

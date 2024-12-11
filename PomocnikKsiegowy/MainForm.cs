@@ -14,10 +14,16 @@ using PdfSharp.Pdf;
 using PdfSharp.Drawing;
 using System.Xml.Serialization;
 using System.IO;
+using System.Windows.Forms.VisualStyles;
+using Newtonsoft.Json.Linq;
+using System.Net.Http;
+
+
+
 
 namespace PomocnikKsiegowy
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         PaliwoManager paliwoManager = new PaliwoManager();
         Paliwo paliwo;
@@ -29,7 +35,7 @@ namespace PomocnikKsiegowy
 
         ManagerOpisow managerOpisow = new ManagerOpisow();
 
-        Form2 oknoDodaj;
+        NowyOpisForm oknoDodaj;
 
         BruttoNetto bruttoNetto = new BruttoNetto();
 
@@ -44,19 +50,25 @@ namespace PomocnikKsiegowy
 
         List<DodajGrzbiety> dodaneGrzbiety = new List<DodajGrzbiety>();
 
+        ToolTipsForTabs toolTipsForTabs = new ToolTipsForTabs();
+
+        string[] toolTipsTabs;
+
         string binPath;
         string folderPath;
         string fileName;
 
         string filePath;
 
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
 
             this.TopMost = true;
 
-            ustawIkony();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+
+            UstawIkony();
 
             toolStripStatusLabel.Text = "";
 
@@ -66,6 +78,9 @@ namespace PomocnikKsiegowy
             txtNettoKal2.ReadOnly = true;
             txtDuzeWynik.ReadOnly = true;
             txtNettoNaPol.ReadOnly = true;
+            txtWynikKurs.ReadOnly = true;
+
+            dtpKurs.CustomFormat = "yyyy MM dd";
 
             binPath = AppDomain.CurrentDomain.BaseDirectory;
             folderPath = Path.Combine(binPath, "dane");
@@ -150,12 +165,24 @@ namespace PomocnikKsiegowy
             {
                 switch (tabControl1.SelectedIndex)
                 {
-                    case 0: txtVAT.Focus(); break;
-                    case 1: txtLiczba.Focus(); break;
-                    case 2: txtWynikKalkulator.Focus(); break;
-                    case 3: txtSchowek1.Focus(); break;
-                    case 5: txtNettoKal.Focus(); break;
-                    case 6: txtDuzeLitery.Focus(); break;
+                    case 0: 
+                        txtVAT.Focus();
+                        break;
+                    case 1: 
+                        txtLiczba.Focus();
+                        break;
+                    case 2: 
+                        txtWynikKalkulator.Focus();
+                        break;
+                    case 3: 
+                        txtSchowek1.Focus();
+                        break;
+                    case 5: 
+                        txtNettoKal.Focus();
+                        break;
+                    case 6: 
+                        txtDuzeLitery.Focus();
+                        break;
                 }
             }
         }
@@ -182,7 +209,7 @@ namespace PomocnikKsiegowy
 
         private void btnDodaj_Click(object sender, EventArgs e)
         {
-            oknoDodaj = new Form2(this, managerOpisow);
+            oknoDodaj = new NowyOpisForm(this, managerOpisow);
             oknoDodaj.Show();
         }
 
@@ -276,8 +303,8 @@ namespace PomocnikKsiegowy
 
             toolStripStatusLabel.Text = "Plik został zapisany.";
         }
-
-        private void ustawIkony()
+         
+        private void UstawIkony()
         {
             imageList = new ImageList();
 
@@ -289,6 +316,7 @@ namespace PomocnikKsiegowy
             imageList.Images.Add("brutto_netto", Properties.Resources.calculator_money);
             imageList.Images.Add("skrocona", Properties.Resources.id_badge);
             imageList.Images.Add("excel", Properties.Resources.file_excel);
+            imageList.Images.Add("euro", Properties.Resources.euro);
 
             tabControl1.ImageList = imageList;
 
@@ -349,7 +377,7 @@ namespace PomocnikKsiegowy
 
         private void SkopiujDoSchowka(string toCopy)
         {
-            toolStripStatusLabel.Text = "Skopiowano.";
+            toolStripStatusLabel.Text = "Skopiowano.";  
 
             Clipboard.SetData(DataFormats.StringFormat, toCopy);
         }
@@ -379,10 +407,12 @@ namespace PomocnikKsiegowy
         {
             Form oknoGrzbiety = new Form
             {
+                Name = "DodajGrzbietyForm",
                 Text = "Dodaj Grzbiety",
-                Width = 270,
-                Height = 400
-            };
+                Width = 350,
+                Height = 400,
+                Icon = Properties.Resources.logo
+        };
 
             Panel scrollablePanel = new Panel
             {
@@ -392,7 +422,7 @@ namespace PomocnikKsiegowy
 
             oknoGrzbiety.Controls.Add(scrollablePanel);
 
-            int controlWidth = 220;
+            int controlWidth = 280;
             int controlHeight = 195;
             int offset = 10;
 
@@ -441,6 +471,91 @@ namespace PomocnikKsiegowy
             oknoGrzbiety.Show();
         }
 
-       
+        private void UpdateToolTip()
+        {
+            int selectedIndex = tabControl1.SelectedIndex;
+            toolTipsTabs = toolTipsForTabs.GetToolTips();
+
+            string toolTipText = (selectedIndex >= 0 && selectedIndex < toolTipsTabs.Length)
+                ? toolTipsTabs[selectedIndex]
+                : "Domyślna podpowiedź";
+
+            Point toolTipLocation = infoIcon.Location;
+
+            toolTip1.Show(toolTipText, this, toolTipLocation.X, toolTipLocation.Y, 3000); // 3000 ms = czas wyświetlania
+        }
+
+        private void infoIcon_MouseHover(object sender, EventArgs e)
+        {
+            UpdateToolTip();
+        }
+
+        private void infoIcon_MouseLeave(object sender, EventArgs e)
+        {
+            toolTip1.Hide(this);
+        }
+
+        private void WybierzSciezke_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Filter = "Text Files (*.txt)|*.txt",
+                Title = "Wybierz ścieżkę pliku z opisami"
+            };
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                managerOpisow.sciezka = openFileDialog.FileName;
+            }
+
+            toolStripStatusLabel.Text = "Plik został wczytany.";
+        }
+
+        private async void btnObliczKurs_Click(object sender, EventArgs e)
+        {
+            string currencyCode = cbKurs.SelectedItem.ToString();
+            DateTime selectedDate = dtpKurs.Value;
+            string formattedDate = selectedDate.ToString("yyyy-MM-dd");
+  
+            try
+            {
+                string rate = await GetCurrencyRate(currencyCode, formattedDate);
+                txtWynikKurs.Text = rate;
+                SkopiujDoSchowka(rate);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Wystąpił błąd: {ex.Message}", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private async Task<string> GetCurrencyRate(string currencyCode, string date)
+        {
+            string url = $"https://api.nbp.pl/api/exchangerates/rates/A/{currencyCode}/{date}/?format=json";
+
+            using (HttpClient client = new HttpClient())
+            {
+                HttpResponseMessage response = await client.GetAsync(url);
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
+                    {
+                        throw new Exception("Brak danych dla podanej daty lub waluty.");
+                    }
+                    else
+                    {
+                        throw new Exception("Nie udało się pobrać danych. Sprawdź kod waluty lub datę.");
+                    }
+                }
+
+                string responseData = await response.Content.ReadAsStringAsync();
+                JObject json = JObject.Parse(responseData);
+
+                string rate = json["rates"][0]["mid"].ToString();
+                return rate;
+            }
+        }
     }
 }
+

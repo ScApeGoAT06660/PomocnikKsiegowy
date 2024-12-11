@@ -9,13 +9,16 @@ namespace PomocnikKsiegowy
 {
     public class ManagerOpisow
     {
-        string sciezka = @"C:\Users\Julita\Source\Repos\PomocnikKsiegowy\PomocnikKsiegowy\dane.txt";
+        public string sciezka;
 
         public List<string> WczytajOpisy()
         {
             string[] dane = File.ReadAllLines(sciezka);
 
-            return new List<string>(dane);
+            List<string> posortowaneDane = new List<string>(dane);
+            posortowaneDane.Sort();
+
+            return posortowaneDane;
         }
 
         public void Dodaj(string nowyOpis)

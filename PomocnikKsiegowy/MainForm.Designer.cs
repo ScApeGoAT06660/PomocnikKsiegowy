@@ -1,6 +1,6 @@
 ﻿namespace PomocnikKsiegowy
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Wymagana zmienna projektanta.
@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPaliwo = new System.Windows.Forms.TabPage();
             this.txtNettoNaPol = new System.Windows.Forms.TextBox();
@@ -72,6 +73,7 @@
             this.btnCyfra1 = new System.Windows.Forms.Button();
             this.txtWynikKalkulator = new System.Windows.Forms.TextBox();
             this.tabKopiowanie = new System.Windows.Forms.TabPage();
+            this.WybierzSciezke = new System.Windows.Forms.Button();
             this.btnDodaj = new System.Windows.Forms.Button();
             this.btnWczytajOpisy = new System.Windows.Forms.Button();
             this.lblWyciag = new System.Windows.Forms.Label();
@@ -106,11 +108,22 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtDuzeLitery = new System.Windows.Forms.TextBox();
             this.tabExcel = new System.Windows.Forms.TabPage();
+            this.btnGeneruj = new System.Windows.Forms.Button();
+            this.txtIloscGrzbietow = new System.Windows.Forms.TextBox();
+            this.lblIleGrzbietow = new System.Windows.Forms.Label();
+            this.tabKurs = new System.Windows.Forms.TabPage();
+            this.lblWynikKurs = new System.Windows.Forms.Label();
+            this.txtWynikKurs = new System.Windows.Forms.TextBox();
+            this.btnObliczKurs = new System.Windows.Forms.Button();
+            this.cbKurs = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblDataKurs = new System.Windows.Forms.Label();
+            this.dtpKurs = new System.Windows.Forms.DateTimePicker();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.lblIleGrzbietow = new System.Windows.Forms.Label();
-            this.txtIloscGrzbietow = new System.Windows.Forms.TextBox();
-            this.btnGeneruj = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.infoIcon = new System.Windows.Forms.PictureBox();
+            this.tabVIES = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabPaliwo.SuspendLayout();
             this.tab50.SuspendLayout();
@@ -120,7 +133,9 @@
             this.tabBruttoNetto.SuspendLayout();
             this.tabNazwaSkrocona.SuspendLayout();
             this.tabExcel.SuspendLayout();
+            this.tabKurs.SuspendLayout();
             this.statusStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.infoIcon)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -133,12 +148,15 @@
             this.tabControl1.Controls.Add(this.tabBruttoNetto);
             this.tabControl1.Controls.Add(this.tabNazwaSkrocona);
             this.tabControl1.Controls.Add(this.tabExcel);
+            this.tabControl1.Controls.Add(this.tabKurs);
+            this.tabControl1.Controls.Add(this.tabVIES);
             this.tabControl1.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
             this.tabControl1.HotTrack = true;
             this.tabControl1.Location = new System.Drawing.Point(5, 9);
+            this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(245, 261);
+            this.tabControl1.Size = new System.Drawing.Size(245, 278);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tabControl1_DrawItem);
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
@@ -158,10 +176,10 @@
             this.tabPaliwo.Controls.Add(this.lblNetto);
             this.tabPaliwo.Controls.Add(this.txtVAT);
             this.tabPaliwo.Controls.Add(this.lblVAT);
-            this.tabPaliwo.Location = new System.Drawing.Point(4, 22);
+            this.tabPaliwo.Location = new System.Drawing.Point(4, 40);
             this.tabPaliwo.Name = "tabPaliwo";
             this.tabPaliwo.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPaliwo.Size = new System.Drawing.Size(237, 235);
+            this.tabPaliwo.Size = new System.Drawing.Size(237, 234);
             this.tabPaliwo.TabIndex = 0;
             this.tabPaliwo.UseVisualStyleBackColor = true;
             // 
@@ -301,7 +319,7 @@
             this.tab50.Location = new System.Drawing.Point(4, 22);
             this.tab50.Name = "tab50";
             this.tab50.Padding = new System.Windows.Forms.Padding(3);
-            this.tab50.Size = new System.Drawing.Size(237, 235);
+            this.tab50.Size = new System.Drawing.Size(237, 252);
             this.tab50.TabIndex = 1;
             this.tab50.UseVisualStyleBackColor = true;
             // 
@@ -405,7 +423,7 @@
             this.tabKalkulator.Location = new System.Drawing.Point(4, 22);
             this.tabKalkulator.Name = "tabKalkulator";
             this.tabKalkulator.Padding = new System.Windows.Forms.Padding(3);
-            this.tabKalkulator.Size = new System.Drawing.Size(237, 235);
+            this.tabKalkulator.Size = new System.Drawing.Size(237, 252);
             this.tabKalkulator.TabIndex = 2;
             this.tabKalkulator.UseVisualStyleBackColor = true;
             // 
@@ -580,6 +598,7 @@
             // 
             // tabKopiowanie
             // 
+            this.tabKopiowanie.Controls.Add(this.WybierzSciezke);
             this.tabKopiowanie.Controls.Add(this.btnDodaj);
             this.tabKopiowanie.Controls.Add(this.btnWczytajOpisy);
             this.tabKopiowanie.Controls.Add(this.lblWyciag);
@@ -590,9 +609,19 @@
             this.tabKopiowanie.Location = new System.Drawing.Point(4, 22);
             this.tabKopiowanie.Name = "tabKopiowanie";
             this.tabKopiowanie.Padding = new System.Windows.Forms.Padding(3);
-            this.tabKopiowanie.Size = new System.Drawing.Size(237, 235);
+            this.tabKopiowanie.Size = new System.Drawing.Size(237, 252);
             this.tabKopiowanie.TabIndex = 3;
             this.tabKopiowanie.UseVisualStyleBackColor = true;
+            // 
+            // WybierzSciezke
+            // 
+            this.WybierzSciezke.Location = new System.Drawing.Point(153, 155);
+            this.WybierzSciezke.Name = "WybierzSciezke";
+            this.WybierzSciezke.Size = new System.Drawing.Size(75, 38);
+            this.WybierzSciezke.TabIndex = 7;
+            this.WybierzSciezke.Text = "Wybierz Ścieżkę";
+            this.WybierzSciezke.UseVisualStyleBackColor = true;
+            this.WybierzSciezke.Click += new System.EventHandler(this.WybierzSciezke_Click);
             // 
             // btnDodaj
             // 
@@ -666,7 +695,7 @@
             this.tabCropper.Location = new System.Drawing.Point(4, 22);
             this.tabCropper.Name = "tabCropper";
             this.tabCropper.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCropper.Size = new System.Drawing.Size(237, 235);
+            this.tabCropper.Size = new System.Drawing.Size(237, 252);
             this.tabCropper.TabIndex = 4;
             // 
             // btnZapiszPlik
@@ -708,9 +737,9 @@
             this.tabBruttoNetto.Controls.Add(this.lblVatKal);
             this.tabBruttoNetto.Controls.Add(this.txtNettoKal);
             this.tabBruttoNetto.Controls.Add(this.lblNettoKal);
-            this.tabBruttoNetto.Location = new System.Drawing.Point(4, 22);
+            this.tabBruttoNetto.Location = new System.Drawing.Point(4, 40);
             this.tabBruttoNetto.Name = "tabBruttoNetto";
-            this.tabBruttoNetto.Size = new System.Drawing.Size(237, 235);
+            this.tabBruttoNetto.Size = new System.Drawing.Size(237, 234);
             this.tabBruttoNetto.TabIndex = 5;
             this.tabBruttoNetto.UseVisualStyleBackColor = true;
             // 
@@ -877,10 +906,10 @@
             this.tabNazwaSkrocona.Controls.Add(this.txtDuzeWynik);
             this.tabNazwaSkrocona.Controls.Add(this.label4);
             this.tabNazwaSkrocona.Controls.Add(this.txtDuzeLitery);
-            this.tabNazwaSkrocona.Location = new System.Drawing.Point(4, 22);
+            this.tabNazwaSkrocona.Location = new System.Drawing.Point(4, 40);
             this.tabNazwaSkrocona.Name = "tabNazwaSkrocona";
             this.tabNazwaSkrocona.Padding = new System.Windows.Forms.Padding(3);
-            this.tabNazwaSkrocona.Size = new System.Drawing.Size(237, 235);
+            this.tabNazwaSkrocona.Size = new System.Drawing.Size(237, 234);
             this.tabNazwaSkrocona.TabIndex = 6;
             this.tabNazwaSkrocona.UseVisualStyleBackColor = true;
             // 
@@ -924,46 +953,11 @@
             this.tabExcel.Controls.Add(this.btnGeneruj);
             this.tabExcel.Controls.Add(this.txtIloscGrzbietow);
             this.tabExcel.Controls.Add(this.lblIleGrzbietow);
-            this.tabExcel.Location = new System.Drawing.Point(4, 22);
+            this.tabExcel.Location = new System.Drawing.Point(4, 40);
             this.tabExcel.Name = "tabExcel";
-            this.tabExcel.Size = new System.Drawing.Size(237, 235);
+            this.tabExcel.Size = new System.Drawing.Size(237, 234);
             this.tabExcel.TabIndex = 7;
             this.tabExcel.UseVisualStyleBackColor = true;
-            // 
-            // statusStrip
-            // 
-            this.statusStrip.BackColor = System.Drawing.Color.LightBlue;
-            this.statusStrip.ImageScalingSize = new System.Drawing.Size(18, 18);
-            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel});
-            this.statusStrip.Location = new System.Drawing.Point(0, 273);
-            this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(257, 22);
-            this.statusStrip.TabIndex = 1;
-            this.statusStrip.Text = "statusStrip";
-            // 
-            // toolStripStatusLabel
-            // 
-            this.toolStripStatusLabel.Name = "toolStripStatusLabel";
-            this.toolStripStatusLabel.Size = new System.Drawing.Size(131, 17);
-            this.toolStripStatusLabel.Text = "toolStripStatusLabel1";
-            // 
-            // lblIleGrzbietow
-            // 
-            this.lblIleGrzbietow.AutoSize = true;
-            this.lblIleGrzbietow.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.471698F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblIleGrzbietow.Location = new System.Drawing.Point(27, 6);
-            this.lblIleGrzbietow.Name = "lblIleGrzbietow";
-            this.lblIleGrzbietow.Size = new System.Drawing.Size(92, 13);
-            this.lblIleGrzbietow.TabIndex = 0;
-            this.lblIleGrzbietow.Text = "Ilość grzbietów";
-            // 
-            // txtIloscGrzbietow
-            // 
-            this.txtIloscGrzbietow.Location = new System.Drawing.Point(27, 23);
-            this.txtIloscGrzbietow.Name = "txtIloscGrzbietow";
-            this.txtIloscGrzbietow.Size = new System.Drawing.Size(100, 20);
-            this.txtIloscGrzbietow.TabIndex = 1;
             // 
             // btnGeneruj
             // 
@@ -975,15 +969,156 @@
             this.btnGeneruj.UseVisualStyleBackColor = true;
             this.btnGeneruj.Click += new System.EventHandler(this.btnGeneruj_Click);
             // 
-            // Form1
+            // txtIloscGrzbietow
+            // 
+            this.txtIloscGrzbietow.Location = new System.Drawing.Point(27, 23);
+            this.txtIloscGrzbietow.Name = "txtIloscGrzbietow";
+            this.txtIloscGrzbietow.Size = new System.Drawing.Size(100, 20);
+            this.txtIloscGrzbietow.TabIndex = 1;
+            // 
+            // lblIleGrzbietow
+            // 
+            this.lblIleGrzbietow.AutoSize = true;
+            this.lblIleGrzbietow.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.471698F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblIleGrzbietow.Location = new System.Drawing.Point(27, 6);
+            this.lblIleGrzbietow.Name = "lblIleGrzbietow";
+            this.lblIleGrzbietow.Size = new System.Drawing.Size(92, 13);
+            this.lblIleGrzbietow.TabIndex = 0;
+            this.lblIleGrzbietow.Text = "Ilość grzbietów";
+            // 
+            // tabKurs
+            // 
+            this.tabKurs.Controls.Add(this.lblWynikKurs);
+            this.tabKurs.Controls.Add(this.txtWynikKurs);
+            this.tabKurs.Controls.Add(this.btnObliczKurs);
+            this.tabKurs.Controls.Add(this.cbKurs);
+            this.tabKurs.Controls.Add(this.label3);
+            this.tabKurs.Controls.Add(this.lblDataKurs);
+            this.tabKurs.Controls.Add(this.dtpKurs);
+            this.tabKurs.Location = new System.Drawing.Point(4, 40);
+            this.tabKurs.Name = "tabKurs";
+            this.tabKurs.Size = new System.Drawing.Size(237, 234);
+            this.tabKurs.TabIndex = 8;
+            this.tabKurs.UseVisualStyleBackColor = true;
+            // 
+            // lblWynikKurs
+            // 
+            this.lblWynikKurs.AutoSize = true;
+            this.lblWynikKurs.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.471698F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblWynikKurs.Location = new System.Drawing.Point(3, 104);
+            this.lblWynikKurs.Name = "lblWynikKurs";
+            this.lblWynikKurs.Size = new System.Drawing.Size(42, 13);
+            this.lblWynikKurs.TabIndex = 6;
+            this.lblWynikKurs.Text = "Wynik";
+            // 
+            // txtWynikKurs
+            // 
+            this.txtWynikKurs.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtWynikKurs.Location = new System.Drawing.Point(6, 120);
+            this.txtWynikKurs.Name = "txtWynikKurs";
+            this.txtWynikKurs.Size = new System.Drawing.Size(100, 20);
+            this.txtWynikKurs.TabIndex = 5;
+            // 
+            // btnObliczKurs
+            // 
+            this.btnObliczKurs.Location = new System.Drawing.Point(133, 69);
+            this.btnObliczKurs.Name = "btnObliczKurs";
+            this.btnObliczKurs.Size = new System.Drawing.Size(93, 23);
+            this.btnObliczKurs.TabIndex = 4;
+            this.btnObliczKurs.Text = "Znajdź";
+            this.btnObliczKurs.UseVisualStyleBackColor = true;
+            this.btnObliczKurs.Click += new System.EventHandler(this.btnObliczKurs_Click);
+            // 
+            // cbKurs
+            // 
+            this.cbKurs.FormattingEnabled = true;
+            this.cbKurs.Items.AddRange(new object[] {
+            "EUR",
+            "USD",
+            "GBP"});
+            this.cbKurs.Location = new System.Drawing.Point(6, 69);
+            this.cbKurs.Name = "cbKurs";
+            this.cbKurs.Size = new System.Drawing.Size(121, 21);
+            this.cbKurs.TabIndex = 3;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.471698F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.Location = new System.Drawing.Point(3, 52);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(47, 13);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Waluta";
+            // 
+            // lblDataKurs
+            // 
+            this.lblDataKurs.AutoSize = true;
+            this.lblDataKurs.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.471698F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblDataKurs.Location = new System.Drawing.Point(3, 4);
+            this.lblDataKurs.Name = "lblDataKurs";
+            this.lblDataKurs.Size = new System.Drawing.Size(34, 13);
+            this.lblDataKurs.TabIndex = 1;
+            this.lblDataKurs.Text = "Data";
+            // 
+            // dtpKurs
+            // 
+            this.dtpKurs.Location = new System.Drawing.Point(6, 19);
+            this.dtpKurs.Name = "dtpKurs";
+            this.dtpKurs.Size = new System.Drawing.Size(220, 20);
+            this.dtpKurs.TabIndex = 0;
+            this.dtpKurs.Value = new System.DateTime(2024, 12, 11, 21, 28, 18, 0);
+            // 
+            // statusStrip
+            // 
+            this.statusStrip.BackColor = System.Drawing.Color.LightBlue;
+            this.statusStrip.ImageScalingSize = new System.Drawing.Size(18, 18);
+            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel});
+            this.statusStrip.Location = new System.Drawing.Point(0, 290);
+            this.statusStrip.Name = "statusStrip";
+            this.statusStrip.Size = new System.Drawing.Size(257, 22);
+            this.statusStrip.TabIndex = 1;
+            this.statusStrip.Text = "statusStrip";
+            // 
+            // toolStripStatusLabel
+            // 
+            this.toolStripStatusLabel.Name = "toolStripStatusLabel";
+            this.toolStripStatusLabel.Size = new System.Drawing.Size(131, 17);
+            this.toolStripStatusLabel.Text = "toolStripStatusLabel1";
+            // 
+            // infoIcon
+            // 
+            this.infoIcon.BackColor = System.Drawing.Color.LightBlue;
+            this.infoIcon.Image = global::PomocnikKsiegowy.Properties.Resources.information__1_;
+            this.infoIcon.Location = new System.Drawing.Point(216, 291);
+            this.infoIcon.Name = "infoIcon";
+            this.infoIcon.Size = new System.Drawing.Size(19, 19);
+            this.infoIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.infoIcon.TabIndex = 2;
+            this.infoIcon.TabStop = false;
+            this.infoIcon.MouseLeave += new System.EventHandler(this.infoIcon_MouseLeave);
+            this.infoIcon.MouseHover += new System.EventHandler(this.infoIcon_MouseHover);
+            // 
+            // tabVIES
+            // 
+            this.tabVIES.Location = new System.Drawing.Point(4, 40);
+            this.tabVIES.Name = "tabVIES";
+            this.tabVIES.Size = new System.Drawing.Size(237, 234);
+            this.tabVIES.TabIndex = 9;
+            this.tabVIES.Text = "tabPage1";
+            this.tabVIES.UseVisualStyleBackColor = true;
+            // 
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(257, 295);
+            this.ClientSize = new System.Drawing.Size(257, 312);
+            this.Controls.Add(this.infoIcon);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.tabControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.Text = "Pomocnik ";
             this.tabControl1.ResumeLayout(false);
             this.tabPaliwo.ResumeLayout(false);
@@ -1001,8 +1136,11 @@
             this.tabNazwaSkrocona.PerformLayout();
             this.tabExcel.ResumeLayout(false);
             this.tabExcel.PerformLayout();
+            this.tabKurs.ResumeLayout(false);
+            this.tabKurs.PerformLayout();
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.infoIcon)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1092,6 +1230,18 @@
         private System.Windows.Forms.Button btnGeneruj;
         private System.Windows.Forms.TextBox txtIloscGrzbietow;
         private System.Windows.Forms.Label lblIleGrzbietow;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.PictureBox infoIcon;
+        private System.Windows.Forms.Button WybierzSciezke;
+        private System.Windows.Forms.TabPage tabKurs;
+        private System.Windows.Forms.DateTimePicker dtpKurs;
+        private System.Windows.Forms.ComboBox cbKurs;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblDataKurs;
+        private System.Windows.Forms.Label lblWynikKurs;
+        private System.Windows.Forms.TextBox txtWynikKurs;
+        private System.Windows.Forms.Button btnObliczKurs;
+        private System.Windows.Forms.TabPage tabVIES;
     }
 }
 

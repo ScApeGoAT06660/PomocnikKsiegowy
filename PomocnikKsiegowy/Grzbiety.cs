@@ -12,6 +12,10 @@ namespace PomocnikKsiegowy
 
         public string Miesiac { get; set; }
 
+        public bool Zakres { get; set; }
+
+        public string Miesiac2 { get; set; }
+
         public string NazwaFirmy { get; set; }
 
         public bool Rozmiar { get; set; }
