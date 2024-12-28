@@ -8,6 +8,20 @@ using System.Threading.Tasks;
 
 namespace PomocnikKsiegowy
 {
+    /// <summary>
+    /// Pobiera kurs waluty z API Narodowego Banku Polskiego (NBP) dla podanego kodu waluty i daty.
+    /// </summary>
+    /// <returns>
+    /// Kurs waluty jako ciąg znaków (np. "4.5678").
+    /// </returns>
+    /// <exception cref="Exception">
+    /// Rzucane, gdy:
+    /// - Brak danych dla podanej daty lub waluty (HTTP 404).
+    /// - Wystąpił inny problem z żądaniem HTTP.
+    /// </exception>
+    /// <remarks>
+    /// API NBP zwraca dane w formacie JSON, które są analizowane w celu uzyskania wartości kursu średniego.
+    /// </remarks>
     internal class GetCurrency
     {
         public async Task<string> GetCurrencyRate(string currencyCode, string date)

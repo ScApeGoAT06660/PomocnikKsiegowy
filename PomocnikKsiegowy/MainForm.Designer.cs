@@ -716,7 +716,7 @@
             this.btnSavePDF.TabIndex = 1;
             this.btnSavePDF.Text = "Zapisz";
             this.btnSavePDF.UseVisualStyleBackColor = true;
-            this.btnSavePDF.Click += new System.EventHandler(this.btnZapiszPdf_Click);
+            this.btnSavePDF.Click += new System.EventHandler(this.btnSavePDF_Click);
             // 
             // btnLoadPDF
             // 
@@ -726,7 +726,7 @@
             this.btnLoadPDF.TabIndex = 0;
             this.btnLoadPDF.Text = "Wczytaj PDF";
             this.btnLoadPDF.UseVisualStyleBackColor = true;
-            this.btnLoadPDF.Click += new System.EventHandler(this.btnWczytajPlik_Click);
+            this.btnLoadPDF.Click += new System.EventHandler(this.btnLoadPDF_Click);
             // 
             // tabBruttoNetto
             // 

@@ -8,44 +8,105 @@ using Padi.Vies;
 
 namespace PomocnikKsiegowy
 {
+    /// <summary>
+    /// Główna klasa formularza aplikacji Pomocnik Księgowy.
+    /// Zarządza logiką interfejsu użytkownika oraz obsługuje różne funkcje, takie jak obliczenia paliwa, przeliczenia brutto-netto, generowanie grzbietów itp.
+    /// </summary>
     public partial class MainForm : Form
     {
-        FuelManager fuelManager = new FuelManager();
+        /// <summary>
+        /// Zarządza obliczeniami związanymi z paliwem.
+        /// </summary>
+        private FuelManager fuelManager = new FuelManager();
 
-        Fuel fuel;
+        /// <summary>
+        /// Obiekt przechowujący dane paliwa.
+        /// </summary>
+        private Fuel fuel;
 
-        Half toHalf = new Half();
+        /// <summary>
+        /// Klasa do obliczeń wartości połowicznych.
+        /// </summary>
+        private Half toHalf = new Half();
 
-        CalculatorManager calculatorManager = new CalculatorManager();
+        /// <summary>
+        /// Zarządza obliczeniami kalkulatora.
+        /// </summary>
+        private CalculatorManager calculatorManager = new CalculatorManager();
 
-        Calculator calculator = new Calculator();
+        /// <summary>
+        /// Obiekt przechowujący dane kalkulatora.
+        /// </summary>
+        private Calculator calculator = new Calculator();
 
-        DescriptionManager descriptionManager = new DescriptionManager();
+        /// <summary>
+        /// Zarządza opisami operacji.
+        /// </summary>
+        private DescriptionManager descriptionManager = new DescriptionManager();
 
-        DescriptionForm descriptionForm;
+        /// <summary>
+        /// Formularz zarządzania opisami.
+        /// </summary>
+        private DescriptionForm descriptionForm;
 
-        BruttoNetto bruttoNetto = new BruttoNetto();
+        /// <summary>
+        /// Zarządza obliczeniami brutto i netto.
+        /// </summary>
+        private BruttoNetto bruttoNetto = new BruttoNetto();
 
-        TextToUpper textToUpper = new TextToUpper();
+        /// <summary>
+        /// Klasa do zmiany tekstu na wielkie litery.
+        /// </summary>
+        private TextToUpper textToUpper = new TextToUpper();
 
-        FileManager save = new FileManager();
+        /// <summary>
+        /// Zarządza operacjami na plikach PDF.
+        /// </summary>
+        private FileManager save = new FileManager();
 
-        ImageList imageList;
+        /// <summary>
+        /// Lista obrazów używanych w zakładkach.
+        /// </summary>
+        private ImageList imageList;
 
-        List<Spine> Spines;
+        /// <summary>
+        /// Lista grzbietów do wygenerowania.
+        /// </summary>
+        private List<Spine> Spines;
 
-        List<AddSpines> addedSpines = new List<AddSpines>();
+        /// <summary>
+        /// Lista kontrolek grzbietów.
+        /// </summary>
+        private List<AddSpines> addedSpines = new List<AddSpines>();
 
-        ToolTipsForTabs toolTipsForTabs = new ToolTipsForTabs();
+        /// <summary>
+        /// Zarządza podpowiedziami dla zakładek.
+        /// </summary>
+        private ToolTipsForTabs toolTipsForTabs = new ToolTipsForTabs();
 
-        string[] toolTipsTabs;
+        /// <summary>
+        /// Tablica tekstów podpowiedzi dla zakładek.
+        /// </summary>
+        private string[] toolTipsTabs;
 
-        string excelFolderPath;
+        /// <summary>
+        /// Ścieżka folderu do zapisu plików Excel.
+        /// </summary>
+        private string excelFolderPath;
 
-        string fileName;
+        /// <summary>
+        /// Nazwa pliku Excel.
+        /// </summary>
+        private string fileName;
 
-        string excelFilePath;
+        /// <summary>
+        /// Ścieżka do pliku Excel.
+        /// </summary>
+        private string excelFilePath;
 
+        /// <summary>
+        /// Inicjalizuje komponenty formularza i ustawia domyślne wartości.
+        /// </summary>
         public MainForm()
         {
             InitializeComponent();
@@ -58,6 +119,7 @@ namespace PomocnikKsiegowy
 
             toolStripStatusLabel.Text = "";
 
+            // Ustawienia pól tylko do odczytu
             txtFuelResult.ReadOnly = true;
             txtFuel50Result.ReadOnly = true;
             txtBruttoCal.ReadOnly = true;
@@ -65,6 +127,7 @@ namespace PomocnikKsiegowy
             txtToUpperResult.ReadOnly = true;
             txtFuelHalfNetto.ReadOnly = true;
             txtResultCurrency.ReadOnly = true;
+
             //VIES
             txtNameVies.ReadOnly = true;
             txtAdress.ReadOnly = true;
@@ -72,6 +135,7 @@ namespace PomocnikKsiegowy
 
             dtpExchangeRate.CustomFormat = "yyyy MM dd";
 
+            // Ścieżki dla plików Excel
             excelFolderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Excel");
 
             fileName = $"PlikExcel_{DateTime.Now:yyyyMMdd_HHmmss}.xlsx";
@@ -79,6 +143,9 @@ namespace PomocnikKsiegowy
             excelFilePath = Path.Combine(excelFolderPath, fileName);
         }
 
+        /// <summary>
+        /// Obsługuje kliknięcie przycisku obliczania paliwa.
+        /// </summary>
         private void btnCalculateFuel(object sender, EventArgs e)
         {
             try
@@ -122,6 +189,10 @@ namespace PomocnikKsiegowy
             }
         }
 
+        /// <summary>
+        /// Obsługuje kliknięcie przycisku do obliczania paliwa przy użyciu 50% wartości.
+        /// Pobiera wartość netto i mnożnik, a następnie oblicza wynik.
+        /// </summary>
         private void btnCalculateFuel50_Click(object sender, EventArgs e)
         {
             double multiplier = 0;
@@ -146,6 +217,10 @@ namespace PomocnikKsiegowy
             AddToClipboard(txtFuel50Result.Text, lblFuel50Result.Text);
         }
 
+        /// <summary>
+        /// Obsługuje kliknięcie cyfry na klawiaturze kalkulatora.
+        /// Dodaje wartość cyfry do aktualnego pola tekstowego kalkulatora.
+        /// </summary>
         private void btnNumber(object sender, EventArgs e)
         {
             txtResultCalculator.Text += (sender as Button).Text;
@@ -153,6 +228,10 @@ namespace PomocnikKsiegowy
             txtResultCalculator.Focus();
         }
 
+        /// <summary>
+        /// Obsługuje kliknięcie operatora (np. +, -, *, /) na klawiaturze kalkulatora.
+        /// Ustawia wybrany operator w kalkulatorze.
+        /// </summary>
         private void btnOperator_Click(object sender, EventArgs e)
         {
             Button clicked = (Button)sender;
@@ -172,6 +251,10 @@ namespace PomocnikKsiegowy
             txtResultCalculator.Focus();
         }
 
+        /// <summary>
+        /// Oblicza wynik na podstawie wprowadzonych liczb i wybranego operatora.
+        /// Wynik jest wyświetlany w polu kalkulatora.
+        /// </summary>
         private void btnResultCalculator_Click(object sender, EventArgs e)
         {
             if (!double.TryParse(txtResultCalculator.Text, out double wynikKalkulator))
@@ -189,6 +272,9 @@ namespace PomocnikKsiegowy
             AddToClipboard(txtResultCalculator.Text, "Wynik");
         }
 
+        /// <summary>
+        /// Czyści aktualne wartości w kalkulatorze i resetuje stan.
+        /// </summary>
         private void btnClear_Click(object sender, EventArgs e)
         {
             calculator.Operators = null;
@@ -202,6 +288,10 @@ namespace PomocnikKsiegowy
             txtResultCalculator.Focus();
         }
 
+        /// <summary>
+        /// Obsługuje zmianę zakładki w kontrolce TabControl.
+        /// Ustawia fokus na odpowiednie pole w zależności od wybranej zakładki.
+        /// </summary>
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
             {
@@ -235,6 +325,12 @@ namespace PomocnikKsiegowy
             }
         }
 
+        /// <summary>
+        /// Wczytuje opisy z pliku wskazanego w <see cref="descriptionManager"/>.
+        /// Wypełnia kontrolkę <see cref="lbDescriptions"/> załadowanymi danymi.
+        /// </summary>
+        /// <param name="sender">Obiekt wywołujący zdarzenie.</param>
+        /// <param name="e">Argumenty zdarzenia.</param>
         public void btnLoadDescriptions_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(descriptionManager.descritpionPath))
@@ -259,6 +355,10 @@ namespace PomocnikKsiegowy
             }
         }
 
+        /// <summary>
+        /// Obsługuje zdarzenie naciśnięcia klawisza na kontrolce <see cref="lbDescriptions"/>.
+        /// Kopiuje zaznaczoną wartość do schowka, jeśli wciśnięto Ctrl+C.
+        /// </summary>
         private void lbDescriptions_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Control == true && e.KeyCode == Keys.C)
@@ -269,6 +369,10 @@ namespace PomocnikKsiegowy
             }
         }
 
+        /// <summary>
+        /// Obsługuje kliknięcie przycisku dodania ścieżki pliku opisów.
+        /// Otwiera okno dialogowe pozwalające na wybranie pliku opisów.
+        /// </summary>
         private void btnAddPath_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(descriptionManager.descritpionPath))
@@ -289,6 +393,10 @@ namespace PomocnikKsiegowy
             }            
         }
 
+        /// <summary>
+        /// Obsługuje kliknięcie przycisku konwersji brutto na netto.
+        /// Oblicza wartość netto na podstawie podanej wartości brutto i wybranej stawki VAT.
+        /// </summary>
         private void btnBruttoToNetto_Click(object sender, EventArgs e)
         {
             if (!double.TryParse(txtBruttoCal2.Text, out double brutto))
@@ -307,6 +415,10 @@ namespace PomocnikKsiegowy
             AddToClipboard(txtNettoCal2.Text, lblNettoCal2.Text);
         }
 
+        /// <summary>
+        /// Obsługuje kliknięcie przycisku konwersji netto na brutto.
+        /// Oblicza wartość brutto na podstawie podanej wartości netto i wybranej stawki VAT.
+        /// </summary>
         private void btnNettoToBrutto_Click(object sender, EventArgs e)
         {
             if (!double.TryParse(txtNettoCal.Text, out double netto))
@@ -325,6 +437,10 @@ namespace PomocnikKsiegowy
             AddToClipboard(txtBruttoCal.Text, lblBruttoCal.Text);
         }
 
+        /// <summary>
+        /// Ustawia mnożnik VAT na podstawie wybranego radiobuttona.
+        /// </summary>
+        /// <returns>Wybrana wartość mnożnika VAT.</returns>
         private double SetMulti()
         {
             double multiplier = 0;
@@ -339,6 +455,10 @@ namespace PomocnikKsiegowy
             return multiplier;
         }
 
+        /// <summary>
+        /// Obsługuje kliknięcie przycisku zmiany tekstu na wielkie litery.
+        /// Wynik jest wyświetlany w odpowiednim polu tekstowym.
+        /// </summary>
         private void btnChangeToUpper_Click(object sender, EventArgs e)
         {
             txtToUpperResult.Text = textToUpper.ChangeToUpper(txtToUpperLetters.Text);
@@ -346,14 +466,22 @@ namespace PomocnikKsiegowy
             AddToClipboard(txtToUpperResult.Text);
         }
 
-        private void btnWczytajPlik_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Obsługuje kliknięcie przycisku wczytania pliku PDF.
+        /// Otwiera okno dialogowe do wyboru pliku PDF.
+        /// </summary>
+        private void btnLoadPDF_Click(object sender, EventArgs e)
         {
             save.Open();
 
             toolStripStatusLabel.Text = "Plik został wczytany.";
         }
 
-        private void btnZapiszPdf_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Obsługuje kliknięcie przycisku zapisu pliku PDF.
+        /// Zapisuje zmodyfikowany plik PDF w wybranej lokalizacji.
+        /// </summary>
+        private void btnSavePDF_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(save.PdfFilePath))
             {
@@ -372,7 +500,10 @@ namespace PomocnikKsiegowy
                 MessageBox.Show($"Wystąpił błąd: {ex.Message}", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-         
+
+        /// <summary>
+        /// Ustawia ikony na pasku tabControl.
+        /// </summary>
         private void SetIcons()
         {
             imageList = new ImageList();
@@ -396,6 +527,9 @@ namespace PomocnikKsiegowy
             }
         }
 
+        /// <summary>
+        /// Rysuje zakładki w <see cref="TabControl"/>, dostosowując ich wygląd do aktualnie aktywnej zakładki.
+        /// </summary>
         private void tabControl1_DrawItem(object sender, DrawItemEventArgs e)
         {
             TabControl tabControl = sender as TabControl;
@@ -442,6 +576,11 @@ namespace PomocnikKsiegowy
             e.DrawFocusRectangle();
         }
 
+        /// <summary>
+        /// Kopiuje podany tekst do schowka i wyświetla komunikat w pasku stanu.
+        /// </summary>
+        /// <param name="toCopy">Tekst do skopiowania.</param>
+        /// <param name="nazwa">Nazwa elementu, którego dotyczy skopiowany tekst.</param>
         private void AddToClipboard(string toCopy, string nazwa)
         {
             toolStripStatusLabel.Text = $"{nazwa} ({toCopy}) - dodano do schowka";
@@ -449,6 +588,10 @@ namespace PomocnikKsiegowy
             Clipboard.SetData(DataFormats.StringFormat, toCopy);
         }
 
+        /// <summary>
+        /// Kopiuje podany tekst do schowka i wyświetla komunikat w pasku stanu.
+        /// </summary>
+        /// <param name="toCopy">Tekst do skopiowania.</param>
         private void AddToClipboard(string toCopy)
         {
             toolStripStatusLabel.Text = "Skopiowano.";  
@@ -456,6 +599,10 @@ namespace PomocnikKsiegowy
             Clipboard.SetData(DataFormats.StringFormat, toCopy);
         }
 
+        /// <summary>
+        /// Obsługuje zdarzenie naciśnięcia klawisza na kontrolce <see cref="txtClipboard"/>.
+        /// Kopiuje zawartość pola tekstowego do schowka po wciśnięciu Ctrl+C.
+        /// </summary>
         private void txtClipboard_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Control == true && e.KeyCode == Keys.C)
@@ -472,6 +619,10 @@ namespace PomocnikKsiegowy
             }
         }
 
+        /// <summary>
+        /// Obsługuje kliknięcie przycisku generowania grzbietów.
+        /// Tworzy nowy formularz, w którym można dodać szczegóły grzbietów.
+        /// </summary>
         private void btnGenerateSpine_Click(object sender, EventArgs e)
         {
             if (!int.TryParse(txtnumberOfSpines.Text, out int numberOfSpines))
@@ -483,6 +634,10 @@ namespace PomocnikKsiegowy
             CreateSpineForm(numberOfSpines);
         }
 
+        /// <summary>
+        /// Tworzy formularz umożliwiający dodanie szczegółów grzbietów.
+        /// </summary>
+        /// <param name="controlsCount">Liczba grzbietów do wygenerowania.</param>
         private void CreateSpineForm(int controlsCount)
         {
             Form spineForm = new Form
@@ -552,6 +707,9 @@ namespace PomocnikKsiegowy
             spineForm.Show();
         }
 
+        /// <summary>
+        /// Aktualizuje podpowiedź dla aktywnej zakładki w kontrolce TabControl.
+        /// </summary>
         private void UpdateToolTip()
         {
             int selectedIndex = tabControl1.SelectedIndex;
@@ -567,6 +725,9 @@ namespace PomocnikKsiegowy
             toolTip1.Show(toolTipText, this, toolTipLocation.X, toolTipLocation.Y, 3000); 
         }
 
+        /// <summary>
+        /// Wyświetla podpowiedź, gdy mysz znajduje się nad ikoną informacyjną.
+        /// </summary>
         private void infoIcon_MouseHover(object sender, EventArgs e)
         {
             UpdateToolTip();
@@ -577,6 +738,9 @@ namespace PomocnikKsiegowy
             toolTip1.Hide(this);
         }
 
+        /// <summary>
+        /// Otwiera okno dialogowe umożliwiające wybór pliku opisów.
+        /// </summary>
         private void AddPath_Click(object sender, EventArgs e)
         {
             descriptionManager.OpenFile();
@@ -584,6 +748,10 @@ namespace PomocnikKsiegowy
             toolStripStatusLabel.Text = "Plik został wczytany.";
         }
 
+        /// <summary>
+        /// Obsługuje kliknięcie przycisku sprawdzania kursu waluty.
+        /// Pobiera kurs wybranej waluty z API NBP dla określonej daty.
+        /// </summary>
         private async void btnFindRate_Click(object sender, EventArgs e)
         {
             string currencyCode = cbCurrancy.SelectedItem.ToString();
@@ -608,6 +776,11 @@ namespace PomocnikKsiegowy
             }
         }
 
+        /// <summary>
+        /// Obsługuje kliknięcie przycisku weryfikacji NIP w systemie VIES.
+        /// Pobiera informacje o firmie i status aktywności NIP.
+        /// Wyjątkowo nie posiada oddzielnej metody, bo jest na tyle mały i połączony z UI, że przenoszenie kodu nie ma dla mnie sensu.
+        /// </summary>
         private void btnFindVIES_Click(object sender, EventArgs e)
         {
             string vatNumber = cbCountryCode.SelectedItem?.ToString()?.Trim() + txtNIP.Text?.Trim();

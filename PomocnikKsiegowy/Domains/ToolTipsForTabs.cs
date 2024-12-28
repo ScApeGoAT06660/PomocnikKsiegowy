@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace PomocnikKsiegowy
 {
+    /// <summary>
+    /// Klasa przechowuje listę podpowiedzi dla poszczególnych zakładek w aplikacji.
+    /// </summary>
     internal class ToolTipsForTabs
     {
         private string[] tooltipsForTabs = {
@@ -21,6 +24,13 @@ namespace PomocnikKsiegowy
             "VIES - sprawdź kontrahenta"
         };
 
+        /// <summary>
+        /// Zwraca tablicę podpowiedzi dla zakładek.
+        /// </summary>
+        /// <returns>
+        /// Tablica zawierająca podpowiedzi dla zakładek w formie tekstowej.
+        /// Każdy element tablicy odpowiada jednej zakładce w aplikacji.
+        /// </returns>
         public string[] GetToolTips()
         {
             return tooltipsForTabs;
