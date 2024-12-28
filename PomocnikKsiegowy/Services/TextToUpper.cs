@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace PomocnikKsiegowy
 {
-    internal class NaDuze
+    internal class TextToUpper
     {
-        public string ZamienNaDuze(string zamienNaDuze)
+        public string ChangeToUpper(string stringInput)
         {
-            return zamienNaDuze.ToUpper();
+            return stringInput.ToUpper();
         }
     }
 }

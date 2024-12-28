@@ -103,6 +103,16 @@ namespace PomocnikKsiegowy.Properties {
         /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap european_union {
+            get {
+                object obj = ResourceManager.GetObject("european_union", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap file_excel {
             get {
                 object obj = ResourceManager.GetObject("file_excel", resourceCulture);

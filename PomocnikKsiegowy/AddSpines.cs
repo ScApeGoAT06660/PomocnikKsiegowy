@@ -13,76 +13,84 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
 using System.Data.Common;
+using System.Diagnostics;
 
 namespace PomocnikKsiegowy
 {
-    public partial class DodajGrzbiety : UserControl
+    public partial class AddSpines : UserControl
     {
-        List<Grzbiety> grzbiety;   
+        List<Spine> spines;   
 
-        public DodajGrzbiety()
+        public AddSpines()
         {
             InitializeComponent();
+
+            nudMonth.Minimum = 1;
+            nudMonth.Maximum = 12;
+
+            nudMonth2.Minimum = 1;
+            nudMonth2.Maximum = 12;
         }
 
-        public void UstawNazweGroupBoxa(string nowaNazwa)
+        public void SetGroupBoxName(string nowaNazwa)
         {
-            gbGrzbiety.Text = nowaNazwa;
+            gbSpines.Text = nowaNazwa;
         }
 
-        public List<Grzbiety> UtworzGrzbiety(List<DodajGrzbiety> listaDodanychGrzbietow)
+        public List<Spine> CreateSpines(List<AddSpines> addedSpinesList)
         {
-            grzbiety = new List<Grzbiety>();
+            spines = new List<Spine>();
 
-            foreach (var item in listaDodanychGrzbietow)
+            foreach (var item in addedSpinesList)
             {
-                Grzbiety grzbiet = new Grzbiety
+                Spine spine = new Spine
                 {
-                    Rok = item.txtRok.Text,
-                    Miesiac = item.txtMiesiac.Text,
-                    NazwaFirmy = item.txtNazwaFirmy.Text
+                    Year = item.txtYear.Text,
+                    Month = item.nudMonth.Text,
+                    TraderName = item.txtTraderName.Text
                 };
 
-                if (item.rbDuzy.Checked)
-                    grzbiet.Rozmiar = true;
+                if (item.rbBig.Checked)
+                    spine.Size = true;
 
-                if (item.rbMaly.Checked)
-                    grzbiet.Rozmiar = false;
+                if (item.rbSmall.Checked)
+                    spine.Size = false;
 
-                if (item.rbPodzial.Checked)
+                if (item.rbSection.Checked)
                 {
-                    grzbiet.Podzial = true;
-                    grzbiet.Czesci = item.nudCzesc.Text;
+                    spine.Section = true;
+
+                    spine.Parts = item.nudParts.Text;
                 }
 
-                if(item.rbZakres.Checked)
+                if(item.rbRange.Checked)
                 {
-                    grzbiet.Zakres = true;
-                    grzbiet.Miesiac2 = item.txtMiesiac2.Text;
+                    spine.Range = true;
+
+                    spine.Month2 = item.nudMonth2.Text;
                 }
                     
                     
+                if (item.rbNoSection.Checked)
+                    spine.Section = false;
 
-                if (item.rbBrakPodziału.Checked)
-                    grzbiet.Podzial = false;
-
-                grzbiety.Add(grzbiet);
+                spines.Add(spine);
             }
 
-            return grzbiety;
+            return spines;
         }
 
-        private void rbPodzial_CheckedChanged(object sender, EventArgs e)
+        private void rbSection_CheckedChanged(object sender, EventArgs e)
         {
-            nudCzesc.Enabled = true;
+            nudParts.Enabled = true;
         }
 
-        private void rbBrakPodziału_CheckedChanged(object sender, EventArgs e)
+        private void rbNoSection_CheckedChanged(object sender, EventArgs e)
         {
-            nudCzesc.Enabled = false;
+            nudParts.Enabled = false;
         }
 
-        public void StworzPlikExcel(string sciezkaPliku, List<Grzbiety> grzbiety)
+        public void CreateExcelFile(string excelFolderPath, string excelFilePath, List<Spine> spines, ToolStripStatusLabel toolTip)
         {
             ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
 
@@ -91,33 +99,38 @@ namespace PomocnikKsiegowy
                 var worksheet = excel.Workbook.Worksheets.Add("Grzbiety");
 
                 worksheet.Row(1).Height = 80;
+
                 worksheet.Row(2).Height = 390;
+
                 worksheet.Row(3).Height = 80;
 
-                for (int i = 0; i < grzbiety.Count; i++)
+                for (int i = 0; i < spines.Count; i++)
                 {
                     int column = i + 1;
 
-                    worksheet.Cells[1, column].Value = grzbiety[i].Rok;
-                    worksheet.Cells[2, column].Value = grzbiety[i].NazwaFirmy.ToUpper();
+                    worksheet.Cells[1, column].Value = spines[i].Year;
 
-                    if (grzbiety[i].Miesiac == "")
+                    worksheet.Cells[2, column].Value = spines[i].TraderName.ToUpper();
+
+                    if (spines[i].Month == "")
                     {
                         worksheet.Cells[3, column].Value = "";
                     }
                     else
                     {
-                        string rzymskaM = MiesiacRzymska(Convert.ToInt32(grzbiety[i].Miesiac));
+                        string rzymskaM = RomanNumeralsMonth(Convert.ToInt32(spines[i].Month));
 
-                        if(grzbiety[i].Zakres)
+                        if(spines[i].Range)
                         {
-                            string rzymskaM2 = MiesiacRzymska(Convert.ToInt32(grzbiety[i].Miesiac2));
+                            string rzymskaM2 = RomanNumeralsMonth(Convert.ToInt32(spines[i].Month2));
+
                             rzymskaM = rzymskaM + " - " + rzymskaM2;
                         }
 
-                        if (grzbiety[i].Podzial)
+                        if (spines[i].Section)
                         {
-                            string czesc = "cz. " + grzbiety[i].Czesci;
+                            string czesc = "cz. " + spines[i].Parts;
+
                             worksheet.Cells[3, column].Value = rzymskaM.ToUpper() + " " + czesc;
                         }
                         else
@@ -126,30 +139,44 @@ namespace PomocnikKsiegowy
                         }
                     }               
 
-                    UtworzStylGrzbietu(worksheet, column, grzbiety[i].Rozmiar);
+                    SpineStyle(worksheet, column, spines[i].Size);
                 }
 
-                FileInfo fileInfo = new FileInfo(sciezkaPliku);
+                FileInfo fileInfo = new FileInfo(excelFilePath);
+
                 excel.SaveAs(fileInfo);
+
+                Process.Start("explorer.exe", excelFolderPath);
+
+                toolTip.Text = "Plik został zapisany.";
+
+                Form parentForm = this.FindForm();
+
+                parentForm.Close();
             }
         }
 
-        public void UtworzStylGrzbietu(ExcelWorksheet worksheet, int column, bool Rozmiar)
+        public void SpineStyle(ExcelWorksheet worksheet, int column, bool Rozmiar)
         {
             //bottom
             worksheet.Column(column).Width = Rozmiar ? 31.857 : 20.29;
+
             worksheet.Cells[2, column].Style.TextRotation = Rozmiar ? 0 : 90;
 
             //top         
             worksheet.Cells[1, column].Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
+
             worksheet.Cells[1, column].Style.Border.Bottom.Color.SetColor(Color.Black);
+
             worksheet.Cells[1, column].Style.Font.Bold = true;
 
             //bottom
             worksheet.Cells[3, column].Style.Border.Top.Style = ExcelBorderStyle.Thin;
+
             worksheet.Cells[3, column].Style.Border.Top.Color.SetColor(Color.Black);
 
             worksheet.Cells[3, column].Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
+
             worksheet.Cells[3, column].Style.Border.Bottom.Color.SetColor(Color.LightGray);
 
             worksheet.Cells[3, column].Style.Font.Bold = true;
@@ -158,32 +185,37 @@ namespace PomocnikKsiegowy
             for (int row = 1; row <= 3; row++)
             {
                 var cell = worksheet.Cells[row, column];
+
                 cell.Style.Border.Left.Style = ExcelBorderStyle.Thin;
+
                 cell.Style.Border.Left.Color.SetColor(Color.LightGray);
 
                 cell.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center; 
+
                 cell.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
 
                 cell.Style.Font.Name = "Oswald";
+
                 cell.Style.Font.Size = 24;
             }
         }
 
-        public string MiesiacRzymska(int month)
+        public string RomanNumeralsMonth(int month)
         {
             string[] romanMonths = { "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII" };
 
             return romanMonths[month - 1];
         }
 
-        private void rbZakres_CheckedChanged(object sender, EventArgs e)
+        private void rbRange_CheckedChanged(object sender, EventArgs e)
         {
-            if(rbZakres.Checked)
-                txtMiesiac2.Enabled = true;
+            if(rbRange.Checked)
+                nudMonth2.Enabled = true;
             else
             {
-                txtMiesiac2.Enabled = false;
-                txtMiesiac2.Text = string.Empty;
+                nudMonth2.Enabled = false;
+
+                nudMonth2.Text = string.Empty;
             }
         }
 

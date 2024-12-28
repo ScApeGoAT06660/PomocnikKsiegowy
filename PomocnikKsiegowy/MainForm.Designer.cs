@@ -31,124 +31,134 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPaliwo = new System.Windows.Forms.TabPage();
-            this.txtNettoNaPol = new System.Windows.Forms.TextBox();
-            this.lblPolNetto = new System.Windows.Forms.Label();
+            this.tabFuel = new System.Windows.Forms.TabPage();
+            this.txtFuelHalfNetto = new System.Windows.Forms.TextBox();
+            this.lblFuelHalfNetto = new System.Windows.Forms.Label();
             this.rb25 = new System.Windows.Forms.RadioButton();
             this.rb75 = new System.Windows.Forms.RadioButton();
-            this.btnWynik = new System.Windows.Forms.Button();
-            this.lblWynik = new System.Windows.Forms.Label();
-            this.txtWynik = new System.Windows.Forms.TextBox();
-            this.lblMnoznik = new System.Windows.Forms.Label();
+            this.btnFuelResult = new System.Windows.Forms.Button();
+            this.lblFuelResult = new System.Windows.Forms.Label();
+            this.txtFuelResult = new System.Windows.Forms.TextBox();
+            this.lblMultiplier = new System.Windows.Forms.Label();
             this.chbLeasing = new System.Windows.Forms.CheckBox();
-            this.txtNetto = new System.Windows.Forms.TextBox();
-            this.lblNetto = new System.Windows.Forms.Label();
-            this.txtVAT = new System.Windows.Forms.TextBox();
-            this.lblVAT = new System.Windows.Forms.Label();
+            this.txtFuelNetto = new System.Windows.Forms.TextBox();
+            this.lblFuelNetto = new System.Windows.Forms.Label();
+            this.txtFuelVAT = new System.Windows.Forms.TextBox();
+            this.lblFuelVAT = new System.Windows.Forms.Label();
             this.tab50 = new System.Windows.Forms.TabPage();
             this.rb50 = new System.Windows.Forms.RadioButton();
             this.rb020 = new System.Windows.Forms.RadioButton();
             this.rb075 = new System.Windows.Forms.RadioButton();
-            this.txtWynikNaPol = new System.Windows.Forms.TextBox();
-            this.lblWynikNaPol = new System.Windows.Forms.Label();
-            this.txtLiczba = new System.Windows.Forms.TextBox();
-            this.lblLiczba = new System.Windows.Forms.Label();
-            this.btnPodziel = new System.Windows.Forms.Button();
-            this.tabKalkulator = new System.Windows.Forms.TabPage();
+            this.txtFuel50Result = new System.Windows.Forms.TextBox();
+            this.lblFuel50Result = new System.Windows.Forms.Label();
+            this.txtFuel50Value = new System.Windows.Forms.TextBox();
+            this.lblFuel50Number = new System.Windows.Forms.Label();
+            this.btnFuel50Divide = new System.Windows.Forms.Button();
+            this.tabCalculator = new System.Windows.Forms.TabPage();
             this.btnMinus = new System.Windows.Forms.Button();
-            this.btnDodawanie = new System.Windows.Forms.Button();
-            this.btnDzielenie = new System.Windows.Forms.Button();
-            this.btnMnozenie = new System.Windows.Forms.Button();
-            this.btnWynikKalkulator = new System.Windows.Forms.Button();
-            this.btnCyfra0 = new System.Windows.Forms.Button();
+            this.btnPlus = new System.Windows.Forms.Button();
+            this.btnDivide = new System.Windows.Forms.Button();
+            this.btnMulti = new System.Windows.Forms.Button();
+            this.btnResultCalculator = new System.Windows.Forms.Button();
+            this.btnNumber0 = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
-            this.btnCyfra9 = new System.Windows.Forms.Button();
-            this.btnCyfra8 = new System.Windows.Forms.Button();
-            this.btnCyfra7 = new System.Windows.Forms.Button();
-            this.btnCyfra6 = new System.Windows.Forms.Button();
-            this.btnCyfra5 = new System.Windows.Forms.Button();
-            this.btnCyfra4 = new System.Windows.Forms.Button();
-            this.btnCyfra3 = new System.Windows.Forms.Button();
-            this.btnCyfra2 = new System.Windows.Forms.Button();
-            this.btnCyfra1 = new System.Windows.Forms.Button();
-            this.txtWynikKalkulator = new System.Windows.Forms.TextBox();
-            this.tabKopiowanie = new System.Windows.Forms.TabPage();
-            this.WybierzSciezke = new System.Windows.Forms.Button();
-            this.btnDodaj = new System.Windows.Forms.Button();
-            this.btnWczytajOpisy = new System.Windows.Forms.Button();
+            this.btnNumber9 = new System.Windows.Forms.Button();
+            this.btnNumber8 = new System.Windows.Forms.Button();
+            this.btnNumber7 = new System.Windows.Forms.Button();
+            this.btnNumber6 = new System.Windows.Forms.Button();
+            this.btnNumber5 = new System.Windows.Forms.Button();
+            this.btnNumber4 = new System.Windows.Forms.Button();
+            this.btnNumber3 = new System.Windows.Forms.Button();
+            this.btnNumber2 = new System.Windows.Forms.Button();
+            this.btnNumber1 = new System.Windows.Forms.Button();
+            this.txtResultCalculator = new System.Windows.Forms.TextBox();
+            this.tabCopy = new System.Windows.Forms.TabPage();
+            this.btnChoosePath = new System.Windows.Forms.Button();
+            this.btnAddDescriptions = new System.Windows.Forms.Button();
+            this.btnLoadDescriptions = new System.Windows.Forms.Button();
             this.lblWyciag = new System.Windows.Forms.Label();
-            this.lbOpisy = new System.Windows.Forms.ListBox();
-            this.txtSchowek2 = new System.Windows.Forms.TextBox();
-            this.txtSchowek1 = new System.Windows.Forms.TextBox();
-            this.lblSchowek = new System.Windows.Forms.Label();
+            this.lbDescriptions = new System.Windows.Forms.ListBox();
+            this.txtClipboard2 = new System.Windows.Forms.TextBox();
+            this.txtClipboard = new System.Windows.Forms.TextBox();
+            this.lblClipboard = new System.Windows.Forms.Label();
             this.tabCropper = new System.Windows.Forms.TabPage();
-            this.btnZapiszPlik = new System.Windows.Forms.Button();
-            this.btnWczytajPlik = new System.Windows.Forms.Button();
+            this.btnSavePDF = new System.Windows.Forms.Button();
+            this.btnLoadPDF = new System.Windows.Forms.Button();
             this.tabBruttoNetto = new System.Windows.Forms.TabPage();
-            this.stawka5 = new System.Windows.Forms.RadioButton();
-            this.stawka8 = new System.Windows.Forms.RadioButton();
-            this.stawka23 = new System.Windows.Forms.RadioButton();
-            this.btnBruttoNaNetto = new System.Windows.Forms.Button();
-            this.txtBruttoKal2 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtVetKal2 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtNettoKal2 = new System.Windows.Forms.TextBox();
-            this.lblNettoKal2 = new System.Windows.Forms.Label();
-            this.btnNettoNaBrutto = new System.Windows.Forms.Button();
-            this.txtBruttoKal = new System.Windows.Forms.TextBox();
-            this.lblBruttoKal = new System.Windows.Forms.Label();
+            this.rate5 = new System.Windows.Forms.RadioButton();
+            this.rate8 = new System.Windows.Forms.RadioButton();
+            this.rate23 = new System.Windows.Forms.RadioButton();
+            this.btnBruttoToNetto = new System.Windows.Forms.Button();
+            this.txtBruttoCal2 = new System.Windows.Forms.TextBox();
+            this.lblBruttoCal2 = new System.Windows.Forms.Label();
+            this.txtVetCal2 = new System.Windows.Forms.TextBox();
+            this.lblVatCal2 = new System.Windows.Forms.Label();
+            this.txtNettoCal2 = new System.Windows.Forms.TextBox();
+            this.lblNettoCal2 = new System.Windows.Forms.Label();
+            this.btnNettoToBrutto = new System.Windows.Forms.Button();
+            this.txtBruttoCal = new System.Windows.Forms.TextBox();
+            this.lblBruttoCal = new System.Windows.Forms.Label();
             this.txtVatKal = new System.Windows.Forms.TextBox();
-            this.lblVatKal = new System.Windows.Forms.Label();
-            this.txtNettoKal = new System.Windows.Forms.TextBox();
-            this.lblNettoKal = new System.Windows.Forms.Label();
-            this.tabNazwaSkrocona = new System.Windows.Forms.TabPage();
-            this.btnZamien = new System.Windows.Forms.Button();
-            this.txtDuzeWynik = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtDuzeLitery = new System.Windows.Forms.TextBox();
+            this.lblVatCal = new System.Windows.Forms.Label();
+            this.txtNettoCal = new System.Windows.Forms.TextBox();
+            this.lblNettoCal = new System.Windows.Forms.Label();
+            this.tabShortName = new System.Windows.Forms.TabPage();
+            this.btnChangeToUpper = new System.Windows.Forms.Button();
+            this.txtToUpperResult = new System.Windows.Forms.TextBox();
+            this.lblShortName = new System.Windows.Forms.Label();
+            this.txtToUpperLetters = new System.Windows.Forms.TextBox();
             this.tabExcel = new System.Windows.Forms.TabPage();
-            this.btnGeneruj = new System.Windows.Forms.Button();
-            this.txtIloscGrzbietow = new System.Windows.Forms.TextBox();
-            this.lblIleGrzbietow = new System.Windows.Forms.Label();
-            this.tabKurs = new System.Windows.Forms.TabPage();
-            this.lblWynikKurs = new System.Windows.Forms.Label();
-            this.txtWynikKurs = new System.Windows.Forms.TextBox();
-            this.btnObliczKurs = new System.Windows.Forms.Button();
-            this.cbKurs = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lblDataKurs = new System.Windows.Forms.Label();
-            this.dtpKurs = new System.Windows.Forms.DateTimePicker();
+            this.btnGenerateSpine = new System.Windows.Forms.Button();
+            this.txtnumberOfSpines = new System.Windows.Forms.TextBox();
+            this.lblSpineCount = new System.Windows.Forms.Label();
+            this.tabRate = new System.Windows.Forms.TabPage();
+            this.lblRateResult = new System.Windows.Forms.Label();
+            this.txtResultCurrency = new System.Windows.Forms.TextBox();
+            this.btnFindRate = new System.Windows.Forms.Button();
+            this.cbCurrancy = new System.Windows.Forms.ComboBox();
+            this.lblCurrancy = new System.Windows.Forms.Label();
+            this.lblRateDate = new System.Windows.Forms.Label();
+            this.dtpExchangeRate = new System.Windows.Forms.DateTimePicker();
+            this.tabVIES = new System.Windows.Forms.TabPage();
+            this.lblIsActive = new System.Windows.Forms.Label();
+            this.btnFindVIES = new System.Windows.Forms.Button();
+            this.lblAdress = new System.Windows.Forms.Label();
+            this.txtAdress = new System.Windows.Forms.TextBox();
+            this.txtNameVies = new System.Windows.Forms.TextBox();
+            this.lblNameVies = new System.Windows.Forms.Label();
+            this.cbCountryCode = new System.Windows.Forms.ComboBox();
+            this.txtNIP = new System.Windows.Forms.TextBox();
+            this.lblNIP = new System.Windows.Forms.Label();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.infoIcon = new System.Windows.Forms.PictureBox();
-            this.tabVIES = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
-            this.tabPaliwo.SuspendLayout();
+            this.tabFuel.SuspendLayout();
             this.tab50.SuspendLayout();
-            this.tabKalkulator.SuspendLayout();
-            this.tabKopiowanie.SuspendLayout();
+            this.tabCalculator.SuspendLayout();
+            this.tabCopy.SuspendLayout();
             this.tabCropper.SuspendLayout();
             this.tabBruttoNetto.SuspendLayout();
-            this.tabNazwaSkrocona.SuspendLayout();
+            this.tabShortName.SuspendLayout();
             this.tabExcel.SuspendLayout();
-            this.tabKurs.SuspendLayout();
+            this.tabRate.SuspendLayout();
+            this.tabVIES.SuspendLayout();
             this.statusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.infoIcon)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tabPaliwo);
+            this.tabControl1.Controls.Add(this.tabFuel);
             this.tabControl1.Controls.Add(this.tab50);
-            this.tabControl1.Controls.Add(this.tabKalkulator);
-            this.tabControl1.Controls.Add(this.tabKopiowanie);
+            this.tabControl1.Controls.Add(this.tabCalculator);
+            this.tabControl1.Controls.Add(this.tabCopy);
             this.tabControl1.Controls.Add(this.tabCropper);
             this.tabControl1.Controls.Add(this.tabBruttoNetto);
-            this.tabControl1.Controls.Add(this.tabNazwaSkrocona);
+            this.tabControl1.Controls.Add(this.tabShortName);
             this.tabControl1.Controls.Add(this.tabExcel);
-            this.tabControl1.Controls.Add(this.tabKurs);
+            this.tabControl1.Controls.Add(this.tabRate);
             this.tabControl1.Controls.Add(this.tabVIES);
             this.tabControl1.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
             this.tabControl1.HotTrack = true;
@@ -161,45 +171,45 @@
             this.tabControl1.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tabControl1_DrawItem);
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
-            // tabPaliwo
+            // tabFuel
             // 
-            this.tabPaliwo.Controls.Add(this.txtNettoNaPol);
-            this.tabPaliwo.Controls.Add(this.lblPolNetto);
-            this.tabPaliwo.Controls.Add(this.rb25);
-            this.tabPaliwo.Controls.Add(this.rb75);
-            this.tabPaliwo.Controls.Add(this.btnWynik);
-            this.tabPaliwo.Controls.Add(this.lblWynik);
-            this.tabPaliwo.Controls.Add(this.txtWynik);
-            this.tabPaliwo.Controls.Add(this.lblMnoznik);
-            this.tabPaliwo.Controls.Add(this.chbLeasing);
-            this.tabPaliwo.Controls.Add(this.txtNetto);
-            this.tabPaliwo.Controls.Add(this.lblNetto);
-            this.tabPaliwo.Controls.Add(this.txtVAT);
-            this.tabPaliwo.Controls.Add(this.lblVAT);
-            this.tabPaliwo.Location = new System.Drawing.Point(4, 40);
-            this.tabPaliwo.Name = "tabPaliwo";
-            this.tabPaliwo.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPaliwo.Size = new System.Drawing.Size(237, 234);
-            this.tabPaliwo.TabIndex = 0;
-            this.tabPaliwo.UseVisualStyleBackColor = true;
+            this.tabFuel.Controls.Add(this.txtFuelHalfNetto);
+            this.tabFuel.Controls.Add(this.lblFuelHalfNetto);
+            this.tabFuel.Controls.Add(this.rb25);
+            this.tabFuel.Controls.Add(this.rb75);
+            this.tabFuel.Controls.Add(this.btnFuelResult);
+            this.tabFuel.Controls.Add(this.lblFuelResult);
+            this.tabFuel.Controls.Add(this.txtFuelResult);
+            this.tabFuel.Controls.Add(this.lblMultiplier);
+            this.tabFuel.Controls.Add(this.chbLeasing);
+            this.tabFuel.Controls.Add(this.txtFuelNetto);
+            this.tabFuel.Controls.Add(this.lblFuelNetto);
+            this.tabFuel.Controls.Add(this.txtFuelVAT);
+            this.tabFuel.Controls.Add(this.lblFuelVAT);
+            this.tabFuel.Location = new System.Drawing.Point(4, 40);
+            this.tabFuel.Name = "tabFuel";
+            this.tabFuel.Padding = new System.Windows.Forms.Padding(3);
+            this.tabFuel.Size = new System.Drawing.Size(237, 234);
+            this.tabFuel.TabIndex = 0;
+            this.tabFuel.UseVisualStyleBackColor = true;
             // 
-            // txtNettoNaPol
+            // txtFuelHalfNetto
             // 
-            this.txtNettoNaPol.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
-            this.txtNettoNaPol.Location = new System.Drawing.Point(19, 125);
-            this.txtNettoNaPol.Name = "txtNettoNaPol";
-            this.txtNettoNaPol.Size = new System.Drawing.Size(107, 20);
-            this.txtNettoNaPol.TabIndex = 14;
+            this.txtFuelHalfNetto.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
+            this.txtFuelHalfNetto.Location = new System.Drawing.Point(19, 125);
+            this.txtFuelHalfNetto.Name = "txtFuelHalfNetto";
+            this.txtFuelHalfNetto.Size = new System.Drawing.Size(107, 20);
+            this.txtFuelHalfNetto.TabIndex = 14;
             // 
-            // lblPolNetto
+            // lblFuelHalfNetto
             // 
-            this.lblPolNetto.AutoSize = true;
-            this.lblPolNetto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblPolNetto.Location = new System.Drawing.Point(16, 109);
-            this.lblPolNetto.Name = "lblPolNetto";
-            this.lblPolNetto.Size = new System.Drawing.Size(77, 16);
-            this.lblPolNetto.TabIndex = 13;
-            this.lblPolNetto.Text = "Netto 50%";
+            this.lblFuelHalfNetto.AutoSize = true;
+            this.lblFuelHalfNetto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblFuelHalfNetto.Location = new System.Drawing.Point(16, 109);
+            this.lblFuelHalfNetto.Name = "lblFuelHalfNetto";
+            this.lblFuelHalfNetto.Size = new System.Drawing.Size(77, 16);
+            this.lblFuelHalfNetto.TabIndex = 13;
+            this.lblFuelHalfNetto.Text = "Netto 50%";
             // 
             // rb25
             // 
@@ -223,43 +233,43 @@
             this.rb75.Text = "75%";
             this.rb75.UseVisualStyleBackColor = true;
             // 
-            // btnWynik
+            // btnFuelResult
             // 
-            this.btnWynik.Location = new System.Drawing.Point(132, 181);
-            this.btnWynik.Name = "btnWynik";
-            this.btnWynik.Size = new System.Drawing.Size(75, 23);
-            this.btnWynik.TabIndex = 10;
-            this.btnWynik.Text = "Oblicz";
-            this.btnWynik.UseVisualStyleBackColor = true;
-            this.btnWynik.Click += new System.EventHandler(this.btnWczytaj);
+            this.btnFuelResult.Location = new System.Drawing.Point(132, 181);
+            this.btnFuelResult.Name = "btnFuelResult";
+            this.btnFuelResult.Size = new System.Drawing.Size(75, 23);
+            this.btnFuelResult.TabIndex = 10;
+            this.btnFuelResult.Text = "Oblicz";
+            this.btnFuelResult.UseVisualStyleBackColor = true;
+            this.btnFuelResult.Click += new System.EventHandler(this.btnCalculateFuel);
             // 
-            // lblWynik
+            // lblFuelResult
             // 
-            this.lblWynik.AutoSize = true;
-            this.lblWynik.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblWynik.Location = new System.Drawing.Point(16, 167);
-            this.lblWynik.Name = "lblWynik";
-            this.lblWynik.Size = new System.Drawing.Size(49, 16);
-            this.lblWynik.TabIndex = 9;
-            this.lblWynik.Text = "Wynik";
+            this.lblFuelResult.AutoSize = true;
+            this.lblFuelResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblFuelResult.Location = new System.Drawing.Point(16, 167);
+            this.lblFuelResult.Name = "lblFuelResult";
+            this.lblFuelResult.Size = new System.Drawing.Size(49, 16);
+            this.lblFuelResult.TabIndex = 9;
+            this.lblFuelResult.Text = "Wynik";
             // 
-            // txtWynik
+            // txtFuelResult
             // 
-            this.txtWynik.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtWynik.Location = new System.Drawing.Point(19, 183);
-            this.txtWynik.Name = "txtWynik";
-            this.txtWynik.Size = new System.Drawing.Size(107, 20);
-            this.txtWynik.TabIndex = 8;
+            this.txtFuelResult.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtFuelResult.Location = new System.Drawing.Point(19, 183);
+            this.txtFuelResult.Name = "txtFuelResult";
+            this.txtFuelResult.Size = new System.Drawing.Size(107, 20);
+            this.txtFuelResult.TabIndex = 8;
             // 
-            // lblMnoznik
+            // lblMultiplier
             // 
-            this.lblMnoznik.AutoSize = true;
-            this.lblMnoznik.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblMnoznik.Location = new System.Drawing.Point(140, 11);
-            this.lblMnoznik.Name = "lblMnoznik";
-            this.lblMnoznik.Size = new System.Drawing.Size(63, 16);
-            this.lblMnoznik.TabIndex = 6;
-            this.lblMnoznik.Text = "Mnożnik";
+            this.lblMultiplier.AutoSize = true;
+            this.lblMultiplier.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblMultiplier.Location = new System.Drawing.Point(140, 11);
+            this.lblMultiplier.Name = "lblMultiplier";
+            this.lblMultiplier.Size = new System.Drawing.Size(63, 16);
+            this.lblMultiplier.TabIndex = 6;
+            this.lblMultiplier.Text = "Mnożnik";
             // 
             // chbLeasing
             // 
@@ -271,55 +281,55 @@
             this.chbLeasing.Text = "Czy leasing?";
             this.chbLeasing.UseVisualStyleBackColor = true;
             // 
-            // txtNetto
+            // txtFuelNetto
             // 
-            this.txtNetto.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
-            this.txtNetto.Location = new System.Drawing.Point(19, 76);
-            this.txtNetto.Name = "txtNetto";
-            this.txtNetto.Size = new System.Drawing.Size(107, 20);
-            this.txtNetto.TabIndex = 3;
+            this.txtFuelNetto.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
+            this.txtFuelNetto.Location = new System.Drawing.Point(19, 76);
+            this.txtFuelNetto.Name = "txtFuelNetto";
+            this.txtFuelNetto.Size = new System.Drawing.Size(107, 20);
+            this.txtFuelNetto.TabIndex = 3;
             // 
-            // lblNetto
+            // lblFuelNetto
             // 
-            this.lblNetto.AutoSize = true;
-            this.lblNetto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblNetto.Location = new System.Drawing.Point(16, 60);
-            this.lblNetto.Name = "lblNetto";
-            this.lblNetto.Size = new System.Drawing.Size(44, 16);
-            this.lblNetto.TabIndex = 2;
-            this.lblNetto.Text = "Netto";
+            this.lblFuelNetto.AutoSize = true;
+            this.lblFuelNetto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblFuelNetto.Location = new System.Drawing.Point(16, 60);
+            this.lblFuelNetto.Name = "lblFuelNetto";
+            this.lblFuelNetto.Size = new System.Drawing.Size(44, 16);
+            this.lblFuelNetto.TabIndex = 2;
+            this.lblFuelNetto.Text = "Netto";
             // 
-            // txtVAT
+            // txtFuelVAT
             // 
-            this.txtVAT.Location = new System.Drawing.Point(19, 26);
-            this.txtVAT.Name = "txtVAT";
-            this.txtVAT.Size = new System.Drawing.Size(107, 20);
-            this.txtVAT.TabIndex = 1;
+            this.txtFuelVAT.Location = new System.Drawing.Point(19, 26);
+            this.txtFuelVAT.Name = "txtFuelVAT";
+            this.txtFuelVAT.Size = new System.Drawing.Size(107, 20);
+            this.txtFuelVAT.TabIndex = 1;
             // 
-            // lblVAT
+            // lblFuelVAT
             // 
-            this.lblVAT.AutoSize = true;
-            this.lblVAT.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblVAT.Location = new System.Drawing.Point(16, 10);
-            this.lblVAT.Name = "lblVAT";
-            this.lblVAT.Size = new System.Drawing.Size(37, 16);
-            this.lblVAT.TabIndex = 0;
-            this.lblVAT.Text = "VAT";
+            this.lblFuelVAT.AutoSize = true;
+            this.lblFuelVAT.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblFuelVAT.Location = new System.Drawing.Point(16, 10);
+            this.lblFuelVAT.Name = "lblFuelVAT";
+            this.lblFuelVAT.Size = new System.Drawing.Size(37, 16);
+            this.lblFuelVAT.TabIndex = 0;
+            this.lblFuelVAT.Text = "VAT";
             // 
             // tab50
             // 
             this.tab50.Controls.Add(this.rb50);
             this.tab50.Controls.Add(this.rb020);
             this.tab50.Controls.Add(this.rb075);
-            this.tab50.Controls.Add(this.txtWynikNaPol);
-            this.tab50.Controls.Add(this.lblWynikNaPol);
-            this.tab50.Controls.Add(this.txtLiczba);
-            this.tab50.Controls.Add(this.lblLiczba);
-            this.tab50.Controls.Add(this.btnPodziel);
-            this.tab50.Location = new System.Drawing.Point(4, 22);
+            this.tab50.Controls.Add(this.txtFuel50Result);
+            this.tab50.Controls.Add(this.lblFuel50Result);
+            this.tab50.Controls.Add(this.txtFuel50Value);
+            this.tab50.Controls.Add(this.lblFuel50Number);
+            this.tab50.Controls.Add(this.btnFuel50Divide);
+            this.tab50.Location = new System.Drawing.Point(4, 40);
             this.tab50.Name = "tab50";
             this.tab50.Padding = new System.Windows.Forms.Padding(3);
-            this.tab50.Size = new System.Drawing.Size(237, 252);
+            this.tab50.Size = new System.Drawing.Size(237, 234);
             this.tab50.TabIndex = 1;
             this.tab50.UseVisualStyleBackColor = true;
             // 
@@ -356,76 +366,76 @@
             this.rb075.Text = "75%";
             this.rb075.UseVisualStyleBackColor = true;
             // 
-            // txtWynikNaPol
+            // txtFuel50Result
             // 
-            this.txtWynikNaPol.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtWynikNaPol.Location = new System.Drawing.Point(29, 110);
-            this.txtWynikNaPol.Name = "txtWynikNaPol";
-            this.txtWynikNaPol.Size = new System.Drawing.Size(100, 20);
-            this.txtWynikNaPol.TabIndex = 4;
+            this.txtFuel50Result.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtFuel50Result.Location = new System.Drawing.Point(29, 110);
+            this.txtFuel50Result.Name = "txtFuel50Result";
+            this.txtFuel50Result.Size = new System.Drawing.Size(100, 20);
+            this.txtFuel50Result.TabIndex = 4;
             // 
-            // lblWynikNaPol
+            // lblFuel50Result
             // 
-            this.lblWynikNaPol.AutoSize = true;
-            this.lblWynikNaPol.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblWynikNaPol.Location = new System.Drawing.Point(28, 94);
-            this.lblWynikNaPol.Name = "lblWynikNaPol";
-            this.lblWynikNaPol.Size = new System.Drawing.Size(49, 16);
-            this.lblWynikNaPol.TabIndex = 3;
-            this.lblWynikNaPol.Text = "Wynik";
+            this.lblFuel50Result.AutoSize = true;
+            this.lblFuel50Result.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblFuel50Result.Location = new System.Drawing.Point(28, 94);
+            this.lblFuel50Result.Name = "lblFuel50Result";
+            this.lblFuel50Result.Size = new System.Drawing.Size(49, 16);
+            this.lblFuel50Result.TabIndex = 3;
+            this.lblFuel50Result.Text = "Wynik";
             // 
-            // txtLiczba
+            // txtFuel50Value
             // 
-            this.txtLiczba.Location = new System.Drawing.Point(29, 25);
-            this.txtLiczba.Name = "txtLiczba";
-            this.txtLiczba.Size = new System.Drawing.Size(100, 20);
-            this.txtLiczba.TabIndex = 2;
+            this.txtFuel50Value.Location = new System.Drawing.Point(29, 25);
+            this.txtFuel50Value.Name = "txtFuel50Value";
+            this.txtFuel50Value.Size = new System.Drawing.Size(100, 20);
+            this.txtFuel50Value.TabIndex = 2;
             // 
-            // lblLiczba
+            // lblFuel50Number
             // 
-            this.lblLiczba.AutoSize = true;
-            this.lblLiczba.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblLiczba.Location = new System.Drawing.Point(28, 9);
-            this.lblLiczba.Name = "lblLiczba";
-            this.lblLiczba.Size = new System.Drawing.Size(52, 16);
-            this.lblLiczba.TabIndex = 1;
-            this.lblLiczba.Text = "Liczba";
+            this.lblFuel50Number.AutoSize = true;
+            this.lblFuel50Number.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblFuel50Number.Location = new System.Drawing.Point(28, 9);
+            this.lblFuel50Number.Name = "lblFuel50Number";
+            this.lblFuel50Number.Size = new System.Drawing.Size(52, 16);
+            this.lblFuel50Number.TabIndex = 1;
+            this.lblFuel50Number.Text = "Liczba";
             // 
-            // btnPodziel
+            // btnFuel50Divide
             // 
-            this.btnPodziel.Location = new System.Drawing.Point(42, 63);
-            this.btnPodziel.Name = "btnPodziel";
-            this.btnPodziel.Size = new System.Drawing.Size(75, 23);
-            this.btnPodziel.TabIndex = 0;
-            this.btnPodziel.Text = "Podziel";
-            this.btnPodziel.UseVisualStyleBackColor = true;
-            this.btnPodziel.Click += new System.EventHandler(this.btnPodziel_Click);
+            this.btnFuel50Divide.Location = new System.Drawing.Point(42, 63);
+            this.btnFuel50Divide.Name = "btnFuel50Divide";
+            this.btnFuel50Divide.Size = new System.Drawing.Size(75, 23);
+            this.btnFuel50Divide.TabIndex = 0;
+            this.btnFuel50Divide.Text = "Podziel";
+            this.btnFuel50Divide.UseVisualStyleBackColor = true;
+            this.btnFuel50Divide.Click += new System.EventHandler(this.btnCalculateFuel50_Click);
             // 
-            // tabKalkulator
+            // tabCalculator
             // 
-            this.tabKalkulator.Controls.Add(this.btnMinus);
-            this.tabKalkulator.Controls.Add(this.btnDodawanie);
-            this.tabKalkulator.Controls.Add(this.btnDzielenie);
-            this.tabKalkulator.Controls.Add(this.btnMnozenie);
-            this.tabKalkulator.Controls.Add(this.btnWynikKalkulator);
-            this.tabKalkulator.Controls.Add(this.btnCyfra0);
-            this.tabKalkulator.Controls.Add(this.btnClear);
-            this.tabKalkulator.Controls.Add(this.btnCyfra9);
-            this.tabKalkulator.Controls.Add(this.btnCyfra8);
-            this.tabKalkulator.Controls.Add(this.btnCyfra7);
-            this.tabKalkulator.Controls.Add(this.btnCyfra6);
-            this.tabKalkulator.Controls.Add(this.btnCyfra5);
-            this.tabKalkulator.Controls.Add(this.btnCyfra4);
-            this.tabKalkulator.Controls.Add(this.btnCyfra3);
-            this.tabKalkulator.Controls.Add(this.btnCyfra2);
-            this.tabKalkulator.Controls.Add(this.btnCyfra1);
-            this.tabKalkulator.Controls.Add(this.txtWynikKalkulator);
-            this.tabKalkulator.Location = new System.Drawing.Point(4, 22);
-            this.tabKalkulator.Name = "tabKalkulator";
-            this.tabKalkulator.Padding = new System.Windows.Forms.Padding(3);
-            this.tabKalkulator.Size = new System.Drawing.Size(237, 252);
-            this.tabKalkulator.TabIndex = 2;
-            this.tabKalkulator.UseVisualStyleBackColor = true;
+            this.tabCalculator.Controls.Add(this.btnMinus);
+            this.tabCalculator.Controls.Add(this.btnPlus);
+            this.tabCalculator.Controls.Add(this.btnDivide);
+            this.tabCalculator.Controls.Add(this.btnMulti);
+            this.tabCalculator.Controls.Add(this.btnResultCalculator);
+            this.tabCalculator.Controls.Add(this.btnNumber0);
+            this.tabCalculator.Controls.Add(this.btnClear);
+            this.tabCalculator.Controls.Add(this.btnNumber9);
+            this.tabCalculator.Controls.Add(this.btnNumber8);
+            this.tabCalculator.Controls.Add(this.btnNumber7);
+            this.tabCalculator.Controls.Add(this.btnNumber6);
+            this.tabCalculator.Controls.Add(this.btnNumber5);
+            this.tabCalculator.Controls.Add(this.btnNumber4);
+            this.tabCalculator.Controls.Add(this.btnNumber3);
+            this.tabCalculator.Controls.Add(this.btnNumber2);
+            this.tabCalculator.Controls.Add(this.btnNumber1);
+            this.tabCalculator.Controls.Add(this.txtResultCalculator);
+            this.tabCalculator.Location = new System.Drawing.Point(4, 40);
+            this.tabCalculator.Name = "tabCalculator";
+            this.tabCalculator.Padding = new System.Windows.Forms.Padding(3);
+            this.tabCalculator.Size = new System.Drawing.Size(237, 234);
+            this.tabCalculator.TabIndex = 2;
+            this.tabCalculator.UseVisualStyleBackColor = true;
             // 
             // btnMinus
             // 
@@ -437,55 +447,55 @@
             this.btnMinus.UseVisualStyleBackColor = true;
             this.btnMinus.Click += new System.EventHandler(this.btnOperator_Click);
             // 
-            // btnDodawanie
+            // btnPlus
             // 
-            this.btnDodawanie.Location = new System.Drawing.Point(174, 133);
-            this.btnDodawanie.Name = "btnDodawanie";
-            this.btnDodawanie.Size = new System.Drawing.Size(42, 42);
-            this.btnDodawanie.TabIndex = 15;
-            this.btnDodawanie.Text = "+";
-            this.btnDodawanie.UseVisualStyleBackColor = true;
-            this.btnDodawanie.Click += new System.EventHandler(this.btnOperator_Click);
+            this.btnPlus.Location = new System.Drawing.Point(174, 133);
+            this.btnPlus.Name = "btnPlus";
+            this.btnPlus.Size = new System.Drawing.Size(42, 42);
+            this.btnPlus.TabIndex = 15;
+            this.btnPlus.Text = "+";
+            this.btnPlus.UseVisualStyleBackColor = true;
+            this.btnPlus.Click += new System.EventHandler(this.btnOperator_Click);
             // 
-            // btnDzielenie
+            // btnDivide
             // 
-            this.btnDzielenie.Location = new System.Drawing.Point(174, 85);
-            this.btnDzielenie.Name = "btnDzielenie";
-            this.btnDzielenie.Size = new System.Drawing.Size(42, 42);
-            this.btnDzielenie.TabIndex = 14;
-            this.btnDzielenie.Text = "/";
-            this.btnDzielenie.UseVisualStyleBackColor = true;
-            this.btnDzielenie.Click += new System.EventHandler(this.btnOperator_Click);
+            this.btnDivide.Location = new System.Drawing.Point(174, 85);
+            this.btnDivide.Name = "btnDivide";
+            this.btnDivide.Size = new System.Drawing.Size(42, 42);
+            this.btnDivide.TabIndex = 14;
+            this.btnDivide.Text = "/";
+            this.btnDivide.UseVisualStyleBackColor = true;
+            this.btnDivide.Click += new System.EventHandler(this.btnOperator_Click);
             // 
-            // btnMnozenie
+            // btnMulti
             // 
-            this.btnMnozenie.Location = new System.Drawing.Point(174, 36);
-            this.btnMnozenie.Name = "btnMnozenie";
-            this.btnMnozenie.Size = new System.Drawing.Size(42, 42);
-            this.btnMnozenie.TabIndex = 13;
-            this.btnMnozenie.Text = "*";
-            this.btnMnozenie.UseVisualStyleBackColor = true;
-            this.btnMnozenie.Click += new System.EventHandler(this.btnOperator_Click);
+            this.btnMulti.Location = new System.Drawing.Point(174, 36);
+            this.btnMulti.Name = "btnMulti";
+            this.btnMulti.Size = new System.Drawing.Size(42, 42);
+            this.btnMulti.TabIndex = 13;
+            this.btnMulti.Text = "*";
+            this.btnMulti.UseVisualStyleBackColor = true;
+            this.btnMulti.Click += new System.EventHandler(this.btnOperator_Click);
             // 
-            // btnWynikKalkulator
+            // btnResultCalculator
             // 
-            this.btnWynikKalkulator.Location = new System.Drawing.Point(113, 181);
-            this.btnWynikKalkulator.Name = "btnWynikKalkulator";
-            this.btnWynikKalkulator.Size = new System.Drawing.Size(42, 42);
-            this.btnWynikKalkulator.TabIndex = 12;
-            this.btnWynikKalkulator.Text = "=";
-            this.btnWynikKalkulator.UseVisualStyleBackColor = true;
-            this.btnWynikKalkulator.Click += new System.EventHandler(this.btnWynikKalkulator_Click);
+            this.btnResultCalculator.Location = new System.Drawing.Point(113, 181);
+            this.btnResultCalculator.Name = "btnResultCalculator";
+            this.btnResultCalculator.Size = new System.Drawing.Size(42, 42);
+            this.btnResultCalculator.TabIndex = 12;
+            this.btnResultCalculator.Text = "=";
+            this.btnResultCalculator.UseVisualStyleBackColor = true;
+            this.btnResultCalculator.Click += new System.EventHandler(this.btnResultCalculator_Click);
             // 
-            // btnCyfra0
+            // btnNumber0
             // 
-            this.btnCyfra0.Location = new System.Drawing.Point(65, 181);
-            this.btnCyfra0.Name = "btnCyfra0";
-            this.btnCyfra0.Size = new System.Drawing.Size(42, 42);
-            this.btnCyfra0.TabIndex = 11;
-            this.btnCyfra0.Text = "0";
-            this.btnCyfra0.UseVisualStyleBackColor = true;
-            this.btnCyfra0.Click += new System.EventHandler(this.btnLiczba);
+            this.btnNumber0.Location = new System.Drawing.Point(65, 181);
+            this.btnNumber0.Name = "btnNumber0";
+            this.btnNumber0.Size = new System.Drawing.Size(42, 42);
+            this.btnNumber0.TabIndex = 11;
+            this.btnNumber0.Text = "0";
+            this.btnNumber0.UseVisualStyleBackColor = true;
+            this.btnNumber0.Click += new System.EventHandler(this.btnNumber);
             // 
             // btnClear
             // 
@@ -498,150 +508,150 @@
             this.btnClear.UseVisualStyleBackColor = false;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
-            // btnCyfra9
+            // btnNumber9
             // 
-            this.btnCyfra9.Location = new System.Drawing.Point(113, 133);
-            this.btnCyfra9.Name = "btnCyfra9";
-            this.btnCyfra9.Size = new System.Drawing.Size(42, 42);
-            this.btnCyfra9.TabIndex = 9;
-            this.btnCyfra9.Text = "9";
-            this.btnCyfra9.UseVisualStyleBackColor = true;
-            this.btnCyfra9.Click += new System.EventHandler(this.btnLiczba);
+            this.btnNumber9.Location = new System.Drawing.Point(113, 133);
+            this.btnNumber9.Name = "btnNumber9";
+            this.btnNumber9.Size = new System.Drawing.Size(42, 42);
+            this.btnNumber9.TabIndex = 9;
+            this.btnNumber9.Text = "9";
+            this.btnNumber9.UseVisualStyleBackColor = true;
+            this.btnNumber9.Click += new System.EventHandler(this.btnNumber);
             // 
-            // btnCyfra8
+            // btnNumber8
             // 
-            this.btnCyfra8.Location = new System.Drawing.Point(65, 133);
-            this.btnCyfra8.Name = "btnCyfra8";
-            this.btnCyfra8.Size = new System.Drawing.Size(42, 42);
-            this.btnCyfra8.TabIndex = 8;
-            this.btnCyfra8.Text = "8";
-            this.btnCyfra8.UseVisualStyleBackColor = true;
-            this.btnCyfra8.Click += new System.EventHandler(this.btnLiczba);
+            this.btnNumber8.Location = new System.Drawing.Point(65, 133);
+            this.btnNumber8.Name = "btnNumber8";
+            this.btnNumber8.Size = new System.Drawing.Size(42, 42);
+            this.btnNumber8.TabIndex = 8;
+            this.btnNumber8.Text = "8";
+            this.btnNumber8.UseVisualStyleBackColor = true;
+            this.btnNumber8.Click += new System.EventHandler(this.btnNumber);
             // 
-            // btnCyfra7
+            // btnNumber7
             // 
-            this.btnCyfra7.Location = new System.Drawing.Point(17, 133);
-            this.btnCyfra7.Name = "btnCyfra7";
-            this.btnCyfra7.Size = new System.Drawing.Size(42, 42);
-            this.btnCyfra7.TabIndex = 7;
-            this.btnCyfra7.Text = "7";
-            this.btnCyfra7.UseVisualStyleBackColor = true;
-            this.btnCyfra7.Click += new System.EventHandler(this.btnLiczba);
+            this.btnNumber7.Location = new System.Drawing.Point(17, 133);
+            this.btnNumber7.Name = "btnNumber7";
+            this.btnNumber7.Size = new System.Drawing.Size(42, 42);
+            this.btnNumber7.TabIndex = 7;
+            this.btnNumber7.Text = "7";
+            this.btnNumber7.UseVisualStyleBackColor = true;
+            this.btnNumber7.Click += new System.EventHandler(this.btnNumber);
             // 
-            // btnCyfra6
+            // btnNumber6
             // 
-            this.btnCyfra6.Location = new System.Drawing.Point(113, 85);
-            this.btnCyfra6.Name = "btnCyfra6";
-            this.btnCyfra6.Size = new System.Drawing.Size(42, 42);
-            this.btnCyfra6.TabIndex = 6;
-            this.btnCyfra6.Text = "6";
-            this.btnCyfra6.UseVisualStyleBackColor = true;
-            this.btnCyfra6.Click += new System.EventHandler(this.btnLiczba);
+            this.btnNumber6.Location = new System.Drawing.Point(113, 85);
+            this.btnNumber6.Name = "btnNumber6";
+            this.btnNumber6.Size = new System.Drawing.Size(42, 42);
+            this.btnNumber6.TabIndex = 6;
+            this.btnNumber6.Text = "6";
+            this.btnNumber6.UseVisualStyleBackColor = true;
+            this.btnNumber6.Click += new System.EventHandler(this.btnNumber);
             // 
-            // btnCyfra5
+            // btnNumber5
             // 
-            this.btnCyfra5.Location = new System.Drawing.Point(65, 85);
-            this.btnCyfra5.Name = "btnCyfra5";
-            this.btnCyfra5.Size = new System.Drawing.Size(42, 42);
-            this.btnCyfra5.TabIndex = 5;
-            this.btnCyfra5.Text = "5";
-            this.btnCyfra5.UseVisualStyleBackColor = true;
-            this.btnCyfra5.Click += new System.EventHandler(this.btnLiczba);
+            this.btnNumber5.Location = new System.Drawing.Point(65, 85);
+            this.btnNumber5.Name = "btnNumber5";
+            this.btnNumber5.Size = new System.Drawing.Size(42, 42);
+            this.btnNumber5.TabIndex = 5;
+            this.btnNumber5.Text = "5";
+            this.btnNumber5.UseVisualStyleBackColor = true;
+            this.btnNumber5.Click += new System.EventHandler(this.btnNumber);
             // 
-            // btnCyfra4
+            // btnNumber4
             // 
-            this.btnCyfra4.Location = new System.Drawing.Point(17, 85);
-            this.btnCyfra4.Name = "btnCyfra4";
-            this.btnCyfra4.Size = new System.Drawing.Size(42, 42);
-            this.btnCyfra4.TabIndex = 4;
-            this.btnCyfra4.Text = "4";
-            this.btnCyfra4.UseVisualStyleBackColor = true;
-            this.btnCyfra4.Click += new System.EventHandler(this.btnLiczba);
+            this.btnNumber4.Location = new System.Drawing.Point(17, 85);
+            this.btnNumber4.Name = "btnNumber4";
+            this.btnNumber4.Size = new System.Drawing.Size(42, 42);
+            this.btnNumber4.TabIndex = 4;
+            this.btnNumber4.Text = "4";
+            this.btnNumber4.UseVisualStyleBackColor = true;
+            this.btnNumber4.Click += new System.EventHandler(this.btnNumber);
             // 
-            // btnCyfra3
+            // btnNumber3
             // 
-            this.btnCyfra3.Location = new System.Drawing.Point(113, 36);
-            this.btnCyfra3.Name = "btnCyfra3";
-            this.btnCyfra3.Size = new System.Drawing.Size(42, 42);
-            this.btnCyfra3.TabIndex = 3;
-            this.btnCyfra3.Text = "3";
-            this.btnCyfra3.UseVisualStyleBackColor = true;
-            this.btnCyfra3.Click += new System.EventHandler(this.btnLiczba);
+            this.btnNumber3.Location = new System.Drawing.Point(113, 36);
+            this.btnNumber3.Name = "btnNumber3";
+            this.btnNumber3.Size = new System.Drawing.Size(42, 42);
+            this.btnNumber3.TabIndex = 3;
+            this.btnNumber3.Text = "3";
+            this.btnNumber3.UseVisualStyleBackColor = true;
+            this.btnNumber3.Click += new System.EventHandler(this.btnNumber);
             // 
-            // btnCyfra2
+            // btnNumber2
             // 
-            this.btnCyfra2.Location = new System.Drawing.Point(65, 37);
-            this.btnCyfra2.Name = "btnCyfra2";
-            this.btnCyfra2.Size = new System.Drawing.Size(42, 42);
-            this.btnCyfra2.TabIndex = 2;
-            this.btnCyfra2.Text = "2";
-            this.btnCyfra2.UseVisualStyleBackColor = true;
-            this.btnCyfra2.Click += new System.EventHandler(this.btnLiczba);
+            this.btnNumber2.Location = new System.Drawing.Point(65, 37);
+            this.btnNumber2.Name = "btnNumber2";
+            this.btnNumber2.Size = new System.Drawing.Size(42, 42);
+            this.btnNumber2.TabIndex = 2;
+            this.btnNumber2.Text = "2";
+            this.btnNumber2.UseVisualStyleBackColor = true;
+            this.btnNumber2.Click += new System.EventHandler(this.btnNumber);
             // 
-            // btnCyfra1
+            // btnNumber1
             // 
-            this.btnCyfra1.Location = new System.Drawing.Point(17, 37);
-            this.btnCyfra1.Name = "btnCyfra1";
-            this.btnCyfra1.Size = new System.Drawing.Size(42, 42);
-            this.btnCyfra1.TabIndex = 1;
-            this.btnCyfra1.Text = "1";
-            this.btnCyfra1.UseVisualStyleBackColor = true;
-            this.btnCyfra1.Click += new System.EventHandler(this.btnLiczba);
+            this.btnNumber1.Location = new System.Drawing.Point(17, 37);
+            this.btnNumber1.Name = "btnNumber1";
+            this.btnNumber1.Size = new System.Drawing.Size(42, 42);
+            this.btnNumber1.TabIndex = 1;
+            this.btnNumber1.Text = "1";
+            this.btnNumber1.UseVisualStyleBackColor = true;
+            this.btnNumber1.Click += new System.EventHandler(this.btnNumber);
             // 
-            // txtWynikKalkulator
+            // txtResultCalculator
             // 
-            this.txtWynikKalkulator.BackColor = System.Drawing.Color.LightBlue;
-            this.txtWynikKalkulator.Location = new System.Drawing.Point(17, 10);
-            this.txtWynikKalkulator.Name = "txtWynikKalkulator";
-            this.txtWynikKalkulator.Size = new System.Drawing.Size(199, 20);
-            this.txtWynikKalkulator.TabIndex = 0;
+            this.txtResultCalculator.BackColor = System.Drawing.Color.LightBlue;
+            this.txtResultCalculator.Location = new System.Drawing.Point(17, 10);
+            this.txtResultCalculator.Name = "txtResultCalculator";
+            this.txtResultCalculator.Size = new System.Drawing.Size(199, 20);
+            this.txtResultCalculator.TabIndex = 0;
             // 
-            // tabKopiowanie
+            // tabCopy
             // 
-            this.tabKopiowanie.Controls.Add(this.WybierzSciezke);
-            this.tabKopiowanie.Controls.Add(this.btnDodaj);
-            this.tabKopiowanie.Controls.Add(this.btnWczytajOpisy);
-            this.tabKopiowanie.Controls.Add(this.lblWyciag);
-            this.tabKopiowanie.Controls.Add(this.lbOpisy);
-            this.tabKopiowanie.Controls.Add(this.txtSchowek2);
-            this.tabKopiowanie.Controls.Add(this.txtSchowek1);
-            this.tabKopiowanie.Controls.Add(this.lblSchowek);
-            this.tabKopiowanie.Location = new System.Drawing.Point(4, 22);
-            this.tabKopiowanie.Name = "tabKopiowanie";
-            this.tabKopiowanie.Padding = new System.Windows.Forms.Padding(3);
-            this.tabKopiowanie.Size = new System.Drawing.Size(237, 252);
-            this.tabKopiowanie.TabIndex = 3;
-            this.tabKopiowanie.UseVisualStyleBackColor = true;
+            this.tabCopy.Controls.Add(this.btnChoosePath);
+            this.tabCopy.Controls.Add(this.btnAddDescriptions);
+            this.tabCopy.Controls.Add(this.btnLoadDescriptions);
+            this.tabCopy.Controls.Add(this.lblWyciag);
+            this.tabCopy.Controls.Add(this.lbDescriptions);
+            this.tabCopy.Controls.Add(this.txtClipboard2);
+            this.tabCopy.Controls.Add(this.txtClipboard);
+            this.tabCopy.Controls.Add(this.lblClipboard);
+            this.tabCopy.Location = new System.Drawing.Point(4, 40);
+            this.tabCopy.Name = "tabCopy";
+            this.tabCopy.Padding = new System.Windows.Forms.Padding(3);
+            this.tabCopy.Size = new System.Drawing.Size(237, 234);
+            this.tabCopy.TabIndex = 3;
+            this.tabCopy.UseVisualStyleBackColor = true;
             // 
-            // WybierzSciezke
+            // btnChoosePath
             // 
-            this.WybierzSciezke.Location = new System.Drawing.Point(153, 155);
-            this.WybierzSciezke.Name = "WybierzSciezke";
-            this.WybierzSciezke.Size = new System.Drawing.Size(75, 38);
-            this.WybierzSciezke.TabIndex = 7;
-            this.WybierzSciezke.Text = "Wybierz Ścieżkę";
-            this.WybierzSciezke.UseVisualStyleBackColor = true;
-            this.WybierzSciezke.Click += new System.EventHandler(this.WybierzSciezke_Click);
+            this.btnChoosePath.Location = new System.Drawing.Point(153, 155);
+            this.btnChoosePath.Name = "btnChoosePath";
+            this.btnChoosePath.Size = new System.Drawing.Size(75, 38);
+            this.btnChoosePath.TabIndex = 7;
+            this.btnChoosePath.Text = "Wybierz Ścieżkę";
+            this.btnChoosePath.UseVisualStyleBackColor = true;
+            this.btnChoosePath.Click += new System.EventHandler(this.AddPath_Click);
             // 
-            // btnDodaj
+            // btnAddDescriptions
             // 
-            this.btnDodaj.Location = new System.Drawing.Point(153, 126);
-            this.btnDodaj.Name = "btnDodaj";
-            this.btnDodaj.Size = new System.Drawing.Size(75, 23);
-            this.btnDodaj.TabIndex = 6;
-            this.btnDodaj.Text = "Dodaj";
-            this.btnDodaj.UseVisualStyleBackColor = true;
-            this.btnDodaj.Click += new System.EventHandler(this.btnDodaj_Click);
+            this.btnAddDescriptions.Location = new System.Drawing.Point(153, 126);
+            this.btnAddDescriptions.Name = "btnAddDescriptions";
+            this.btnAddDescriptions.Size = new System.Drawing.Size(75, 23);
+            this.btnAddDescriptions.TabIndex = 6;
+            this.btnAddDescriptions.Text = "Dodaj";
+            this.btnAddDescriptions.UseVisualStyleBackColor = true;
+            this.btnAddDescriptions.Click += new System.EventHandler(this.btnAddPath_Click);
             // 
-            // btnWczytajOpisy
+            // btnLoadDescriptions
             // 
-            this.btnWczytajOpisy.Location = new System.Drawing.Point(153, 97);
-            this.btnWczytajOpisy.Name = "btnWczytajOpisy";
-            this.btnWczytajOpisy.Size = new System.Drawing.Size(75, 23);
-            this.btnWczytajOpisy.TabIndex = 5;
-            this.btnWczytajOpisy.Text = "Wczytaj";
-            this.btnWczytajOpisy.UseVisualStyleBackColor = true;
-            this.btnWczytajOpisy.Click += new System.EventHandler(this.btnWczytajOpisy_Click);
+            this.btnLoadDescriptions.Location = new System.Drawing.Point(153, 97);
+            this.btnLoadDescriptions.Name = "btnLoadDescriptions";
+            this.btnLoadDescriptions.Size = new System.Drawing.Size(75, 23);
+            this.btnLoadDescriptions.TabIndex = 5;
+            this.btnLoadDescriptions.Text = "Wczytaj";
+            this.btnLoadDescriptions.UseVisualStyleBackColor = true;
+            this.btnLoadDescriptions.Click += new System.EventHandler(this.btnLoadDescriptions_Click);
             // 
             // lblWyciag
             // 
@@ -653,218 +663,218 @@
             this.lblWyciag.TabIndex = 4;
             this.lblWyciag.Text = "Wyciąg - opisy";
             // 
-            // lbOpisy
+            // lbDescriptions
             // 
-            this.lbOpisy.FormattingEnabled = true;
-            this.lbOpisy.Location = new System.Drawing.Point(10, 97);
-            this.lbOpisy.Name = "lbOpisy";
-            this.lbOpisy.Size = new System.Drawing.Size(137, 121);
-            this.lbOpisy.TabIndex = 3;
-            this.lbOpisy.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lbOpisy_KeyDown);
+            this.lbDescriptions.FormattingEnabled = true;
+            this.lbDescriptions.Location = new System.Drawing.Point(10, 97);
+            this.lbDescriptions.Name = "lbDescriptions";
+            this.lbDescriptions.Size = new System.Drawing.Size(137, 121);
+            this.lbDescriptions.TabIndex = 3;
+            this.lbDescriptions.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lbDescriptions_KeyDown);
             // 
-            // txtSchowek2
+            // txtClipboard2
             // 
-            this.txtSchowek2.Location = new System.Drawing.Point(10, 50);
-            this.txtSchowek2.Name = "txtSchowek2";
-            this.txtSchowek2.Size = new System.Drawing.Size(218, 20);
-            this.txtSchowek2.TabIndex = 2;
-            this.txtSchowek2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSchowek2_KeyDown);
+            this.txtClipboard2.Location = new System.Drawing.Point(10, 50);
+            this.txtClipboard2.Name = "txtClipboard2";
+            this.txtClipboard2.Size = new System.Drawing.Size(218, 20);
+            this.txtClipboard2.TabIndex = 2;
+            this.txtClipboard2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtClipboard2_KeyDown);
             // 
-            // txtSchowek1
+            // txtClipboard
             // 
-            this.txtSchowek1.Location = new System.Drawing.Point(10, 24);
-            this.txtSchowek1.Name = "txtSchowek1";
-            this.txtSchowek1.Size = new System.Drawing.Size(218, 20);
-            this.txtSchowek1.TabIndex = 1;
-            this.txtSchowek1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSchowek1_KeyDown);
+            this.txtClipboard.Location = new System.Drawing.Point(10, 24);
+            this.txtClipboard.Name = "txtClipboard";
+            this.txtClipboard.Size = new System.Drawing.Size(218, 20);
+            this.txtClipboard.TabIndex = 1;
+            this.txtClipboard.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtClipboard_KeyDown);
             // 
-            // lblSchowek
+            // lblClipboard
             // 
-            this.lblSchowek.AutoSize = true;
-            this.lblSchowek.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblSchowek.Location = new System.Drawing.Point(7, 7);
-            this.lblSchowek.Name = "lblSchowek";
-            this.lblSchowek.Size = new System.Drawing.Size(69, 16);
-            this.lblSchowek.TabIndex = 0;
-            this.lblSchowek.Text = "Schowek";
+            this.lblClipboard.AutoSize = true;
+            this.lblClipboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblClipboard.Location = new System.Drawing.Point(7, 7);
+            this.lblClipboard.Name = "lblClipboard";
+            this.lblClipboard.Size = new System.Drawing.Size(69, 16);
+            this.lblClipboard.TabIndex = 0;
+            this.lblClipboard.Text = "Schowek";
             // 
             // tabCropper
             // 
-            this.tabCropper.Controls.Add(this.btnZapiszPlik);
-            this.tabCropper.Controls.Add(this.btnWczytajPlik);
-            this.tabCropper.Location = new System.Drawing.Point(4, 22);
+            this.tabCropper.Controls.Add(this.btnSavePDF);
+            this.tabCropper.Controls.Add(this.btnLoadPDF);
+            this.tabCropper.Location = new System.Drawing.Point(4, 40);
             this.tabCropper.Name = "tabCropper";
             this.tabCropper.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCropper.Size = new System.Drawing.Size(237, 252);
+            this.tabCropper.Size = new System.Drawing.Size(237, 234);
             this.tabCropper.TabIndex = 4;
             // 
-            // btnZapiszPlik
+            // btnSavePDF
             // 
-            this.btnZapiszPlik.Location = new System.Drawing.Point(59, 60);
-            this.btnZapiszPlik.Name = "btnZapiszPlik";
-            this.btnZapiszPlik.Size = new System.Drawing.Size(123, 46);
-            this.btnZapiszPlik.TabIndex = 1;
-            this.btnZapiszPlik.Text = "Zapisz";
-            this.btnZapiszPlik.UseVisualStyleBackColor = true;
-            this.btnZapiszPlik.Click += new System.EventHandler(this.btnZapiszPdf_Click);
+            this.btnSavePDF.Location = new System.Drawing.Point(59, 60);
+            this.btnSavePDF.Name = "btnSavePDF";
+            this.btnSavePDF.Size = new System.Drawing.Size(123, 46);
+            this.btnSavePDF.TabIndex = 1;
+            this.btnSavePDF.Text = "Zapisz";
+            this.btnSavePDF.UseVisualStyleBackColor = true;
+            this.btnSavePDF.Click += new System.EventHandler(this.btnZapiszPdf_Click);
             // 
-            // btnWczytajPlik
+            // btnLoadPDF
             // 
-            this.btnWczytajPlik.Location = new System.Drawing.Point(59, 8);
-            this.btnWczytajPlik.Name = "btnWczytajPlik";
-            this.btnWczytajPlik.Size = new System.Drawing.Size(123, 46);
-            this.btnWczytajPlik.TabIndex = 0;
-            this.btnWczytajPlik.Text = "Wczytaj PDF";
-            this.btnWczytajPlik.UseVisualStyleBackColor = true;
-            this.btnWczytajPlik.Click += new System.EventHandler(this.btnWczytajPlik_Click);
+            this.btnLoadPDF.Location = new System.Drawing.Point(59, 8);
+            this.btnLoadPDF.Name = "btnLoadPDF";
+            this.btnLoadPDF.Size = new System.Drawing.Size(123, 46);
+            this.btnLoadPDF.TabIndex = 0;
+            this.btnLoadPDF.Text = "Wczytaj PDF";
+            this.btnLoadPDF.UseVisualStyleBackColor = true;
+            this.btnLoadPDF.Click += new System.EventHandler(this.btnWczytajPlik_Click);
             // 
             // tabBruttoNetto
             // 
-            this.tabBruttoNetto.Controls.Add(this.stawka5);
-            this.tabBruttoNetto.Controls.Add(this.stawka8);
-            this.tabBruttoNetto.Controls.Add(this.stawka23);
-            this.tabBruttoNetto.Controls.Add(this.btnBruttoNaNetto);
-            this.tabBruttoNetto.Controls.Add(this.txtBruttoKal2);
-            this.tabBruttoNetto.Controls.Add(this.label1);
-            this.tabBruttoNetto.Controls.Add(this.txtVetKal2);
-            this.tabBruttoNetto.Controls.Add(this.label2);
-            this.tabBruttoNetto.Controls.Add(this.txtNettoKal2);
-            this.tabBruttoNetto.Controls.Add(this.lblNettoKal2);
-            this.tabBruttoNetto.Controls.Add(this.btnNettoNaBrutto);
-            this.tabBruttoNetto.Controls.Add(this.txtBruttoKal);
-            this.tabBruttoNetto.Controls.Add(this.lblBruttoKal);
+            this.tabBruttoNetto.Controls.Add(this.rate5);
+            this.tabBruttoNetto.Controls.Add(this.rate8);
+            this.tabBruttoNetto.Controls.Add(this.rate23);
+            this.tabBruttoNetto.Controls.Add(this.btnBruttoToNetto);
+            this.tabBruttoNetto.Controls.Add(this.txtBruttoCal2);
+            this.tabBruttoNetto.Controls.Add(this.lblBruttoCal2);
+            this.tabBruttoNetto.Controls.Add(this.txtVetCal2);
+            this.tabBruttoNetto.Controls.Add(this.lblVatCal2);
+            this.tabBruttoNetto.Controls.Add(this.txtNettoCal2);
+            this.tabBruttoNetto.Controls.Add(this.lblNettoCal2);
+            this.tabBruttoNetto.Controls.Add(this.btnNettoToBrutto);
+            this.tabBruttoNetto.Controls.Add(this.txtBruttoCal);
+            this.tabBruttoNetto.Controls.Add(this.lblBruttoCal);
             this.tabBruttoNetto.Controls.Add(this.txtVatKal);
-            this.tabBruttoNetto.Controls.Add(this.lblVatKal);
-            this.tabBruttoNetto.Controls.Add(this.txtNettoKal);
-            this.tabBruttoNetto.Controls.Add(this.lblNettoKal);
+            this.tabBruttoNetto.Controls.Add(this.lblVatCal);
+            this.tabBruttoNetto.Controls.Add(this.txtNettoCal);
+            this.tabBruttoNetto.Controls.Add(this.lblNettoCal);
             this.tabBruttoNetto.Location = new System.Drawing.Point(4, 40);
             this.tabBruttoNetto.Name = "tabBruttoNetto";
             this.tabBruttoNetto.Size = new System.Drawing.Size(237, 234);
             this.tabBruttoNetto.TabIndex = 5;
             this.tabBruttoNetto.UseVisualStyleBackColor = true;
             // 
-            // stawka5
+            // rate5
             // 
-            this.stawka5.AutoSize = true;
-            this.stawka5.Location = new System.Drawing.Point(180, 202);
-            this.stawka5.Name = "stawka5";
-            this.stawka5.Size = new System.Drawing.Size(39, 17);
-            this.stawka5.TabIndex = 16;
-            this.stawka5.TabStop = true;
-            this.stawka5.Text = "5%";
-            this.stawka5.UseVisualStyleBackColor = true;
+            this.rate5.AutoSize = true;
+            this.rate5.Location = new System.Drawing.Point(180, 202);
+            this.rate5.Name = "rate5";
+            this.rate5.Size = new System.Drawing.Size(39, 17);
+            this.rate5.TabIndex = 16;
+            this.rate5.TabStop = true;
+            this.rate5.Text = "5%";
+            this.rate5.UseVisualStyleBackColor = true;
             // 
-            // stawka8
+            // rate8
             // 
-            this.stawka8.AutoSize = true;
-            this.stawka8.Location = new System.Drawing.Point(103, 202);
-            this.stawka8.Name = "stawka8";
-            this.stawka8.Size = new System.Drawing.Size(39, 17);
-            this.stawka8.TabIndex = 15;
-            this.stawka8.TabStop = true;
-            this.stawka8.Text = "8%";
-            this.stawka8.UseVisualStyleBackColor = true;
+            this.rate8.AutoSize = true;
+            this.rate8.Location = new System.Drawing.Point(103, 202);
+            this.rate8.Name = "rate8";
+            this.rate8.Size = new System.Drawing.Size(39, 17);
+            this.rate8.TabIndex = 15;
+            this.rate8.TabStop = true;
+            this.rate8.Text = "8%";
+            this.rate8.UseVisualStyleBackColor = true;
             // 
-            // stawka23
+            // rate23
             // 
-            this.stawka23.AutoSize = true;
-            this.stawka23.Location = new System.Drawing.Point(19, 202);
-            this.stawka23.Name = "stawka23";
-            this.stawka23.Size = new System.Drawing.Size(45, 17);
-            this.stawka23.TabIndex = 14;
-            this.stawka23.TabStop = true;
-            this.stawka23.Text = "23%";
-            this.stawka23.UseVisualStyleBackColor = true;
+            this.rate23.AutoSize = true;
+            this.rate23.Location = new System.Drawing.Point(19, 202);
+            this.rate23.Name = "rate23";
+            this.rate23.Size = new System.Drawing.Size(45, 17);
+            this.rate23.TabIndex = 14;
+            this.rate23.TabStop = true;
+            this.rate23.Text = "23%";
+            this.rate23.UseVisualStyleBackColor = true;
             // 
-            // btnBruttoNaNetto
+            // btnBruttoToNetto
             // 
-            this.btnBruttoNaNetto.Location = new System.Drawing.Point(140, 155);
-            this.btnBruttoNaNetto.Name = "btnBruttoNaNetto";
-            this.btnBruttoNaNetto.Size = new System.Drawing.Size(75, 41);
-            this.btnBruttoNaNetto.TabIndex = 13;
-            this.btnBruttoNaNetto.Text = "Brutto Na Netto";
-            this.btnBruttoNaNetto.UseVisualStyleBackColor = true;
-            this.btnBruttoNaNetto.Click += new System.EventHandler(this.btnBruttoNaNetto_Click);
+            this.btnBruttoToNetto.Location = new System.Drawing.Point(140, 155);
+            this.btnBruttoToNetto.Name = "btnBruttoToNetto";
+            this.btnBruttoToNetto.Size = new System.Drawing.Size(75, 41);
+            this.btnBruttoToNetto.TabIndex = 13;
+            this.btnBruttoToNetto.Text = "Brutto Na Netto";
+            this.btnBruttoToNetto.UseVisualStyleBackColor = true;
+            this.btnBruttoToNetto.Click += new System.EventHandler(this.btnBruttoToNetto_Click);
             // 
-            // txtBruttoKal2
+            // txtBruttoCal2
             // 
-            this.txtBruttoKal2.Location = new System.Drawing.Point(126, 26);
-            this.txtBruttoKal2.Name = "txtBruttoKal2";
-            this.txtBruttoKal2.Size = new System.Drawing.Size(100, 20);
-            this.txtBruttoKal2.TabIndex = 12;
+            this.txtBruttoCal2.Location = new System.Drawing.Point(126, 26);
+            this.txtBruttoCal2.Name = "txtBruttoCal2";
+            this.txtBruttoCal2.Size = new System.Drawing.Size(100, 20);
+            this.txtBruttoCal2.TabIndex = 12;
             // 
-            // label1
+            // lblBruttoCal2
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.471698F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(123, 10);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 13);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "Brutto";
+            this.lblBruttoCal2.AutoSize = true;
+            this.lblBruttoCal2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.471698F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblBruttoCal2.Location = new System.Drawing.Point(123, 10);
+            this.lblBruttoCal2.Name = "lblBruttoCal2";
+            this.lblBruttoCal2.Size = new System.Drawing.Size(41, 13);
+            this.lblBruttoCal2.TabIndex = 11;
+            this.lblBruttoCal2.Text = "Brutto";
             // 
-            // txtVetKal2
+            // txtVetCal2
             // 
-            this.txtVetKal2.Location = new System.Drawing.Point(126, 72);
-            this.txtVetKal2.Name = "txtVetKal2";
-            this.txtVetKal2.Size = new System.Drawing.Size(100, 20);
-            this.txtVetKal2.TabIndex = 10;
+            this.txtVetCal2.Location = new System.Drawing.Point(126, 72);
+            this.txtVetCal2.Name = "txtVetCal2";
+            this.txtVetCal2.Size = new System.Drawing.Size(100, 20);
+            this.txtVetCal2.TabIndex = 10;
             // 
-            // label2
+            // lblVatCal2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.471698F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.Location = new System.Drawing.Point(123, 56);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(31, 13);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "VAT";
+            this.lblVatCal2.AutoSize = true;
+            this.lblVatCal2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.471698F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblVatCal2.Location = new System.Drawing.Point(123, 56);
+            this.lblVatCal2.Name = "lblVatCal2";
+            this.lblVatCal2.Size = new System.Drawing.Size(31, 13);
+            this.lblVatCal2.TabIndex = 9;
+            this.lblVatCal2.Text = "VAT";
             // 
-            // txtNettoKal2
+            // txtNettoCal2
             // 
-            this.txtNettoKal2.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtNettoKal2.Location = new System.Drawing.Point(126, 120);
-            this.txtNettoKal2.Name = "txtNettoKal2";
-            this.txtNettoKal2.Size = new System.Drawing.Size(100, 20);
-            this.txtNettoKal2.TabIndex = 8;
+            this.txtNettoCal2.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtNettoCal2.Location = new System.Drawing.Point(126, 120);
+            this.txtNettoCal2.Name = "txtNettoCal2";
+            this.txtNettoCal2.Size = new System.Drawing.Size(100, 20);
+            this.txtNettoCal2.TabIndex = 8;
             // 
-            // lblNettoKal2
+            // lblNettoCal2
             // 
-            this.lblNettoKal2.AutoSize = true;
-            this.lblNettoKal2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.471698F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblNettoKal2.Location = new System.Drawing.Point(123, 104);
-            this.lblNettoKal2.Name = "lblNettoKal2";
-            this.lblNettoKal2.Size = new System.Drawing.Size(38, 13);
-            this.lblNettoKal2.TabIndex = 7;
-            this.lblNettoKal2.Text = "Netto";
+            this.lblNettoCal2.AutoSize = true;
+            this.lblNettoCal2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.471698F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblNettoCal2.Location = new System.Drawing.Point(123, 104);
+            this.lblNettoCal2.Name = "lblNettoCal2";
+            this.lblNettoCal2.Size = new System.Drawing.Size(38, 13);
+            this.lblNettoCal2.TabIndex = 7;
+            this.lblNettoCal2.Text = "Netto";
             // 
-            // btnNettoNaBrutto
+            // btnNettoToBrutto
             // 
-            this.btnNettoNaBrutto.Location = new System.Drawing.Point(22, 155);
-            this.btnNettoNaBrutto.Name = "btnNettoNaBrutto";
-            this.btnNettoNaBrutto.Size = new System.Drawing.Size(75, 41);
-            this.btnNettoNaBrutto.TabIndex = 6;
-            this.btnNettoNaBrutto.Text = "Netto na Brutto";
-            this.btnNettoNaBrutto.UseVisualStyleBackColor = true;
-            this.btnNettoNaBrutto.Click += new System.EventHandler(this.btnNettoNaBrutto_Click);
+            this.btnNettoToBrutto.Location = new System.Drawing.Point(22, 155);
+            this.btnNettoToBrutto.Name = "btnNettoToBrutto";
+            this.btnNettoToBrutto.Size = new System.Drawing.Size(75, 41);
+            this.btnNettoToBrutto.TabIndex = 6;
+            this.btnNettoToBrutto.Text = "Netto na Brutto";
+            this.btnNettoToBrutto.UseVisualStyleBackColor = true;
+            this.btnNettoToBrutto.Click += new System.EventHandler(this.btnNettoToBrutto_Click);
             // 
-            // txtBruttoKal
+            // txtBruttoCal
             // 
-            this.txtBruttoKal.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtBruttoKal.Location = new System.Drawing.Point(12, 120);
-            this.txtBruttoKal.Name = "txtBruttoKal";
-            this.txtBruttoKal.Size = new System.Drawing.Size(100, 20);
-            this.txtBruttoKal.TabIndex = 5;
+            this.txtBruttoCal.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtBruttoCal.Location = new System.Drawing.Point(12, 120);
+            this.txtBruttoCal.Name = "txtBruttoCal";
+            this.txtBruttoCal.Size = new System.Drawing.Size(100, 20);
+            this.txtBruttoCal.TabIndex = 5;
             // 
-            // lblBruttoKal
+            // lblBruttoCal
             // 
-            this.lblBruttoKal.AutoSize = true;
-            this.lblBruttoKal.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.471698F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblBruttoKal.Location = new System.Drawing.Point(9, 104);
-            this.lblBruttoKal.Name = "lblBruttoKal";
-            this.lblBruttoKal.Size = new System.Drawing.Size(41, 13);
-            this.lblBruttoKal.TabIndex = 4;
-            this.lblBruttoKal.Text = "Brutto";
+            this.lblBruttoCal.AutoSize = true;
+            this.lblBruttoCal.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.471698F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblBruttoCal.Location = new System.Drawing.Point(9, 104);
+            this.lblBruttoCal.Name = "lblBruttoCal";
+            this.lblBruttoCal.Size = new System.Drawing.Size(41, 13);
+            this.lblBruttoCal.TabIndex = 4;
+            this.lblBruttoCal.Text = "Brutto";
             // 
             // txtVatKal
             // 
@@ -873,201 +883,327 @@
             this.txtVatKal.Size = new System.Drawing.Size(100, 20);
             this.txtVatKal.TabIndex = 3;
             // 
-            // lblVatKal
+            // lblVatCal
             // 
-            this.lblVatKal.AutoSize = true;
-            this.lblVatKal.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.471698F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblVatKal.Location = new System.Drawing.Point(9, 56);
-            this.lblVatKal.Name = "lblVatKal";
-            this.lblVatKal.Size = new System.Drawing.Size(31, 13);
-            this.lblVatKal.TabIndex = 2;
-            this.lblVatKal.Text = "VAT";
+            this.lblVatCal.AutoSize = true;
+            this.lblVatCal.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.471698F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblVatCal.Location = new System.Drawing.Point(9, 56);
+            this.lblVatCal.Name = "lblVatCal";
+            this.lblVatCal.Size = new System.Drawing.Size(31, 13);
+            this.lblVatCal.TabIndex = 2;
+            this.lblVatCal.Text = "VAT";
             // 
-            // txtNettoKal
+            // txtNettoCal
             // 
-            this.txtNettoKal.Location = new System.Drawing.Point(12, 26);
-            this.txtNettoKal.Name = "txtNettoKal";
-            this.txtNettoKal.Size = new System.Drawing.Size(100, 20);
-            this.txtNettoKal.TabIndex = 1;
+            this.txtNettoCal.Location = new System.Drawing.Point(12, 26);
+            this.txtNettoCal.Name = "txtNettoCal";
+            this.txtNettoCal.Size = new System.Drawing.Size(100, 20);
+            this.txtNettoCal.TabIndex = 1;
             // 
-            // lblNettoKal
+            // lblNettoCal
             // 
-            this.lblNettoKal.AutoSize = true;
-            this.lblNettoKal.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.471698F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblNettoKal.Location = new System.Drawing.Point(9, 10);
-            this.lblNettoKal.Name = "lblNettoKal";
-            this.lblNettoKal.Size = new System.Drawing.Size(38, 13);
-            this.lblNettoKal.TabIndex = 0;
-            this.lblNettoKal.Text = "Netto";
+            this.lblNettoCal.AutoSize = true;
+            this.lblNettoCal.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.471698F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblNettoCal.Location = new System.Drawing.Point(9, 10);
+            this.lblNettoCal.Name = "lblNettoCal";
+            this.lblNettoCal.Size = new System.Drawing.Size(38, 13);
+            this.lblNettoCal.TabIndex = 0;
+            this.lblNettoCal.Text = "Netto";
             // 
-            // tabNazwaSkrocona
+            // tabShortName
             // 
-            this.tabNazwaSkrocona.Controls.Add(this.btnZamien);
-            this.tabNazwaSkrocona.Controls.Add(this.txtDuzeWynik);
-            this.tabNazwaSkrocona.Controls.Add(this.label4);
-            this.tabNazwaSkrocona.Controls.Add(this.txtDuzeLitery);
-            this.tabNazwaSkrocona.Location = new System.Drawing.Point(4, 40);
-            this.tabNazwaSkrocona.Name = "tabNazwaSkrocona";
-            this.tabNazwaSkrocona.Padding = new System.Windows.Forms.Padding(3);
-            this.tabNazwaSkrocona.Size = new System.Drawing.Size(237, 234);
-            this.tabNazwaSkrocona.TabIndex = 6;
-            this.tabNazwaSkrocona.UseVisualStyleBackColor = true;
+            this.tabShortName.Controls.Add(this.btnChangeToUpper);
+            this.tabShortName.Controls.Add(this.txtToUpperResult);
+            this.tabShortName.Controls.Add(this.lblShortName);
+            this.tabShortName.Controls.Add(this.txtToUpperLetters);
+            this.tabShortName.Location = new System.Drawing.Point(4, 40);
+            this.tabShortName.Name = "tabShortName";
+            this.tabShortName.Padding = new System.Windows.Forms.Padding(3);
+            this.tabShortName.Size = new System.Drawing.Size(237, 234);
+            this.tabShortName.TabIndex = 6;
+            this.tabShortName.UseVisualStyleBackColor = true;
             // 
-            // btnZamien
+            // btnChangeToUpper
             // 
-            this.btnZamien.Location = new System.Drawing.Point(6, 49);
-            this.btnZamien.Name = "btnZamien";
-            this.btnZamien.Size = new System.Drawing.Size(75, 23);
-            this.btnZamien.TabIndex = 3;
-            this.btnZamien.Text = "Zamień";
-            this.btnZamien.UseVisualStyleBackColor = true;
-            this.btnZamien.Click += new System.EventHandler(this.btnZamien_Click);
+            this.btnChangeToUpper.Location = new System.Drawing.Point(6, 49);
+            this.btnChangeToUpper.Name = "btnChangeToUpper";
+            this.btnChangeToUpper.Size = new System.Drawing.Size(75, 23);
+            this.btnChangeToUpper.TabIndex = 3;
+            this.btnChangeToUpper.Text = "Zamień";
+            this.btnChangeToUpper.UseVisualStyleBackColor = true;
+            this.btnChangeToUpper.Click += new System.EventHandler(this.btnChangeToUpper_Click);
             // 
-            // txtDuzeWynik
+            // txtToUpperResult
             // 
-            this.txtDuzeWynik.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtDuzeWynik.Location = new System.Drawing.Point(6, 92);
-            this.txtDuzeWynik.Name = "txtDuzeWynik";
-            this.txtDuzeWynik.Size = new System.Drawing.Size(225, 20);
-            this.txtDuzeWynik.TabIndex = 2;
+            this.txtToUpperResult.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtToUpperResult.Location = new System.Drawing.Point(6, 92);
+            this.txtToUpperResult.Name = "txtToUpperResult";
+            this.txtToUpperResult.Size = new System.Drawing.Size(225, 20);
+            this.txtToUpperResult.TabIndex = 2;
             // 
-            // label4
+            // lblShortName
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.471698F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.Location = new System.Drawing.Point(6, 7);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(171, 13);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Nazwa skrócona - duże litery";
+            this.lblShortName.AutoSize = true;
+            this.lblShortName.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.471698F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblShortName.Location = new System.Drawing.Point(6, 7);
+            this.lblShortName.Name = "lblShortName";
+            this.lblShortName.Size = new System.Drawing.Size(171, 13);
+            this.lblShortName.TabIndex = 1;
+            this.lblShortName.Text = "Nazwa skrócona - duże litery";
             // 
-            // txtDuzeLitery
+            // txtToUpperLetters
             // 
-            this.txtDuzeLitery.Location = new System.Drawing.Point(6, 24);
-            this.txtDuzeLitery.Name = "txtDuzeLitery";
-            this.txtDuzeLitery.Size = new System.Drawing.Size(225, 20);
-            this.txtDuzeLitery.TabIndex = 0;
+            this.txtToUpperLetters.Location = new System.Drawing.Point(6, 24);
+            this.txtToUpperLetters.Name = "txtToUpperLetters";
+            this.txtToUpperLetters.Size = new System.Drawing.Size(225, 20);
+            this.txtToUpperLetters.TabIndex = 0;
             // 
             // tabExcel
             // 
-            this.tabExcel.Controls.Add(this.btnGeneruj);
-            this.tabExcel.Controls.Add(this.txtIloscGrzbietow);
-            this.tabExcel.Controls.Add(this.lblIleGrzbietow);
+            this.tabExcel.Controls.Add(this.btnGenerateSpine);
+            this.tabExcel.Controls.Add(this.txtnumberOfSpines);
+            this.tabExcel.Controls.Add(this.lblSpineCount);
             this.tabExcel.Location = new System.Drawing.Point(4, 40);
             this.tabExcel.Name = "tabExcel";
             this.tabExcel.Size = new System.Drawing.Size(237, 234);
             this.tabExcel.TabIndex = 7;
             this.tabExcel.UseVisualStyleBackColor = true;
             // 
-            // btnGeneruj
+            // btnGenerateSpine
             // 
-            this.btnGeneruj.Location = new System.Drawing.Point(133, 21);
-            this.btnGeneruj.Name = "btnGeneruj";
-            this.btnGeneruj.Size = new System.Drawing.Size(75, 23);
-            this.btnGeneruj.TabIndex = 2;
-            this.btnGeneruj.Text = "Generuj";
-            this.btnGeneruj.UseVisualStyleBackColor = true;
-            this.btnGeneruj.Click += new System.EventHandler(this.btnGeneruj_Click);
+            this.btnGenerateSpine.Location = new System.Drawing.Point(133, 21);
+            this.btnGenerateSpine.Name = "btnGenerateSpine";
+            this.btnGenerateSpine.Size = new System.Drawing.Size(75, 23);
+            this.btnGenerateSpine.TabIndex = 2;
+            this.btnGenerateSpine.Text = "Generuj";
+            this.btnGenerateSpine.UseVisualStyleBackColor = true;
+            this.btnGenerateSpine.Click += new System.EventHandler(this.btnGenerateSpine_Click);
             // 
-            // txtIloscGrzbietow
+            // txtnumberOfSpines
             // 
-            this.txtIloscGrzbietow.Location = new System.Drawing.Point(27, 23);
-            this.txtIloscGrzbietow.Name = "txtIloscGrzbietow";
-            this.txtIloscGrzbietow.Size = new System.Drawing.Size(100, 20);
-            this.txtIloscGrzbietow.TabIndex = 1;
+            this.txtnumberOfSpines.Location = new System.Drawing.Point(27, 23);
+            this.txtnumberOfSpines.Name = "txtnumberOfSpines";
+            this.txtnumberOfSpines.Size = new System.Drawing.Size(100, 20);
+            this.txtnumberOfSpines.TabIndex = 1;
             // 
-            // lblIleGrzbietow
+            // lblSpineCount
             // 
-            this.lblIleGrzbietow.AutoSize = true;
-            this.lblIleGrzbietow.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.471698F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblIleGrzbietow.Location = new System.Drawing.Point(27, 6);
-            this.lblIleGrzbietow.Name = "lblIleGrzbietow";
-            this.lblIleGrzbietow.Size = new System.Drawing.Size(92, 13);
-            this.lblIleGrzbietow.TabIndex = 0;
-            this.lblIleGrzbietow.Text = "Ilość grzbietów";
+            this.lblSpineCount.AutoSize = true;
+            this.lblSpineCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.471698F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblSpineCount.Location = new System.Drawing.Point(27, 6);
+            this.lblSpineCount.Name = "lblSpineCount";
+            this.lblSpineCount.Size = new System.Drawing.Size(92, 13);
+            this.lblSpineCount.TabIndex = 0;
+            this.lblSpineCount.Text = "Ilość grzbietów";
             // 
-            // tabKurs
+            // tabRate
             // 
-            this.tabKurs.Controls.Add(this.lblWynikKurs);
-            this.tabKurs.Controls.Add(this.txtWynikKurs);
-            this.tabKurs.Controls.Add(this.btnObliczKurs);
-            this.tabKurs.Controls.Add(this.cbKurs);
-            this.tabKurs.Controls.Add(this.label3);
-            this.tabKurs.Controls.Add(this.lblDataKurs);
-            this.tabKurs.Controls.Add(this.dtpKurs);
-            this.tabKurs.Location = new System.Drawing.Point(4, 40);
-            this.tabKurs.Name = "tabKurs";
-            this.tabKurs.Size = new System.Drawing.Size(237, 234);
-            this.tabKurs.TabIndex = 8;
-            this.tabKurs.UseVisualStyleBackColor = true;
+            this.tabRate.Controls.Add(this.lblRateResult);
+            this.tabRate.Controls.Add(this.txtResultCurrency);
+            this.tabRate.Controls.Add(this.btnFindRate);
+            this.tabRate.Controls.Add(this.cbCurrancy);
+            this.tabRate.Controls.Add(this.lblCurrancy);
+            this.tabRate.Controls.Add(this.lblRateDate);
+            this.tabRate.Controls.Add(this.dtpExchangeRate);
+            this.tabRate.Location = new System.Drawing.Point(4, 40);
+            this.tabRate.Name = "tabRate";
+            this.tabRate.Size = new System.Drawing.Size(237, 234);
+            this.tabRate.TabIndex = 8;
+            this.tabRate.UseVisualStyleBackColor = true;
             // 
-            // lblWynikKurs
+            // lblRateResult
             // 
-            this.lblWynikKurs.AutoSize = true;
-            this.lblWynikKurs.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.471698F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblWynikKurs.Location = new System.Drawing.Point(3, 104);
-            this.lblWynikKurs.Name = "lblWynikKurs";
-            this.lblWynikKurs.Size = new System.Drawing.Size(42, 13);
-            this.lblWynikKurs.TabIndex = 6;
-            this.lblWynikKurs.Text = "Wynik";
+            this.lblRateResult.AutoSize = true;
+            this.lblRateResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.471698F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblRateResult.Location = new System.Drawing.Point(3, 104);
+            this.lblRateResult.Name = "lblRateResult";
+            this.lblRateResult.Size = new System.Drawing.Size(42, 13);
+            this.lblRateResult.TabIndex = 6;
+            this.lblRateResult.Text = "Wynik";
             // 
-            // txtWynikKurs
+            // txtResultCurrency
             // 
-            this.txtWynikKurs.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtWynikKurs.Location = new System.Drawing.Point(6, 120);
-            this.txtWynikKurs.Name = "txtWynikKurs";
-            this.txtWynikKurs.Size = new System.Drawing.Size(100, 20);
-            this.txtWynikKurs.TabIndex = 5;
+            this.txtResultCurrency.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtResultCurrency.Location = new System.Drawing.Point(6, 120);
+            this.txtResultCurrency.Name = "txtResultCurrency";
+            this.txtResultCurrency.Size = new System.Drawing.Size(100, 20);
+            this.txtResultCurrency.TabIndex = 5;
             // 
-            // btnObliczKurs
+            // btnFindRate
             // 
-            this.btnObliczKurs.Location = new System.Drawing.Point(133, 69);
-            this.btnObliczKurs.Name = "btnObliczKurs";
-            this.btnObliczKurs.Size = new System.Drawing.Size(93, 23);
-            this.btnObliczKurs.TabIndex = 4;
-            this.btnObliczKurs.Text = "Znajdź";
-            this.btnObliczKurs.UseVisualStyleBackColor = true;
-            this.btnObliczKurs.Click += new System.EventHandler(this.btnObliczKurs_Click);
+            this.btnFindRate.Location = new System.Drawing.Point(133, 69);
+            this.btnFindRate.Name = "btnFindRate";
+            this.btnFindRate.Size = new System.Drawing.Size(93, 23);
+            this.btnFindRate.TabIndex = 4;
+            this.btnFindRate.Text = "Znajdź";
+            this.btnFindRate.UseVisualStyleBackColor = true;
+            this.btnFindRate.Click += new System.EventHandler(this.btnFindRate_Click);
             // 
-            // cbKurs
+            // cbCurrancy
             // 
-            this.cbKurs.FormattingEnabled = true;
-            this.cbKurs.Items.AddRange(new object[] {
+            this.cbCurrancy.FormattingEnabled = true;
+            this.cbCurrancy.Items.AddRange(new object[] {
             "EUR",
             "USD",
             "GBP"});
-            this.cbKurs.Location = new System.Drawing.Point(6, 69);
-            this.cbKurs.Name = "cbKurs";
-            this.cbKurs.Size = new System.Drawing.Size(121, 21);
-            this.cbKurs.TabIndex = 3;
+            this.cbCurrancy.Location = new System.Drawing.Point(6, 69);
+            this.cbCurrancy.Name = "cbCurrancy";
+            this.cbCurrancy.Size = new System.Drawing.Size(121, 21);
+            this.cbCurrancy.TabIndex = 3;
             // 
-            // label3
+            // lblCurrancy
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.471698F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.Location = new System.Drawing.Point(3, 52);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(47, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Waluta";
+            this.lblCurrancy.AutoSize = true;
+            this.lblCurrancy.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.471698F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblCurrancy.Location = new System.Drawing.Point(3, 52);
+            this.lblCurrancy.Name = "lblCurrancy";
+            this.lblCurrancy.Size = new System.Drawing.Size(47, 13);
+            this.lblCurrancy.TabIndex = 2;
+            this.lblCurrancy.Text = "Waluta";
             // 
-            // lblDataKurs
+            // lblRateDate
             // 
-            this.lblDataKurs.AutoSize = true;
-            this.lblDataKurs.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.471698F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblDataKurs.Location = new System.Drawing.Point(3, 4);
-            this.lblDataKurs.Name = "lblDataKurs";
-            this.lblDataKurs.Size = new System.Drawing.Size(34, 13);
-            this.lblDataKurs.TabIndex = 1;
-            this.lblDataKurs.Text = "Data";
+            this.lblRateDate.AutoSize = true;
+            this.lblRateDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.471698F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblRateDate.Location = new System.Drawing.Point(3, 4);
+            this.lblRateDate.Name = "lblRateDate";
+            this.lblRateDate.Size = new System.Drawing.Size(34, 13);
+            this.lblRateDate.TabIndex = 1;
+            this.lblRateDate.Text = "Data";
             // 
-            // dtpKurs
+            // dtpExchangeRate
             // 
-            this.dtpKurs.Location = new System.Drawing.Point(6, 19);
-            this.dtpKurs.Name = "dtpKurs";
-            this.dtpKurs.Size = new System.Drawing.Size(220, 20);
-            this.dtpKurs.TabIndex = 0;
-            this.dtpKurs.Value = new System.DateTime(2024, 12, 11, 21, 28, 18, 0);
+            this.dtpExchangeRate.Location = new System.Drawing.Point(6, 19);
+            this.dtpExchangeRate.Name = "dtpExchangeRate";
+            this.dtpExchangeRate.Size = new System.Drawing.Size(220, 20);
+            this.dtpExchangeRate.TabIndex = 0;
+            this.dtpExchangeRate.Value = new System.DateTime(2024, 12, 11, 21, 28, 18, 0);
+            // 
+            // tabVIES
+            // 
+            this.tabVIES.Controls.Add(this.lblIsActive);
+            this.tabVIES.Controls.Add(this.btnFindVIES);
+            this.tabVIES.Controls.Add(this.lblAdress);
+            this.tabVIES.Controls.Add(this.txtAdress);
+            this.tabVIES.Controls.Add(this.txtNameVies);
+            this.tabVIES.Controls.Add(this.lblNameVies);
+            this.tabVIES.Controls.Add(this.cbCountryCode);
+            this.tabVIES.Controls.Add(this.txtNIP);
+            this.tabVIES.Controls.Add(this.lblNIP);
+            this.tabVIES.Location = new System.Drawing.Point(4, 40);
+            this.tabVIES.Name = "tabVIES";
+            this.tabVIES.Size = new System.Drawing.Size(237, 234);
+            this.tabVIES.TabIndex = 9;
+            this.tabVIES.UseVisualStyleBackColor = true;
+            // 
+            // lblIsActive
+            // 
+            this.lblIsActive.AutoSize = true;
+            this.lblIsActive.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.471698F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblIsActive.ForeColor = System.Drawing.Color.Green;
+            this.lblIsActive.Location = new System.Drawing.Point(3, 214);
+            this.lblIsActive.Name = "lblIsActive";
+            this.lblIsActive.Size = new System.Drawing.Size(41, 13);
+            this.lblIsActive.TabIndex = 14;
+            this.lblIsActive.Text = "label9";
+            // 
+            // btnFindVIES
+            // 
+            this.btnFindVIES.Location = new System.Drawing.Point(4, 51);
+            this.btnFindVIES.Name = "btnFindVIES";
+            this.btnFindVIES.Size = new System.Drawing.Size(75, 23);
+            this.btnFindVIES.TabIndex = 13;
+            this.btnFindVIES.Text = "Wyszukaj";
+            this.btnFindVIES.UseVisualStyleBackColor = true;
+            this.btnFindVIES.Click += new System.EventHandler(this.btnFindVIES_Click);
+            // 
+            // lblAdress
+            // 
+            this.lblAdress.AutoSize = true;
+            this.lblAdress.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblAdress.Location = new System.Drawing.Point(3, 123);
+            this.lblAdress.Name = "lblAdress";
+            this.lblAdress.Size = new System.Drawing.Size(48, 16);
+            this.lblAdress.TabIndex = 11;
+            this.lblAdress.Text = "Adres";
+            // 
+            // txtAdress
+            // 
+            this.txtAdress.Location = new System.Drawing.Point(6, 142);
+            this.txtAdress.Multiline = true;
+            this.txtAdress.Name = "txtAdress";
+            this.txtAdress.Size = new System.Drawing.Size(220, 69);
+            this.txtAdress.TabIndex = 10;
+            // 
+            // txtNameVies
+            // 
+            this.txtNameVies.Location = new System.Drawing.Point(6, 100);
+            this.txtNameVies.Name = "txtNameVies";
+            this.txtNameVies.Size = new System.Drawing.Size(220, 20);
+            this.txtNameVies.TabIndex = 6;
+            // 
+            // lblNameVies
+            // 
+            this.lblNameVies.AutoSize = true;
+            this.lblNameVies.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblNameVies.Location = new System.Drawing.Point(3, 84);
+            this.lblNameVies.Name = "lblNameVies";
+            this.lblNameVies.Size = new System.Drawing.Size(53, 16);
+            this.lblNameVies.TabIndex = 5;
+            this.lblNameVies.Text = "Nazwa";
+            // 
+            // cbCountryCode
+            // 
+            this.cbCountryCode.FormattingEnabled = true;
+            this.cbCountryCode.Items.AddRange(new object[] {
+            "AT",
+            "BE",
+            "BG",
+            "CY",
+            "CZ",
+            "DE",
+            "DK",
+            "EE",
+            "EL",
+            "ES",
+            "FI",
+            "FR",
+            "HR",
+            "HU",
+            "IE",
+            "IT",
+            "LT",
+            "LU",
+            "LV",
+            "MT",
+            "NL",
+            "PL",
+            "PT",
+            "RO",
+            "SE",
+            "SI",
+            "SK"});
+            this.cbCountryCode.Location = new System.Drawing.Point(4, 25);
+            this.cbCountryCode.Name = "cbCountryCode";
+            this.cbCountryCode.Size = new System.Drawing.Size(48, 21);
+            this.cbCountryCode.TabIndex = 4;
+            // 
+            // txtNIP
+            // 
+            this.txtNIP.Location = new System.Drawing.Point(58, 25);
+            this.txtNIP.Name = "txtNIP";
+            this.txtNIP.Size = new System.Drawing.Size(168, 20);
+            this.txtNIP.TabIndex = 3;
+            // 
+            // lblNIP
+            // 
+            this.lblNIP.AutoSize = true;
+            this.lblNIP.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblNIP.Location = new System.Drawing.Point(3, 6);
+            this.lblNIP.Name = "lblNIP";
+            this.lblNIP.Size = new System.Drawing.Size(81, 16);
+            this.lblNIP.TabIndex = 2;
+            this.lblNIP.Text = "Numer NIP";
             // 
             // statusStrip
             // 
@@ -1100,15 +1236,6 @@
             this.infoIcon.MouseLeave += new System.EventHandler(this.infoIcon_MouseLeave);
             this.infoIcon.MouseHover += new System.EventHandler(this.infoIcon_MouseHover);
             // 
-            // tabVIES
-            // 
-            this.tabVIES.Location = new System.Drawing.Point(4, 40);
-            this.tabVIES.Name = "tabVIES";
-            this.tabVIES.Size = new System.Drawing.Size(237, 234);
-            this.tabVIES.TabIndex = 9;
-            this.tabVIES.Text = "tabPage1";
-            this.tabVIES.UseVisualStyleBackColor = true;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1121,23 +1248,25 @@
             this.Name = "MainForm";
             this.Text = "Pomocnik ";
             this.tabControl1.ResumeLayout(false);
-            this.tabPaliwo.ResumeLayout(false);
-            this.tabPaliwo.PerformLayout();
+            this.tabFuel.ResumeLayout(false);
+            this.tabFuel.PerformLayout();
             this.tab50.ResumeLayout(false);
             this.tab50.PerformLayout();
-            this.tabKalkulator.ResumeLayout(false);
-            this.tabKalkulator.PerformLayout();
-            this.tabKopiowanie.ResumeLayout(false);
-            this.tabKopiowanie.PerformLayout();
+            this.tabCalculator.ResumeLayout(false);
+            this.tabCalculator.PerformLayout();
+            this.tabCopy.ResumeLayout(false);
+            this.tabCopy.PerformLayout();
             this.tabCropper.ResumeLayout(false);
             this.tabBruttoNetto.ResumeLayout(false);
             this.tabBruttoNetto.PerformLayout();
-            this.tabNazwaSkrocona.ResumeLayout(false);
-            this.tabNazwaSkrocona.PerformLayout();
+            this.tabShortName.ResumeLayout(false);
+            this.tabShortName.PerformLayout();
             this.tabExcel.ResumeLayout(false);
             this.tabExcel.PerformLayout();
-            this.tabKurs.ResumeLayout(false);
-            this.tabKurs.PerformLayout();
+            this.tabRate.ResumeLayout(false);
+            this.tabRate.PerformLayout();
+            this.tabVIES.ResumeLayout(false);
+            this.tabVIES.PerformLayout();
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.infoIcon)).EndInit();
@@ -1149,99 +1278,108 @@
         #endregion
 
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPaliwo;
+        private System.Windows.Forms.TabPage tabFuel;
         private System.Windows.Forms.TabPage tab50;
-        private System.Windows.Forms.TabPage tabKalkulator;
-        private System.Windows.Forms.TabPage tabKopiowanie;
-        private System.Windows.Forms.TextBox txtNetto;
-        private System.Windows.Forms.Label lblNetto;
-        private System.Windows.Forms.TextBox txtVAT;
-        private System.Windows.Forms.Label lblVAT;
-        private System.Windows.Forms.Label lblWynik;
-        private System.Windows.Forms.TextBox txtWynik;
-        private System.Windows.Forms.Label lblMnoznik;
+        private System.Windows.Forms.TabPage tabCalculator;
+        private System.Windows.Forms.TabPage tabCopy;
+        private System.Windows.Forms.TextBox txtFuelNetto;
+        private System.Windows.Forms.Label lblFuelNetto;
+        private System.Windows.Forms.TextBox txtFuelVAT;
+        private System.Windows.Forms.Label lblFuelVAT;
+        private System.Windows.Forms.Label lblFuelResult;
+        private System.Windows.Forms.TextBox txtFuelResult;
+        private System.Windows.Forms.Label lblMultiplier;
         private System.Windows.Forms.CheckBox chbLeasing;
-        private System.Windows.Forms.Button btnWynik;
+        private System.Windows.Forms.Button btnFuelResult;
         private System.Windows.Forms.RadioButton rb25;
         private System.Windows.Forms.RadioButton rb75;
-        private System.Windows.Forms.TextBox txtWynikNaPol;
-        private System.Windows.Forms.Label lblWynikNaPol;
-        private System.Windows.Forms.TextBox txtLiczba;
-        private System.Windows.Forms.Label lblLiczba;
-        private System.Windows.Forms.Button btnPodziel;
-        private System.Windows.Forms.Button btnCyfra1;
-        private System.Windows.Forms.TextBox txtWynikKalkulator;
+        private System.Windows.Forms.TextBox txtFuel50Result;
+        private System.Windows.Forms.Label lblFuel50Result;
+        private System.Windows.Forms.TextBox txtFuel50Value;
+        private System.Windows.Forms.Label lblFuel50Number;
+        private System.Windows.Forms.Button btnFuel50Divide;
+        private System.Windows.Forms.Button btnNumber1;
+        private System.Windows.Forms.TextBox txtResultCalculator;
         private System.Windows.Forms.Button btnMinus;
-        private System.Windows.Forms.Button btnDodawanie;
-        private System.Windows.Forms.Button btnDzielenie;
-        private System.Windows.Forms.Button btnMnozenie;
-        private System.Windows.Forms.Button btnWynikKalkulator;
-        private System.Windows.Forms.Button btnCyfra0;
+        private System.Windows.Forms.Button btnPlus;
+        private System.Windows.Forms.Button btnDivide;
+        private System.Windows.Forms.Button btnMulti;
+        private System.Windows.Forms.Button btnResultCalculator;
+        private System.Windows.Forms.Button btnNumber0;
         private System.Windows.Forms.Button btnClear;
-        private System.Windows.Forms.Button btnCyfra9;
-        private System.Windows.Forms.Button btnCyfra8;
-        private System.Windows.Forms.Button btnCyfra7;
-        private System.Windows.Forms.Button btnCyfra6;
-        private System.Windows.Forms.Button btnCyfra5;
-        private System.Windows.Forms.Button btnCyfra4;
-        private System.Windows.Forms.Button btnCyfra3;
-        private System.Windows.Forms.Button btnCyfra2;
+        private System.Windows.Forms.Button btnNumber9;
+        private System.Windows.Forms.Button btnNumber8;
+        private System.Windows.Forms.Button btnNumber7;
+        private System.Windows.Forms.Button btnNumber6;
+        private System.Windows.Forms.Button btnNumber5;
+        private System.Windows.Forms.Button btnNumber4;
+        private System.Windows.Forms.Button btnNumber3;
+        private System.Windows.Forms.Button btnNumber2;
         private System.Windows.Forms.Label lblWyciag;
-        private System.Windows.Forms.ListBox lbOpisy;
-        private System.Windows.Forms.TextBox txtSchowek2;
-        private System.Windows.Forms.TextBox txtSchowek1;
-        private System.Windows.Forms.Label lblSchowek;
-        private System.Windows.Forms.Button btnWczytajOpisy;
-        private System.Windows.Forms.Button btnDodaj;
+        private System.Windows.Forms.ListBox lbDescriptions;
+        private System.Windows.Forms.TextBox txtClipboard2;
+        private System.Windows.Forms.TextBox txtClipboard;
+        private System.Windows.Forms.Label lblClipboard;
+        private System.Windows.Forms.Button btnLoadDescriptions;
+        private System.Windows.Forms.Button btnAddDescriptions;
         private System.Windows.Forms.TabPage tabCropper;
         private System.Windows.Forms.RadioButton rb020;
         private System.Windows.Forms.RadioButton rb075;
         private System.Windows.Forms.RadioButton rb50;
         private System.Windows.Forms.TabPage tabBruttoNetto;
-        private System.Windows.Forms.Label lblNettoKal;
-        private System.Windows.Forms.TextBox txtNettoKal;
-        private System.Windows.Forms.Button btnBruttoNaNetto;
-        private System.Windows.Forms.TextBox txtBruttoKal2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtVetKal2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtNettoKal2;
-        private System.Windows.Forms.Label lblNettoKal2;
-        private System.Windows.Forms.Button btnNettoNaBrutto;
-        private System.Windows.Forms.TextBox txtBruttoKal;
-        private System.Windows.Forms.Label lblBruttoKal;
+        private System.Windows.Forms.Label lblNettoCal;
+        private System.Windows.Forms.TextBox txtNettoCal;
+        private System.Windows.Forms.Button btnBruttoToNetto;
+        private System.Windows.Forms.TextBox txtBruttoCal2;
+        private System.Windows.Forms.Label lblBruttoCal2;
+        private System.Windows.Forms.TextBox txtVetCal2;
+        private System.Windows.Forms.Label lblVatCal2;
+        private System.Windows.Forms.TextBox txtNettoCal2;
+        private System.Windows.Forms.Label lblNettoCal2;
+        private System.Windows.Forms.Button btnNettoToBrutto;
+        private System.Windows.Forms.TextBox txtBruttoCal;
+        private System.Windows.Forms.Label lblBruttoCal;
         private System.Windows.Forms.TextBox txtVatKal;
-        private System.Windows.Forms.Label lblVatKal;
-        private System.Windows.Forms.RadioButton stawka5;
-        private System.Windows.Forms.RadioButton stawka8;
-        private System.Windows.Forms.RadioButton stawka23;
-        private System.Windows.Forms.TabPage tabNazwaSkrocona;
-        private System.Windows.Forms.Button btnZamien;
-        private System.Windows.Forms.TextBox txtDuzeWynik;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtDuzeLitery;
-        private System.Windows.Forms.Button btnZapiszPlik;
-        private System.Windows.Forms.Button btnWczytajPlik;
-        private System.Windows.Forms.TextBox txtNettoNaPol;
-        private System.Windows.Forms.Label lblPolNetto;
+        private System.Windows.Forms.Label lblVatCal;
+        private System.Windows.Forms.RadioButton rate5;
+        private System.Windows.Forms.RadioButton rate8;
+        private System.Windows.Forms.RadioButton rate23;
+        private System.Windows.Forms.TabPage tabShortName;
+        private System.Windows.Forms.Button btnChangeToUpper;
+        private System.Windows.Forms.TextBox txtToUpperResult;
+        private System.Windows.Forms.Label lblShortName;
+        private System.Windows.Forms.TextBox txtToUpperLetters;
+        private System.Windows.Forms.Button btnSavePDF;
+        private System.Windows.Forms.Button btnLoadPDF;
+        private System.Windows.Forms.TextBox txtFuelHalfNetto;
+        private System.Windows.Forms.Label lblFuelHalfNetto;
         private System.Windows.Forms.TabPage tabExcel;
         private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel;
-        private System.Windows.Forms.Button btnGeneruj;
-        private System.Windows.Forms.TextBox txtIloscGrzbietow;
-        private System.Windows.Forms.Label lblIleGrzbietow;
+        private System.Windows.Forms.Button btnGenerateSpine;
+        private System.Windows.Forms.TextBox txtnumberOfSpines;
+        private System.Windows.Forms.Label lblSpineCount;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.PictureBox infoIcon;
-        private System.Windows.Forms.Button WybierzSciezke;
-        private System.Windows.Forms.TabPage tabKurs;
-        private System.Windows.Forms.DateTimePicker dtpKurs;
-        private System.Windows.Forms.ComboBox cbKurs;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label lblDataKurs;
-        private System.Windows.Forms.Label lblWynikKurs;
-        private System.Windows.Forms.TextBox txtWynikKurs;
-        private System.Windows.Forms.Button btnObliczKurs;
+        private System.Windows.Forms.Button btnChoosePath;
+        private System.Windows.Forms.TabPage tabRate;
+        private System.Windows.Forms.DateTimePicker dtpExchangeRate;
+        private System.Windows.Forms.ComboBox cbCurrancy;
+        private System.Windows.Forms.Label lblCurrancy;
+        private System.Windows.Forms.Label lblRateDate;
+        private System.Windows.Forms.Label lblRateResult;
+        private System.Windows.Forms.TextBox txtResultCurrency;
+        private System.Windows.Forms.Button btnFindRate;
         private System.Windows.Forms.TabPage tabVIES;
+        private System.Windows.Forms.TextBox txtNIP;
+        private System.Windows.Forms.Label lblNIP;
+        private System.Windows.Forms.ComboBox cbCountryCode;
+        private System.Windows.Forms.Label lblIsActive;
+        private System.Windows.Forms.Button btnFindVIES;
+        private System.Windows.Forms.Label lblAdress;
+        private System.Windows.Forms.TextBox txtAdress;
+        private System.Windows.Forms.TextBox txtNameVies;
+        private System.Windows.Forms.Label lblNameVies;
     }
 }
 

@@ -1,64 +1,50 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using PdfSharp;
-using PdfSharp.Pdf.IO;
-using PdfSharp.Pdf;
-using PdfSharp.Drawing;
-using System.Xml.Serialization;
 using System.IO;
-using System.Windows.Forms.VisualStyles;
-using Newtonsoft.Json.Linq;
-using System.Net.Http;
-
-
-
+using ViesInfo;
+using Padi.Vies;
 
 namespace PomocnikKsiegowy
 {
     public partial class MainForm : Form
     {
-        PaliwoManager paliwoManager = new PaliwoManager();
-        Paliwo paliwo;
+        FuelManager fuelManager = new FuelManager();
 
-        PiedziesiatProcent naPol = new PiedziesiatProcent();
+        Fuel fuel;
 
-        ManagerKalkulator managerKalkulator = new ManagerKalkulator();
-        Kalkulator kalkulator = new Kalkulator();
+        Half toHalf = new Half();
 
-        ManagerOpisow managerOpisow = new ManagerOpisow();
+        CalculatorManager calculatorManager = new CalculatorManager();
 
-        NowyOpisForm oknoDodaj;
+        Calculator calculator = new Calculator();
+
+        DescriptionManager descriptionManager = new DescriptionManager();
+
+        DescriptionForm descriptionForm;
 
         BruttoNetto bruttoNetto = new BruttoNetto();
 
-        NaDuze naDuze = new NaDuze();
+        TextToUpper textToUpper = new TextToUpper();
+
+        FileManager save = new FileManager();
 
         ImageList imageList;
 
-        string pdfFilePath;
-        string outputFilePath;
+        List<Spine> Spines;
 
-        List<Grzbiety> grzbiety;
-
-        List<DodajGrzbiety> dodaneGrzbiety = new List<DodajGrzbiety>();
+        List<AddSpines> addedSpines = new List<AddSpines>();
 
         ToolTipsForTabs toolTipsForTabs = new ToolTipsForTabs();
 
         string[] toolTipsTabs;
 
-        string binPath;
-        string folderPath;
+        string excelFolderPath;
+
         string fileName;
 
-        string filePath;
+        string excelFilePath;
 
         public MainForm()
         {
@@ -68,96 +54,152 @@ namespace PomocnikKsiegowy
 
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
 
-            UstawIkony();
+            SetIcons();
 
             toolStripStatusLabel.Text = "";
 
-            txtWynik.ReadOnly = true;
-            txtWynikNaPol.ReadOnly = true;
-            txtBruttoKal.ReadOnly = true;
-            txtNettoKal2.ReadOnly = true;
-            txtDuzeWynik.ReadOnly = true;
-            txtNettoNaPol.ReadOnly = true;
-            txtWynikKurs.ReadOnly = true;
+            txtFuelResult.ReadOnly = true;
+            txtFuel50Result.ReadOnly = true;
+            txtBruttoCal.ReadOnly = true;
+            txtNettoCal2.ReadOnly = true;
+            txtToUpperResult.ReadOnly = true;
+            txtFuelHalfNetto.ReadOnly = true;
+            txtResultCurrency.ReadOnly = true;
+            //VIES
+            txtNameVies.ReadOnly = true;
+            txtAdress.ReadOnly = true;
+            lblIsActive.Visible = false;
 
-            dtpKurs.CustomFormat = "yyyy MM dd";
+            dtpExchangeRate.CustomFormat = "yyyy MM dd";
 
-            binPath = AppDomain.CurrentDomain.BaseDirectory;
-            folderPath = Path.Combine(binPath, "dane");
+            excelFolderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Excel");
 
             fileName = $"PlikExcel_{DateTime.Now:yyyyMMdd_HHmmss}.xlsx";
-            filePath = Path.Combine(folderPath, fileName);
+
+            excelFilePath = Path.Combine(excelFolderPath, fileName);
         }
 
-        private void btnWczytaj(object sender, EventArgs e)
+        private void btnCalculateFuel(object sender, EventArgs e)
         {
-            paliwo = new Paliwo();
+            try
+            {
+                fuel = new Fuel();
 
-            paliwo.vat = Convert.ToDouble(txtVAT.Text);
-            paliwo.netto = Convert.ToDouble(txtNetto.Text);
+                if(!double.TryParse(txtFuelVAT.Text, out double vat))
+                {
+                    MessageBox.Show("Podaj prawidłową wartość VAT!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
-            if (rb25.Checked)
-                paliwo.mnoznik = 0.20;
+                fuel.Vat = vat;
 
-            if (rb75.Checked)
-                paliwo.mnoznik = 0.75;
+                if (!double.TryParse(txtFuelNetto.Text, out double netto))
+                {
+                    MessageBox.Show("Podaj prawidłową wartość Netto!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
-            if (chbLeasing.Checked)
-                paliwo.leasing = true;
+                fuel.Netto = netto;
 
-            txtWynik.Text = paliwoManager.ObliczPaliwo(paliwo);
-            txtNettoNaPol.Text = (paliwo.netto / 2).ToString();
-            SkopiujDoSchowka(txtWynik.Text, lblWynik.Text);
+                if (rb25.Checked)
+                    fuel.Multiplier = 0.20;
+
+                if (rb75.Checked)
+                    fuel.Multiplier = 0.75;
+
+                if (chbLeasing.Checked)
+                    fuel.Leasing = true;
+
+                txtFuelResult.Text = fuelManager.CalculateFuel(fuel);
+
+                txtFuelHalfNetto.Text = (fuel.Netto / 2).ToString();
+
+                AddToClipboard(txtFuelResult.Text, lblFuelResult.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Wystąpił błąd: {ex.Message}", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        private void btnPodziel_Click(object sender, EventArgs e)
+        private void btnCalculateFuel50_Click(object sender, EventArgs e)
         {
-            double mnoznik = 0;
+            double multiplier = 0;
 
             if (rb020.Checked)
-                mnoznik = 0.20;
-            if (rb075.Checked)
-                mnoznik = 0.75;
-            if (rb50.Checked)
-                mnoznik = 0.50;
+                multiplier = 0.20;
 
-            txtWynikNaPol.Text = naPol.NaPol(txtLiczba.Text, mnoznik).ToString();
-            SkopiujDoSchowka(txtWynikNaPol.Text, lblWynikNaPol.Text);
+            if (rb075.Checked)
+                multiplier = 0.75;
+
+            if (rb50.Checked)
+                multiplier = 0.50;
+
+            if (!double.TryParse(txtFuel50Value.Text, out double value))
+            {
+                MessageBox.Show("Podaj prawidłową wartość!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            txtFuel50Result.Text = toHalf.ToHalf(value, multiplier).ToString();  
+
+            AddToClipboard(txtFuel50Result.Text, lblFuel50Result.Text);
         }
 
-        private void btnLiczba(object sender, EventArgs e)
+        private void btnNumber(object sender, EventArgs e)
         {
-            txtWynikKalkulator.Text += (sender as Button).Text;
-            txtWynikKalkulator.Focus();
+            txtResultCalculator.Text += (sender as Button).Text;
+
+            txtResultCalculator.Focus();
         }
 
         private void btnOperator_Click(object sender, EventArgs e)
         {
-            System.Windows.Forms.Button klikniety = (Button)sender;
+            Button clicked = (Button)sender;
 
-            kalkulator.operators = Convert.ToChar(klikniety.Text);
-            kalkulator.storageNumber = Convert.ToDouble(txtWynikKalkulator.Text);
+            calculator.Operators = Convert.ToChar(clicked.Text);
 
-            txtWynikKalkulator.Text = "";
-            txtWynikKalkulator.Focus();
+            if (!double.TryParse(txtResultCalculator.Text, out double resuktCalculator))
+            {
+                MessageBox.Show("Podaj prawidłową wartość!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            calculator.StorageNumber = resuktCalculator;
+
+            txtResultCalculator.Text = "";
+
+            txtResultCalculator.Focus();
         }
 
-        private void btnWynikKalkulator_Click(object sender, EventArgs e)
+        private void btnResultCalculator_Click(object sender, EventArgs e)
         {
-            kalkulator.secondNumber = Convert.ToDouble(txtWynikKalkulator.Text);
+            if (!double.TryParse(txtResultCalculator.Text, out double wynikKalkulator))
+            {
+                MessageBox.Show("Podaj prawidłową wartość!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
-            txtWynikKalkulator.Text =  managerKalkulator.Oblicz(kalkulator).ToString();
-            txtWynikKalkulator.Focus();
-            SkopiujDoSchowka(txtWynikKalkulator.Text, "Wynik");
+            calculator.SecondNumber = wynikKalkulator;
+
+            txtResultCalculator.Text =  calculatorManager.Oblicz(calculator).ToString();
+
+            txtResultCalculator.Focus();
+
+            AddToClipboard(txtResultCalculator.Text, "Wynik");
         }
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            kalkulator.operators = null;
-            kalkulator.storageNumber = 0.0;
-            kalkulator.storageNumber = 0.0;
-            txtWynikKalkulator.Text = "";
-            txtWynikKalkulator.Focus();
+            calculator.Operators = null;
+
+            calculator.StorageNumber = 0.0;
+
+            calculator.StorageNumber = 0.0;
+
+            txtResultCalculator.Text = "";
+
+            txtResultCalculator.Focus();
         }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
@@ -166,145 +208,172 @@ namespace PomocnikKsiegowy
                 switch (tabControl1.SelectedIndex)
                 {
                     case 0: 
-                        txtVAT.Focus();
+                        txtFuelVAT.Focus();
                         break;
                     case 1: 
-                        txtLiczba.Focus();
+                        txtFuel50Value.Focus();
                         break;
                     case 2: 
-                        txtWynikKalkulator.Focus();
+                        txtResultCalculator.Focus();
                         break;
                     case 3: 
-                        txtSchowek1.Focus();
+                        txtClipboard.Focus();
                         break;
                     case 5: 
-                        txtNettoKal.Focus();
+                        txtNettoCal.Focus();
                         break;
                     case 6: 
-                        txtDuzeLitery.Focus();
+                        txtToUpperLetters.Focus();
+                        break;
+                    case 7:
+                        txtnumberOfSpines.Focus();
+                        break;
+                    case 9:
+                        txtNIP.Focus();
                         break;
                 }
             }
         }
 
-        public void btnWczytajOpisy_Click(object sender, EventArgs e)
+        public void btnLoadDescriptions_Click(object sender, EventArgs e)
         {
-            List<string> dane = managerOpisow.WczytajOpisy();
-
-            lbOpisy.Items.Clear();
-            foreach (var item in dane)
+            if (string.IsNullOrWhiteSpace(descriptionManager.descritpionPath))
             {
-                lbOpisy.Items.Add(item);
+                MessageBox.Show("Brak ścieżki! Ustaw ścieżkę przed wczytaniem opisów.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            try
+            {
+                List<string> data = descriptionManager.LoadDescriptons();
+
+                lbDescriptions.Items.Clear();
+                foreach (var item in data)
+                {
+                    lbDescriptions.Items.Add(item);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Wystąpił błąd: {ex.Message}", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void lbOpisy_KeyDown(object sender, KeyEventArgs e)
+        private void lbDescriptions_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Control == true && e.KeyCode == Keys.C)
             {
-                string s = lbOpisy.SelectedItem.ToString();
-                SkopiujDoSchowka(s);             
+                string s = lbDescriptions.SelectedItem.ToString();
+
+                AddToClipboard(s);             
             }
         }
 
-        private void btnDodaj_Click(object sender, EventArgs e)
+        private void btnAddPath_Click(object sender, EventArgs e)
         {
-            oknoDodaj = new NowyOpisForm(this, managerOpisow);
-            oknoDodaj.Show();
+            if (string.IsNullOrWhiteSpace(descriptionManager.descritpionPath))
+            {
+                MessageBox.Show("Brak ścieżki! Ustaw ścieżkę przed wczytaniem opisów.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            try
+            {
+                descriptionForm = new DescriptionForm(this, descriptionManager);
+
+                descriptionForm.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Wystąpił błąd: {ex.Message}", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }            
         }
 
-        private void btnBruttoNaNetto_Click(object sender, EventArgs e)
+        private void btnBruttoToNetto_Click(object sender, EventArgs e)
         {
-            double mnoznik = 0;
+            if (!double.TryParse(txtBruttoCal2.Text, out double brutto))
+            {
+                MessageBox.Show("Proszę wprowadzić poprawną liczbę Brutto.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
-            if (stawka23.Checked)
-                mnoznik = 0.23;
-            if (stawka8.Checked)
-                mnoznik = 0.08;
-            if (stawka5.Checked)
-                mnoznik = 0.05;
+            SetMulti();
 
-            txtNettoKal2.Text = bruttoNetto.BruttoNaNetto(txtBruttoKal2.Text, mnoznik).ToString();
+            txtNettoCal2.Text = bruttoNetto.BruttoNaNetto(brutto, SetMulti()).ToString();
 
-            txtVetKal2.Text = bruttoNetto.ustalVat(txtBruttoKal2.Text, txtNettoKal2.Text).ToString();
+            double netto = double.Parse(txtNettoCal2.Text); 
+            txtVetCal2.Text = bruttoNetto.ustalVat(brutto, netto).ToString();
 
-            SkopiujDoSchowka(txtNettoKal2.Text, lblNettoKal2.Text);
+            AddToClipboard(txtNettoCal2.Text, lblNettoCal2.Text);
         }
 
-        private void btnNettoNaBrutto_Click(object sender, EventArgs e)
+        private void btnNettoToBrutto_Click(object sender, EventArgs e)
         {
-            double mnoznik = 0;
+            if (!double.TryParse(txtNettoCal.Text, out double netto))
+            {
+                MessageBox.Show("Proszę wprowadzić poprawną liczbę w polu Netto.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
-            if (stawka23.Checked)
-                mnoznik = 0.23;
-            if (stawka8.Checked)
-                mnoznik = 0.08;
-            if (stawka5.Checked)
-                mnoznik = 0.05;
+            SetMulti();
 
-            txtBruttoKal.Text = bruttoNetto.NettoNaBrutto(txtNettoKal.Text, mnoznik).ToString();
+            txtBruttoCal.Text = bruttoNetto.NettoNaBrutto(netto, SetMulti()).ToString();
 
-            txtVatKal.Text = bruttoNetto.ustalVat(txtBruttoKal.Text, txtNettoKal.Text).ToString();
+            double brutto = double.Parse(txtBruttoCal.Text); // Wartość wyliczona powinna być poprawna
+            txtVatKal.Text = bruttoNetto.ustalVat(brutto, netto).ToString();
 
-            SkopiujDoSchowka(txtBruttoKal.Text, lblBruttoKal.Text);
+            AddToClipboard(txtBruttoCal.Text, lblBruttoCal.Text);
         }
 
-        private void btnZamien_Click(object sender, EventArgs e)
+        private double SetMulti()
         {
-            txtDuzeWynik.Text = naDuze.ZamienNaDuze(txtDuzeLitery.Text);
-            SkopiujDoSchowka(txtDuzeWynik.Text);
+            double multiplier = 0;
+
+            if (rate23.Checked)
+                multiplier = 0.23;
+            if (rate8.Checked)
+                multiplier = 0.08;
+            if (rate5.Checked)
+                multiplier = 0.05;
+
+            return multiplier;
+        }
+
+        private void btnChangeToUpper_Click(object sender, EventArgs e)
+        {
+            txtToUpperResult.Text = textToUpper.ChangeToUpper(txtToUpperLetters.Text);
+
+            AddToClipboard(txtToUpperResult.Text);
         }
 
         private void btnWczytajPlik_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog
-            {
-                Filter = "PDF Files (*.pdf)|*.pdf",
-                Title = "Wybierz plik PDF"
-            };
-
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                pdfFilePath = openFileDialog.FileName;
-            }
+            save.Open();
 
             toolStripStatusLabel.Text = "Plik został wczytany.";
         }
 
         private void btnZapiszPdf_Click(object sender, EventArgs e)
         {
-            int x = 398;
-            int y = 83;
-
-            PdfDocument document = PdfReader.Open(pdfFilePath, PdfDocumentOpenMode.Modify);
-
-            foreach (PdfPage page in document.Pages)
+            if (string.IsNullOrWhiteSpace(save.PdfFilePath))
             {
-                double originalWidth = page.Width;
-                double originalHeight = page.Height;
-
-                page.MediaBox = new PdfRectangle(
-                new XPoint(x, 0),                      
-                new XPoint(originalWidth - y, originalHeight) 
-                );
+                MessageBox.Show("Plik PDF nie został wczytany.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
 
-            SaveFileDialog saveFileDialog = new SaveFileDialog
+            try
             {
-                Filter = "PDF Files (*.pdf)|*.pdf",
-                Title = "Zapisz przetworzony plik PDF"
-            };
+                save.Save();
 
-            if (saveFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                outputFilePath = saveFileDialog.FileName;
-                document.Save(outputFilePath);
+                toolStripStatusLabel.Text = "Plik został zapisany.";
             }
-
-            toolStripStatusLabel.Text = "Plik został zapisany.";
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Wystąpił błąd: {ex.Message}", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
          
-        private void UstawIkony()
+        private void SetIcons()
         {
             imageList = new ImageList();
 
@@ -317,6 +386,7 @@ namespace PomocnikKsiegowy
             imageList.Images.Add("skrocona", Properties.Resources.id_badge);
             imageList.Images.Add("excel", Properties.Resources.file_excel);
             imageList.Images.Add("euro", Properties.Resources.euro);
+            imageList.Images.Add("eu", Properties.Resources.european_union);
 
             tabControl1.ImageList = imageList;
 
@@ -333,6 +403,7 @@ namespace PomocnikKsiegowy
             bool isActiveTab = e.Index == tabControl.SelectedIndex;
 
             Color backgroundColor = isActiveTab ? Color.LightBlue : Color.White;
+
             Color textColor = isActiveTab ? Color.Black : Color.Gray;
 
             using (SolidBrush backgroundBrush = new SolidBrush(backgroundColor))
@@ -347,12 +418,14 @@ namespace PomocnikKsiegowy
                 int padding = 5;
 
                 int x = e.Bounds.Left + (e.Bounds.Width - image.Width) / 2;
+
                 int y = e.Bounds.Top + padding + (e.Bounds.Height - image.Height - 2 * padding) / 2;
 
                 e.Graphics.DrawImage(image, x, y);
             }
 
             string tabText = tabControl.TabPages[e.Index].Text;
+
             using (SolidBrush textBrush = new SolidBrush(textColor))
             {
                 StringFormat stringFormat = new StringFormat
@@ -362,50 +435,57 @@ namespace PomocnikKsiegowy
                 };
 
                 Rectangle textBounds = new Rectangle(e.Bounds.Left, e.Bounds.Top + e.Bounds.Height / 2, e.Bounds.Width, e.Bounds.Height / 2);
+                
                 e.Graphics.DrawString(tabText, tabControl.Font, textBrush, textBounds, stringFormat);
             }
 
             e.DrawFocusRectangle();
         }
 
-        private void SkopiujDoSchowka(string toCopy, string nazwa)
+        private void AddToClipboard(string toCopy, string nazwa)
         {
             toolStripStatusLabel.Text = $"{nazwa} ({toCopy}) - dodano do schowka";
 
             Clipboard.SetData(DataFormats.StringFormat, toCopy);
         }
 
-        private void SkopiujDoSchowka(string toCopy)
+        private void AddToClipboard(string toCopy)
         {
             toolStripStatusLabel.Text = "Skopiowano.";  
 
             Clipboard.SetData(DataFormats.StringFormat, toCopy);
         }
 
-        private void txtSchowek1_KeyDown(object sender, KeyEventArgs e)
+        private void txtClipboard_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Control == true && e.KeyCode == Keys.C)
             {
-                SkopiujDoSchowka(txtSchowek1.Text, lblSchowek.Text);
+                AddToClipboard(txtClipboard.Text, lblClipboard.Text);
             }
         }
 
-        private void txtSchowek2_KeyDown(object sender, KeyEventArgs e)
+        private void txtClipboard2_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Control == true && e.KeyCode == Keys.C)
             {
-                SkopiujDoSchowka(txtSchowek2.Text, lblSchowek.Text);
+                AddToClipboard(txtClipboard2.Text, lblClipboard.Text);
             }
         }
 
-        private void btnGeneruj_Click(object sender, EventArgs e)
+        private void btnGenerateSpine_Click(object sender, EventArgs e)
         {
-            UtworzOknoGrzbiety(txtIloscGrzbietow.Text);
+            if (!int.TryParse(txtnumberOfSpines.Text, out int numberOfSpines))
+            {
+                MessageBox.Show("Podaj prawidłową wartość!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            CreateSpineForm(numberOfSpines);
         }
 
-        private void UtworzOknoGrzbiety(string liczbaKontrolek)
+        private void CreateSpineForm(int controlsCount)
         {
-            Form oknoGrzbiety = new Form
+            Form spineForm = new Form
             {
                 Name = "DodajGrzbietyForm",
                 Text = "Dodaj Grzbiety",
@@ -420,34 +500,34 @@ namespace PomocnikKsiegowy
                 AutoScroll = true 
             };
 
-            oknoGrzbiety.Controls.Add(scrollablePanel);
+            spineForm.Controls.Add(scrollablePanel);
 
             int controlWidth = 280;
+
             int controlHeight = 195;
+
             int offset = 10;
 
-            int ilośćKontrolek = Convert.ToInt32(liczbaKontrolek);
+            Spines = new List<Spine>();
 
-            grzbiety = new List<Grzbiety>();
-
-            for (int i = 0; i < ilośćKontrolek; i++)
+            for (int i = 0; i < controlsCount; i++)
             {
-                DodajGrzbiety dodajGrzbiety = new DodajGrzbiety
+                AddSpines addSpines = new AddSpines
                 {
                     Size = new Size(controlWidth, controlHeight),
                     Location = new Point(10, i * (controlHeight + offset)),
                     
                 };
 
-                dodajGrzbiety.UstawNazweGroupBoxa($"Grzbiet {i + 1}");
+                addSpines.SetGroupBoxName($"Grzbiet {i + 1}");
 
-                dodaneGrzbiety.Add(dodajGrzbiety);
+                addedSpines.Add(addSpines);
 
-                scrollablePanel.Controls.Add(dodajGrzbiety);   
+                scrollablePanel.Controls.Add(addSpines);   
 
-                if (i == ilośćKontrolek - 1)
+                if (i == controlsCount - 1)
                 {
-                    int endButtonY = dodajGrzbiety.Bottom + offset;
+                    int endButtonY = addSpines.Bottom + offset;
 
                     Button endButton = new Button
                     {
@@ -455,12 +535,13 @@ namespace PomocnikKsiegowy
                         Size = new Size(150, 40)
                     };
 
-                    endButton.Location = new Point((oknoGrzbiety.Width - endButton.Width - 20) / 2, endButtonY);
+                    endButton.Location = new Point((spineForm.Width - endButton.Width - 20) / 2, endButtonY);
 
                     endButton.Click += (sender, e) =>
                     {
-                        grzbiety = dodajGrzbiety.UtworzGrzbiety(dodaneGrzbiety);
-                        dodajGrzbiety.StworzPlikExcel(filePath, grzbiety);
+                        Spines = addSpines.CreateSpines(addedSpines);
+
+                        addSpines.CreateExcelFile(excelFolderPath, excelFilePath, Spines, toolStripStatusLabel);
 
                     };
 
@@ -468,12 +549,13 @@ namespace PomocnikKsiegowy
                 }
             }
 
-            oknoGrzbiety.Show();
+            spineForm.Show();
         }
 
         private void UpdateToolTip()
         {
             int selectedIndex = tabControl1.SelectedIndex;
+
             toolTipsTabs = toolTipsForTabs.GetToolTips();
 
             string toolTipText = (selectedIndex >= 0 && selectedIndex < toolTipsTabs.Length)
@@ -482,7 +564,7 @@ namespace PomocnikKsiegowy
 
             Point toolTipLocation = infoIcon.Location;
 
-            toolTip1.Show(toolTipText, this, toolTipLocation.X, toolTipLocation.Y, 3000); // 3000 ms = czas wyświetlania
+            toolTip1.Show(toolTipText, this, toolTipLocation.X, toolTipLocation.Y, 3000); 
         }
 
         private void infoIcon_MouseHover(object sender, EventArgs e)
@@ -495,33 +577,30 @@ namespace PomocnikKsiegowy
             toolTip1.Hide(this);
         }
 
-        private void WybierzSciezke_Click(object sender, EventArgs e)
+        private void AddPath_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog
-            {
-                Filter = "Text Files (*.txt)|*.txt",
-                Title = "Wybierz ścieżkę pliku z opisami"
-            };
-
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                managerOpisow.sciezka = openFileDialog.FileName;
-            }
+            descriptionManager.OpenFile();
 
             toolStripStatusLabel.Text = "Plik został wczytany.";
         }
 
-        private async void btnObliczKurs_Click(object sender, EventArgs e)
+        private async void btnFindRate_Click(object sender, EventArgs e)
         {
-            string currencyCode = cbKurs.SelectedItem.ToString();
-            DateTime selectedDate = dtpKurs.Value;
+            string currencyCode = cbCurrancy.SelectedItem.ToString();
+
+            DateTime selectedDate = dtpExchangeRate.Value;
+
             string formattedDate = selectedDate.ToString("yyyy-MM-dd");
+
+            GetCurrency currency = new GetCurrency();
   
             try
             {
-                string rate = await GetCurrencyRate(currencyCode, formattedDate);
-                txtWynikKurs.Text = rate;
-                SkopiujDoSchowka(rate);
+                string rate = await currency.GetCurrencyRate(currencyCode, formattedDate);
+
+                txtResultCurrency.Text = rate;
+
+                AddToClipboard(rate);
             }
             catch (Exception ex)
             {
@@ -529,31 +608,31 @@ namespace PomocnikKsiegowy
             }
         }
 
-        private async Task<string> GetCurrencyRate(string currencyCode, string date)
+        private void btnFindVIES_Click(object sender, EventArgs e)
         {
-            string url = $"https://api.nbp.pl/api/exchangerates/rates/A/{currencyCode}/{date}/?format=json";
+            string vatNumber = cbCountryCode.SelectedItem?.ToString()?.Trim() + txtNIP.Text?.Trim();
 
-            using (HttpClient client = new HttpClient())
+            var info = new ViesClient().GetCompany(vatNumber);
+
+            var result = ViesManager.IsValid(vatNumber);
+
+            txtNameVies.Text = info.Name;
+
+            txtAdress.Text = info.Address;
+
+            if (result.IsValid)
             {
-                HttpResponseMessage response = await client.GetAsync(url);
+                lblIsActive.Visible = true;
 
-                if (!response.IsSuccessStatusCode)
-                {
-                    if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
-                    {
-                        throw new Exception("Brak danych dla podanej daty lub waluty.");
-                    }
-                    else
-                    {
-                        throw new Exception("Nie udało się pobrać danych. Sprawdź kod waluty lub datę.");
-                    }
-                }
+                lblIsActive.Text = "Kontrahent jest aktywny";
+            }
+            else
+            {
+                lblIsActive.Visible = true;
 
-                string responseData = await response.Content.ReadAsStringAsync();
-                JObject json = JObject.Parse(responseData);
+                lblIsActive.ForeColor = Color.Red;
 
-                string rate = json["rates"][0]["mid"].ToString();
-                return rate;
+                lblIsActive.Text = "Kontrahent nie jest aktywny";
             }
         }
     }
